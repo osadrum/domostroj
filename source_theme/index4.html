@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Boomerang - Multipurpose Template: Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+     <!-- Required -->
+    <link href="css/global-style.css" rel="stylesheet" type="text/css" media="screen">
+    <link rel="icon" href="images/favicon.png" type="image/png"><!-- Fraction Slider stylesheet -->
+<link rel="stylesheet" href="assets/fraction/fractionslider.css" type="text/css" />
+
+</head>
+<body>
+
+<section id="asideMenu" class="aside-menu">
+	<form class="form-inline form-search">
+        <div class="input-group">
+            <input type="search" class="form-control" placeholder="Search..." />
+            <span class="input-group-btn">
+                <button id="btnHideAsideMenu" class="btn btn-close" type="button" title="Hide sidebar"><i class="fa fa-times"></i></button>
+            </span>
+        </div>
+    </form>
+	
+    <h5 class="side-section-title">Optional sidebar menu</h5>
+    <div class="nav">
+    	<ul>
+        	<li>
+            	<a href="#">Home</a>
+            </li>
+            <li>
+            	<a href="#">About us</a>
+            </li>
+            <li>
+            	<a href="#">Blog</a>
+            </li>
+            <li>
+            	<a href="#">Work</a>
+            </li>
+            <li>
+            	<a href="#">Online shop</a>
+            </li>
+        </ul>
+    </div>
+    
+    <h5 class="side-section-title">Social media</h5>
+    <div class="social-media">
+        <a href="#"><i class="fa fa-facebook facebook"></i></a>
+        <a href="#"><i class="fa fa-google-plus google"></i></a>
+        <a href="#"><i class="fa fa-twitter twitter"></i></a>
+    </div>
+    
+    <h5 class="side-section-title">Contact information</h5>
+    <div class="contact-info">
+        <h5>Address</h5>
+        <p>5th Avenue, New York - United States</p>
+        
+        <h5>Email</h5>
+        <p>hello@webpixels.ro</p>
+        
+        <h5>Phone</h5>
+        <p>+10 724 1234 567</p>
+    </div>
+</section>
+<div class="wrapper">
+	<!-- This section is only for demonstration purpose only. Just remove the div "divStyleSwitcher" -->
+<div id="divStyleSwitcher" class="style-switcher-slidebar">
+	<a href="#" id="cmdShowStyleSwitcher" class="open-panel"><i class="fa fa-cog"></i></a>
+	<div class="switch-panel">
+    	<h3>Boomerang - Style Builder</h3>
+        <div class="panel-section">
+        	<label>How do you prefer it?</label>
+        	<div class="row">
+            	<div class="col-xs-12">
+                	<div class="form-group">
+                        <select id="cmbLayout" class="form-control">
+                            <option value="1">Fluid</option>
+                            <option value="2">Boxed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>                            
+        <div class="panel-section">
+        	<div class="row">
+                <div class="col-xs-12">
+                	<div class="form-group">
+                    	<label>Navigation Style</label>
+                        <select id="cmbNavigationStyle" class="form-control" title="This will change the navbar dropdown style">
+                            <option value="1">White</option>
+                            <option value="2">Contrasted</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>     
+        <div class="panel-section">
+        	<div class="row">
+                <div class="col-xs-12">
+                	<label>Pattern/Bckg</label>
+                    <select id="cmbBackground" class="form-control">
+                        <option value="1">Pattern 1</option>
+                        <option value="2">Pattern 2</option>
+                        <option value="3">Pattern 3</option>
+                        <option value="4">Pattern 4</option>
+                        <option value="5">Background 1</option>
+                        <option value="6">Background 2</option>
+                    </select>
+                </div>
+            </div>
+        </div>       
+        <hr />                                   
+        <div class="panel-section">
+        	<div class="form-group">
+            	<label>Choose your favourite color</label>
+            	<span class="color-picker">
+                    <a href="#" id="cmdRed" class="color-red" title="Red">Red</a>
+                    <a href="#" id="cmdViolet" class="color-violet" title="Violet">Violet</a>
+                    <a href="#" id="cmdBlue" class="color-blue" title="Blue">Blue</a>
+                    <a href="#" id="cmdGreen" class="color-green" title="Green">Green</a>
+                    <a href="#" id="cmdYellow" class="color-yellow" title="Yellow">Yellow</a>
+                    <a href="#" id="cmdOrange" class="color-orange" title="Orange">Orange</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div><!-- Top Header -->
+<div class="top-header">
+	<div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+            	<span class="aux-text hidden-xs">
+                    Welcome to Boomerang: hello@webpixels.ro or +40 724 123 456
+                </span>
+            	<nav class="top-header-menu">
+                    <ul class="menu">
+                        <li><a href="sign-in.html">Login</a></li>
+                        <li class="aux-languages dropdown animate-hover" data-animate="animated fadeInUp"><a href="#"><span class="language name">English</span></a>
+                            <ul id="auxLanguages" class="sub-menu animate-wr">
+                                <li><a href="#"><span class="language">German</span></a></li>
+                                <li><span class="language language-active">English</span></li>
+                                <li><a href="#"><span class="language">Greek</span></a></li>
+                                <li><a href="#"><span class="language">Spanish</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="shopping-cart dropdown animate-hover" data-animate="animated fadeInUp">
+                            <a href="shop-cart.html" title="View your shopping cart" style="padding-right:0;"><i class="fa fa-shopping-cart"></i><span class="amount">&pound;0</span></a>
+                
+                            <ul class="sub-menu animate-wr">     
+                                <li>                                      
+                                    <div class="dropdown-cart">
+                                        <span class="cart-items">You have <strong>3</strong> items in your cart</span>
+                                        <table class="table table-cart">
+                                            <tbody>
+                                                <tr>
+                                                    <th colspan="2">Product</th>
+                                                    <th class="text-center">Qty</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            
+                                                <tr>
+                                                    <td><img src="images/prv/product-3.png" class="img-center" alt=""></td>
+                                                    <td><a href="">Asus Ultra Notebook</a></td>
+                                                    <td class="text-center">2</td>
+                                                    <td>$600.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="images/prv/product-2.png" class="img-center" alt=""></td>
+                                                    <td><a href="">Mouse Microsoft</a></td>
+                                                    <td class="text-center">3</td>
+                                                    <td>$600.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="images/prv/product-4.png" class="img-center" alt=""></td>
+                                                    <td><a href="">Samsung Galaxy S4</a></td>
+                                                    <td class="text-center">1</td>
+                                                    <td>$600.99</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <a href="shop-cart.html" class="btn btn-xs btn-three">Edit cart</a>
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="#" class="btn btn-xs btn-two pull-right">Proceed to checkout</a>
+                                                <span class="clearfix"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>                                                                                                    
+                            </ul>                                                                                                          
+                        </li>
+                    </ul>
+				</nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header: Logo and Main Nav -->
+<header>    
+	<div id="navOne" class="navbar navbar-wp" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+            	<button type="button" class="navbar-toggle navbar-toggle-aside-menu">
+                    <i class="fa fa-outdent icon-custom"></i>
+                </button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" title="Boomerang | One template. Infinite solutions">
+                	<img src="images/boomerang-logo-dark.png" alt="Boomerang | One template. Infinite solutions">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                	<li class="active">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Home</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html">Homepage: Default</a></li>
+                            <li><a href="index2.html">Homepage: Simple</a></li>
+                            <li><a href="index4.html">Homepage: Corporate</a></li>
+                            <li><a href="slider-layer.html">Homepage: Presentation</a></li>
+                            <li><a href="index5.html">Homepage: Portfolio fluid</a></li>
+                            <li><a href="index6.html">Homepage: Portfolio boxed</a></li>
+                            <li><a href="shop-home.html">Homepage: Shop</a></li>
+                        </ul>
+                	</li>
+                    <li class="dropdown">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Pages</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">About us: One</a></li>
+                            <li><a href="about2.html">About us: Two</a></li>
+                            <li><a href="services.html">Services: One</a></li>
+                            <li><a href="services2.html">Services: Two</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="team-member.html">Team member</a></li>
+                            <li><a href="listings.html">Listings</a></li>
+                            <li><a href="pricing.html">Pricing plans</a></li>
+                            <li><a href="timeline.html">Timeline</a></li>
+                            <li><a href="sign-in.html">Sign in</a></li>
+                            <li><a href="sign-up.html">Sign up</a></li>
+                            <li><a href="shop-account.html">Sign in/Sign up</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="404.html">Error 404</a></li>
+                        </ul>
+                	</li>
+                    <li class="dropdown">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Elements</a>
+                        <ul class="dropdown-menu">
+                        	<li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Shortcodes</a>
+                                <ul class="dropdown-menu">
+                                	<li><a tabindex="-1" href="wp-sc-accordion.html">Accordion</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-alerts.html">Alerts</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-buttons.html">Buttons</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-carousels.html">Carousels</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-columns.html">Columns</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-boxes.html">Content boxes</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-callout.html">Callout boxes</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-gmap.html">Google maps</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-lists.html">Lists</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-pagination.html">Pagination</a></li>
+                                    <li><a tabindex="-1" href="wp-sc-tabs.html">Tabs</a></li>
+                                </ul>
+                           	</li>
+                        	<li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Sliders</a>
+                                <ul class="dropdown-menu">
+                                	<li><a tabindex="-1" href="slider-layer.html">Layer Slider</a></li>
+                                    <li><a tabindex="-1" href="slider-fraction.html">Fraction Slider</a></li>
+                                    <li><a tabindex="-1" href="slider-bootstrap.html">Bootstrap Carousel</a></li>
+                                </ul>
+                           	</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Headers</a>
+                                <ul class="dropdown-menu">
+                                	<li><a tabindex="-1" href="header-example1.html">Header: One</a></li>
+                                    <li><a tabindex="-1" href="header-example2.html">Header: Two</a></li>
+                                    <li><a tabindex="-1" href="header-example3.html">Header: Three</a></li>
+                                    <li><a tabindex="-1" href="header-example4.html">Header: Four</a></li>
+                                </ul>
+                           	</li>
+                            <li><a href="wp-typography.html">Typography</a></li>
+                            <li><a href="wp-features.html">Features</a></li>
+                        </ul>
+                	</li>
+                    <li class="dropdown">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Portfolio</a>
+                        <ul class="dropdown-menu dropdown-megamenu">
+                        	<li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Gallery n/space</a>
+                                <ul class="dropdown-menu">
+                                	<li><a tabindex="-1" href="work12.html">Two columns boxed</a></li>
+                                    <li><a tabindex="-1" href="work10.html">Three columns boxed</a></li>
+                                    <li><a tabindex="-1" href="work11.html">Four columns boxed</a></li>
+                                    <li><a tabindex="-1" href="work7.html">Three columns fluid</a></li>
+                                    <li><a tabindex="-1" href="work8.html">Four columns fluid</a></li>
+                                    <li><a tabindex="-1" href="work9.html">Five columns fluid</a></li>
+                                </ul>
+                           	</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Gallery w/space</a>
+                                <ul class="dropdown-menu">
+                                	<li><a tabindex="-1" href="work6.html">Two columns</a></li>
+                                    <li><a tabindex="-1" href="work.html">Three columns</a></li>
+                                    <li><a tabindex="-1" href="work2.html">Four columns</a></li>
+                                    <li><a tabindex="-1" href="work3.html">Three columns w/header</a></li>
+                                    <li><a tabindex="-1" href="work4.html">Four columns w/header</a></li>
+                                </ul>
+                           	</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Single project</a>
+                                <ul class="dropdown-menu">
+                                	<li><a tabindex="-1" href="work-project.html">Single project fluid</a></li>
+                                    <li><a tabindex="-1" href="work-project2.html">Single project vertical</a></li>
+                                </ul>
+                           	</li>
+                            <li><a tabindex="-1" href="#">Make your own</a></li>
+                        </ul>
+                	</li>
+                    <li class="dropdown">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog-grid.html">Blog: Grid Large</a></li>
+                            <li><a href="blog-grid2.html">Blog: Grid Medium</a></li>
+                            <li><a href="blog-list.html">Blog: List</a></li>
+                            <li><a href="blog-masonry.html">Blog: Masonry </a></li>
+                            <li><a href="blog-post.html">Post: Standard</a></li>
+                            <li><a href="blog-post2.html">Post: Fluid</a></li>
+                        </ul>
+                	</li>
+                    <li class="dropdown">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Shop</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="shop-home.html">Homepage</a></li>
+                            <li><a href="shop-products.html">All products</a></li>
+                            <li><a href="shop-product.html">Single product</a></li>
+                            <li><a href="shop-cart.html">Cart</a></li>
+                            <li><a href="shop-account.html">Account</a></li>
+                            <li><a href="shop-profile.html">User profile</a></li>
+                            <li><a href="shop-order-history.html">Order history</a></li>
+                            <li><a href="shop-wishlist.html">Whishlist</a></li>
+                            <li><a href="shop-invoice.html">Invoice</a></li>
+                        </ul>
+                	</li>
+                    <li class="dropdown">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Contact</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="contact.html">Contact: One</a></li>
+                            <li><a href="contact2.html">Contact: Two</a></li>
+                        </ul>
+                	</li>
+                    <li class="dropdown animate-click" data-animate="animated fadeInUp" style="z-index:500;">
+                    	<a href="#" class="dropdown-toggle dropdown-form-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-user animate-wr">
+                            <li id="dropdownForm">
+                            	<div class="dropdown-form">
+                                	<form class="form-default form-inline p-15">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="What do you want to find?">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-two" type="button">Go!</button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                	</li>
+                    <li class="hidden-xs">
+                        <a href="#" id="cmdAsideMenu" class="dropdown-toggle dropdown-form-toggle" title="Open sidebar">
+                        	<i class="fa fa-outdent"></i>
+                        </a>
+                    </li>
+                </ul>
+               
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</header>    <section class="slider-wrapper">
+    <div class="responisve-container">
+        <div class="slider">
+            <div class="fs_loader"></div>
+ 
+            <div class="slide slide-light">
+                <img src="images/carousel/carousel-img-3.png" alt="" height="440" data-position="0,-460" data-in="bottom" data-delay="200" data-out="top">
+                <img src="images/prv/human-img-3.png" alt="" data-position="20, 500" data-in="bottom" data-delay="400" data-out="bottom">
+                
+                <p class="claim bg-2 fs_obj" data-position="70,0" data-in="top" data-step="1" data-out="bottom" data-time="1000" data-delay="100">
+                    Boomerang Template. New update
+                </p>
+                <p class="claim dark" data-position="120,0" data-in="top" data-step="1" data-out="bottom" data-time="3500" data-delay="250">
+                    Check out the new features
+                </p>		
+                
+                <p class="teaser dark small" data-position="180,0" data-in="left" data-step="2" data-time="1500" data-delay="100">
+                    New colors available
+                </p>		
+                <p class="teaser dark small" data-position="180,0" data-in="left" data-step="2" data-special="cycle" data-time="3100" data-delay="1600">
+                    45+ pages models
+                </p>
+                <p class="teaser dark small" data-position="180,0" data-in="left" data-step="2" data-special="cycle" data-time="5000" data-delay="3000">
+                    Enhanced shopping style
+                </p>	
+                <p class="teaser dark small" data-position="180,0" data-in="left" data-step="2" data-special="cycle" data-time="7000" data-delay="5000">
+                    Optional slide bar menu
+                </p>
+                <p class="teaser dark small" data-position="180,0" data-in="left" data-step="2" data-special="cycle" data-time="9000" data-delay="7500">
+                    Optional header style
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/carousel/carousel-img-2.png" alt="" height="440" data-position="0,-460" data-in="left" data-delay="200" data-out="right">
+                <img src="images/slider/ipad.png" alt="" data-step="1" data-position="40, 600" data-in="bottom" data-delay="300" data-out="fade">
+                <img src="images/slider/iphone.png" alt="" data-step="1" data-position="40,900" data-in="left" data-delay="500" data-out="fade">
+                 <p class="claim light" data-position="70,0" data-in="top" data-step="2" data-out="top" data-delay="100">
+                    Now. Faster. Stronger
+                </p>
+                <p class="teaser dark small" data-position="130,0" data-in="bottom" data-step="2" data-delay="300">
+                    Fresh and adaptive design
+                </p>		
+                <p class="teaser dark small" data-position="175,0" data-in="bottom" data-step="2" data-delay="600">
+                    Complete features
+                </p>
+                <p class="teaser dark small" data-position="225,0" data-in="bottom" data-step="2" data-delay="1100">
+                    Easy to customize
+                </p>	
+                <p class="teaser dark small" data-position="275,0" data-in="bottom" data-step="2" data-delay="1600">
+                    Easier to achieve your goals
+                </p>
+                <p class="teaser dark small" data-position="325,0" data-in="bottom" data-step="2" data-delay="2100">
+                    Fully UPDATED
+                </p>
+            </div>
+            <div class="slide">
+                <img src="images/carousel/carousel-img-7.png" alt="" height="440" data-position="0,-460" data-in="right" data-delay="100" data-out="left">
+                <div class="video" data-position="80,0" data-in="top" data-delay="400" data-out="easeOutBounce">
+                    <iframe src="//player.vimeo.com/video/78468485?title=0&amp;byline=0&amp;portrait=0" height="360"></iframe>
+                </div>
+                <p class="claim light" data-position="80,550" data-in="top" data-out="top" data-delay="1000">
+                    Implementing videos is easy
+                </p>
+                <p class="teaser no-padding" style="color:#FFF ;" data-position="140,550" data-step="1" data-in="bottom" data-delay="2000">
+                    Media support for Vimeo, Youtube and much more
+                </p>		
+                <p class="text small no-padding" style="color:#FFF;" data-position="190,550" data-in="bottom" data-step="1" data-delay="3000">
+                    Lorem ipsum dolor sit amet, eum cu sint dolores, dicat possit malorum at sit, ut natum assentior mea. Mel congue malorum te, eu cum blandit salutatus comprehensam, atqui causae ancillae cum ei. His eu ignota praesent democritum.
+                    <br>
+                    <a href="#" class="btn btn-one">Read more</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>    
+    <section class="slice bg-5">
+        <div class="w-section inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-desktop"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Mobile ready</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-code"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>40+ Prebuild pages</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-cogs"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>SEO Optimized</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-wrench"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Modern standard pages</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-globe"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Loaded with shortcodes</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="aside-feature">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="icon-feature">
+                                        <i class="fa fa-plane"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <h4>Shop clean layout</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="slice bg-banner-1">
+        <div class="w-section inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <h4><i class="fa fa-quote-left fa-3x"></i></h4>
+                            <h2>Always look on the bright side of life, ta dum, ta dum</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque diam, luctus at laoreet in, auctor ut tellus.
+                                <br>
+                                Etiam enim lacus, ornare et tempor, rhoncus rhoncus sem.
+                            </p>
+                            <span class="clearfix"></span>
+                            
+                            <div class="text-center">
+                                <a href="http://player.vimeo.com/video/22290612" class="btn btn-lg btn-one mt-20 ext-source">Whatch our video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="slice bg-5">
+        <div class="w-section inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="section-title"><span>Our company</span></h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="images/prv/wk-big-img-3.jpg" alt="" class="img-responsive img-thumbnail">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="section-title">Our expertise</h3>
+                        <div class="widget">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                  <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">
+                                        Web design
+                                      </a>
+                                    </h4>
+                                  </div>
+                                  <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                    <p>
+                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                    </p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel panel-default">
+                                  <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
+                                        Software development
+                                      </a>
+                                    </h4>
+                                  </div>
+                                  <div id="collapseTwo" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                      <p>
+                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                    </p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="panel panel-default">
+                                  <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="">
+                                        Search engine optimization
+                                      </a>
+                                    </h4>
+                                  </div>
+                                  <div id="collapseThree" class="panel-collapse in" style="height: auto;">
+                                    <div class="panel-body">
+                                      <p>
+                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                                    </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        
+                        <blockquote class="blockquote-1">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid</p>
+                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section>
+    
+    <section class="slice bg-3">
+	<div class="w-section inverse">
+        <div class="container">
+        	<h3 class="section-title">Our partners</h3>
+            <div class="row">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="client">
+                    	<a href="#">
+                    		<img src="images/clients/client-1.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                 <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="client">
+                    	<a href="#">
+                    		<img src="images/clients/client-2.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                 <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="client">
+                    	<a href="#">
+                    		<img src="images/clients/client-3.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                 <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="client">
+                    	<a href="#">
+                    		<img src="images/clients/client-4.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                 <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="client">
+                    	<a href="#">
+                    		<img src="images/clients/client-7.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                 <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="client">
+                    	<a href="#">
+                    		<img src="images/clients/client-6.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+            	<div class="col">
+                   <h4>Contact us</h4>
+                   <ul>
+                        <li>5th Avenue, New York - United States</li>
+                        <li>Phone: +10 724 1234 567 | Fax: +10 724 1234 567 </li>
+                        <li>Email: <a href="mailto:hello@example.com" title="Email Us">hello@example.com</a></li>
+                        <li>Skype: <a href="skype:my.business?call" title="Skype us">my-business</a></li>
+                        <li>Creating great templates is our passion</li>
+                    </ul>
+                 </div>
+            </div>
+            
+            <div class="col-md-3">
+            	<div class="col">
+                    <h4>Mailing list</h4>
+                    <p>Sign up if you would like to receive occasional treats from us.</p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Your email address...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-two" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+            	<div class="col col-social-icons">
+                    <h4>Follow us</h4>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-skype"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    <a href="#"><i class="fa fa-flickr"></i></a>
+                </div>
+            </div>
+
+             <div class="col-md-3">
+             	<div class="col">
+                    <h4>About us</h4>
+                    <p>
+                    Boomerang Bootstrap Template is made with love and passion for your own business.
+                    <br><br>
+                    <a href="#" class="btn btn-two">Try it now!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="row">
+        	<div class="col-lg-9 copyright">
+            	2013 © Web Pixels. All rights reserverd. 
+                <a href="#">Terms of use</a> | 
+                <a href="#">Privacy policy</a>
+            </div>
+            <div class="col-lg-3 footer-logo">
+            	
+            </div>
+        </div>
+    </div>
+</footer></div>
+
+<!-- JavaScript -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+<![endif]-->
+
+<!-- Plugins -->
+<script type="text/javascript" src="assets/hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script type="text/javascript" src="assets/masonry/masonry.js"></script>
+<script type="text/javascript" src="assets/page-scroller/jquery.ui.totop.min.js"></script>
+<script type="text/javascript" src="assets/mixitup/jquery.mixitup.js"></script>
+<script type="text/javascript" src="assets/mixitup/jquery.mixitup.init.js"></script>
+<script type="text/javascript" src="assets/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script type="text/javascript" src="assets/easy-pie-chart/jquery.easypiechart.js"></script>
+<script type="text/javascript" src="assets/waypoints/waypoints.min.js"></script>
+<script type="text/javascript" src="assets/sticky/jquery.sticky.js"></script>
+<script type="text/javascript" src="js/jquery.wp.custom.js"></script>
+<script type="text/javascript" src="js/jquery.wp.switcher.js"></script>
+<script src="assets/fraction/jquery.fractionslider.min.js"></script>
+<script src="assets/fraction/jquery.fractionslider.init.js"></script>
+
+</body>
+</html>

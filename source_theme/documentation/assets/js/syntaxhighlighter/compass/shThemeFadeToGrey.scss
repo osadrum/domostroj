@@ -29,7 +29,7 @@ $code_color1:					#ffc074 !default;
 $code_color2:					#4a8cdb !default;
 $code_color3:					#96daff !default;
 
-@import "_theme_template.scss";
+@import "theme_template";
 
 .syntaxhighlighter {
   .functions { font-weight: bold !important; }

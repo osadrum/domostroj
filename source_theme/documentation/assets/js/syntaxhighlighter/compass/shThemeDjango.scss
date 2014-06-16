@@ -28,7 +28,7 @@ $code_color1:					#eb939a !default;
 $code_color2:					#91bb9e !default;
 $code_color3:					#edef7d !default;
 
-@import "_theme_template.scss";
+@import "theme_template";
 
 .syntaxhighlighter {
 	.comments { font-style: italic !important; }

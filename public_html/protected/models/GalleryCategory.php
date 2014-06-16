@@ -317,7 +317,7 @@ class GalleryCategory extends ActiveRecord
         if ($child != null) {
             return 'Категория';
         } else {
-            return ($album->countImages > 0) ? CHtml::link($album->countImages." фото", Yii::app()->createUrl("/admin/galleryCategory/view", array("id"=>$album->id)), array("class"=>"btn btn-success btn-xs")) : CHtml::link("Добавить фото", Yii::app()->createUrl("/admin/galleryCategory/view", array("id"=>$album->id)), array("class"=>"btn btn-primary btn-xs"));
+            return ($album->countImages > 0) ? CHtml::link($album->countImages." фото", Yii::app()->createUrl("/admin/galleryCategory/view", array("id"=>$album->id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить фото", Yii::app()->createUrl("/admin/galleryCategory/view", array("id"=>$album->id)), array("class"=>"btn btn-xs btn-four"));
         }
     }
 

@@ -100,10 +100,9 @@ class Bootstrap extends CApplicationComponent
 	 */
 	public function registerCoreCss()
 	{
-		Yii::app()->clientScript->registerCssFile($this->getAssetsUrl().'/css/bootstrap.min.css');
+		Yii::app()->clientScript->registerCssFile($this->getAssetsUrl().'/bootstrap/css/bootstrap.min.css');
         Yii::app()->clientScript->registerCssFile($this->getAssetsUrl().'/font-awesome/css/font-awesome.css');
-        //Yii::app()->clientScript->registerCssFile($this->getAssetsUrl().'/css/plugins/morris/morris-0.4.3.min.css');
-        Yii::app()->clientScript->registerCssFile($this->getAssetsUrl().'/css/sb-admin.css');
+        Yii::app()->clientScript->registerCssFile($this->getAssetsUrl().'/css/global-style.css');
 	}
 
 	/**
@@ -148,13 +147,17 @@ class Bootstrap extends CApplicationComponent
 		/** @var CClientScript $cs */
 		$cs = Yii::app()->getClientScript();
 		$cs->registerCoreScript('jquery');
-		$cs->registerScriptFile($this->getAssetsUrl().'/js/bootstrap.min.js', $position);
-        $cs->registerScriptFile($this->getAssetsUrl().'/js/plugins/metisMenu/jquery.metisMenu.js', $position);
+		$cs->registerScriptFile($this->getAssetsUrl().'/bootstrap/js/bootstrap.min.js', $position);
+		$cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.cookie.js', $position);
+		$cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.easing.js', $position);
+		$cs->registerScriptFile($this->getAssetsUrl().'/js/jquery.mousewheel-3.0.6.pack.js', $position);
+		$cs->registerScriptFile($this->getAssetsUrl().'/js/modernizr.custom.js', $position);
+      //  $cs->registerScriptFile($this->getAssetsUrl().'/js/plugins/metisMenu/jquery.metisMenu.js', $position);
 
-        $cs->registerScriptFile($this->getAssetsUrl().'/js/plugins/morris/raphael-2.1.0.min.js', $position);
-        $cs->registerScriptFile($this->getAssetsUrl().'/js/plugins/morris/morris.js', $position);
+       // $cs->registerScriptFile($this->getAssetsUrl().'/js/plugins/morris/raphael-2.1.0.min.js', $position);
+       // $cs->registerScriptFile($this->getAssetsUrl().'/js/plugins/morris/morris.js', $position);
 
-        $cs->registerScriptFile($this->getAssetsUrl().'/js/sb-admin.js', $position);
+       // $cs->registerScriptFile($this->getAssetsUrl().'/js/sb-admin.js', $position);
         //$cs->registerScriptFile($this->getAssetsUrl().'/js/demo/dashboard-demo.js', $position);
 	}
 

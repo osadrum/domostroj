@@ -1,5 +1,3 @@
-
-
 <?php
 Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 // uncomment the following to define a path alias
@@ -12,7 +10,7 @@ return array(
 	'name'=>'Домострой',
     'theme' => 'domostroj',
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log', 'bootstrap'),
 
 	// autoloading model and component classes
 	'import'=>array(

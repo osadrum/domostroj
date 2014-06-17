@@ -18,12 +18,17 @@ class Controller extends CController
 	public $leftMenuAdmin=array();
 	public $menuItemsAdmin=array();
     private $_assetsUrl = null;
+    public $breadcrumbs = array();
+
+    public $metaTitle;
+    public $metaDescription;
+    public $metaKeywords;
+    public $pageIcon;
 	/**
 	 * @var array the breadcrumbs of the current page. The value of this property will
 	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
 	 * for more details on how to specify this property.
 	 */
-	public $breadcrumbs=array();
 
     public function init()
     {
@@ -52,8 +57,11 @@ class Controller extends CController
             ),
 
         );
+        PageTree::menu();
+        if (false) {
 
-        if (1) {
+
+
             $pagesMenu = array(
                 array('label' => 'Страницы',
                     'url' => '#',

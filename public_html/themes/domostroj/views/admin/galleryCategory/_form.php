@@ -31,12 +31,7 @@
         'config'=>array(
             'filebrowserUploadUrl' => Yii::app()->createUrl('/admin/default/imgUpload'),
         ),
-        'toolbarSet'=>array(
-            array( 'Source', '-', 'Bold', 'Italic', 'Underline', 'Strike' ),
-            array( 'TextColor', 'BGColor'),
-            array( 'Image', 'Youtube', 'Link', 'Unlink','Maximize', 'ShowBlocks'),
-            array('Paste', 'PasteText', 'PasteFromWord','Undo', 'Redo')
-        ),           # EXISTING(!) Toolbar (see: ckeditor.js)
+        'toolbarSet'=>Yii::app()->params['CKEditorTool'],           # EXISTING(!) Toolbar (see: ckeditor.js)
         'ckeditor'=>Yii::app()->basePath.'/../ckeditor/ckeditor.php',
         # Path to ckeditor.php
         'ckBasePath'=>Yii::app()->baseUrl.'/ckeditor/',

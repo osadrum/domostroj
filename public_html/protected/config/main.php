@@ -28,6 +28,9 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
+        'pages'=>array(
+            'cacheId'=>'pagesPathsMap',
+        ),
         'admin',
     ),
 
@@ -44,7 +47,9 @@ return array(
         ),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-			'rules'=>array(
+            'showScriptName'=>false,
+            'rules'=>array(
+                array('class'=>'application.modules.pages.components.PagesUrlRule'),
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
@@ -118,5 +123,11 @@ return array(
         'imageQuality' => 100,
         'imagePath' => '/upload/images/',
         'docPath' => '/upload/docs/',
+        'CKEditorTool' => array(
+            array( 'Source', '-', 'Bold', 'Italic', 'Underline', 'Strike' ),
+            array( 'TextColor', 'BGColor'),
+            array( 'Image', 'Youtube', 'Link', 'Unlink','Maximize', 'ShowBlocks'),
+            array('Paste', 'PasteText', 'PasteFromWord','Undo', 'Redo')
+        )
     )
 );

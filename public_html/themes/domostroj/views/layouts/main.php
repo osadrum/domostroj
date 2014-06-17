@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Boomerang - Multipurpose Template: Welcome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title><?php echo CHtml::encode($this->metaTitle) ?></title>
+    <meta name="description" content="<?php echo CHtml::encode($this->metaDescription) ?>">
+    <meta name="keywords" content="<?php echo CHtml::encode($this->metaKeywords) ?>">
     <!-- Required -->
     <link rel="icon" href="<?php echo  $this->getAssetsUrl(); ?>/images/favicon.png" type="image/png"--><!-- LayerSlider stylesheet -->
     <!--link rel="stylesheet" href="assets/layerslider/css/layerslider.css" type="text/css"-->

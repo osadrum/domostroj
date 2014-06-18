@@ -58,28 +58,12 @@ class Controller extends CController
 
         );
 
-
-
-
         $pageMenu = new PageTree();
         $pagesMenu = $pageMenu->menu();
 
         if (!empty($pagesMenu)) {
             $this->menuItems = array_merge($pagesMenu, $this->menuItems);
         }
-        if (isset(Yii::app()->user->role)) {
-            if (Yii::app()->user->role == 'admin'){
-                $this->menuItemsAdmin = array(
-                    array('label' => 'Выход',
-                        'url' => array('/site/logout'),
-                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-                    ),
-                );
-                $this->menuItems = array_merge($this->menuItems, $this->menuItemsAdmin);
-
-            }
-        }
-
         if (isset(Yii::app()->user->role)) {
             if (Yii::app()->user->role == 'admin'){
                 $this->menuItemsAdmin = array(

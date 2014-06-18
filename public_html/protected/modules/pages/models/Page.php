@@ -32,7 +32,7 @@ class Page extends CActiveRecord {
 	public function attributeLabels()
 	{
 		return array(
-			'id'               => 'ID',
+			'id'               => '№',
 			'lft'              => 'Левый ключ',
 			'rgt'              => 'Правый ключ',
 			'level'            => 'Уровень',

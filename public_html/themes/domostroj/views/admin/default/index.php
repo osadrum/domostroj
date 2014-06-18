@@ -9,8 +9,9 @@ $this->pageIcon = '<i class="fa fa-desctop"></i> ';
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <button type="button" class="btn btn-default btn-circle btn-xl btn-quick" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Каталог" data-link="<?php echo Yii::app()->createUrl('admin/galleryCategory') ?>"><i class="fa fa-picture-o"></i></button>
-                        <button type="button" class="btn btn-default btn-circle btn-xl btn-quick" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Каталог" data-link="<?php echo Yii::app()->createUrl('/admin/settings') ?>"><i class="fa fa-cogs"></i></button>
+                        <button type="button" class="btn btn-default btn-circle btn-xl btn-quick" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Страницы" data-link="<?php echo Yii::app()->createUrl('/admin/pages') ?>"><i class="fa fa-file-o"></i></button>
+                        <button type="button" class="btn btn-default btn-circle btn-xl btn-quick" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Галерея" data-link="<?php echo Yii::app()->createUrl('admin/galleryCategory') ?>"><i class="fa fa-picture-o"></i></button>
+                        <button type="button" class="btn btn-default btn-circle btn-xl btn-quick" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Настройки" data-link="<?php echo Yii::app()->createUrl('/admin/settings') ?>"><i class="fa fa-cogs"></i></button>
                     </div>
 
                     <!-- /.col-lg-6 (nested) -->

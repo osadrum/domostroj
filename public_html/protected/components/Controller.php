@@ -57,35 +57,29 @@ class Controller extends CController
             ),
 
         );
-        PageTree::menu();
-        if (false) {
 
 
 
-            $pagesMenu = array(
-                array('label' => 'Страницы',
-                    'url' => '#',
-                    //'icon' => 'fa fa-list',
-                    'linkOptions'=>array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
-                        'data-close-others'=>"true"),
-                    'items' => array(
-                        array('label' => 'Модели',
-                            'url' => array('/admin/products'),
-                            'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-                            'icon' => 'fa fa-calendar',
-                        ),
-                        array('label' => 'Категории',
-                            'url' => array('/admin/category'),
-                            'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-                            'icon' => 'fa fa-calendar',
-                        ),
-                    )
-                )
-            );
 
-        $this->menuItems = array_merge($pagesMenu, $this->menuItems);
+        $pageMenu = new PageTree();
+        $pagesMenu = $pageMenu->menu();
 
+        if (!empty($pagesMenu)) {
+            $this->menuItems = array_merge($pagesMenu, $this->menuItems);
         }
+        if (isset(Yii::app()->user->role)) {
+            if (Yii::app()->user->role == 'admin'){
+                $this->menuItemsAdmin = array(
+                    array('label' => 'Выход',
+                        'url' => array('/site/logout'),
+                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                    ),
+                );
+                $this->menuItems = array_merge($this->menuItems, $this->menuItemsAdmin);
+
+            }
+        }
+
         if (isset(Yii::app()->user->role)) {
             if (Yii::app()->user->role == 'admin'){
                 $this->menuItemsAdmin = array(

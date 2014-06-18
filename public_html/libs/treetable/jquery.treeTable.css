@@ -26,15 +26,15 @@
  * ------------------------------------------------------------------------- */
 .treeTable tr.selected, .treeTable tr.accept {
   background-color: #3875d7;
-  color: #fff;
+  font-weight: bold;
 }
 
 .treeTable tr.collapsed.selected td .expander, .treeTable tr.collapsed.accept td .expander {
-  background-image: url(images/toggle-expand-light.png);
+  background-image: url(images/toggle-expand-dark.png);
 }
 
 .treeTable tr.expanded.selected td .expander, .treeTable tr.expanded.accept td .expander {
-  background-image: url(images/toggle-collapse-light.png);
+  background-image: url(images/toggle-collapse-dark.png);
 }
 
 .treeTable .ui-draggable-dragging {

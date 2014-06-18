@@ -137,4 +137,15 @@ class Page extends CActiveRecord {
 		return $output;
 	}
 
+    public function selectMainList()
+    {
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'parent_id IS NULL';
+        $output = array();
+        $nodes = $this->findAll($criteria);
+        foreach ($nodes as $node)
+            $output[$node->id] = $node->page_title;
+        return $output;
+    }
+
 }

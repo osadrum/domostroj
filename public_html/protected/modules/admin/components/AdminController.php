@@ -8,6 +8,11 @@ class AdminController extends Controller
 
     public function init(){
         $this->leftMenuAdmin = array(
+            array('label' => 'Страницы',
+                'url' => array('/admin/pages'),
+                'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                'icon' => 'fa fa-file-o',
+            ),
             array('label' => 'Галерея',
                 'url' => array('/admin/galleryCategory'),
                 'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,

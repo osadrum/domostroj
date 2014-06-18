@@ -7,64 +7,24 @@ class PageTree
 	public function menu()
 	{
 		$pages = Page::model()->findAll();
-		$level = 0;
 
 		foreach ($pages as $n => $page)
 		{
-            if ($page->level == $level) {
-                $this->menu[] = array(
+            if (array_key_exists($page->_parent_id, $this->menu)) {
+                $this->menu[$page->_parent_id]['items'][$page->id] = array(
                     'label' => $page->page_title,
                     'url' => array('/pages/default/view', 'id' => $page->id),
-                    //'active' => false,
                 );
+                $this->menu[$page->_parent_id]['url'] = '#';
+                $this->menu[$page->_parent_id]['linkOptions'] = array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
+                    'data-close-others'=>"true");
+                continue;
             }
-
-
-            array('label' => 'Страницы',
-                'url' => '#',
-                //'icon' => 'fa fa-list',
-                'linkOptions'=>array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
-                    'data-close-others'=>"true"),
-                'items' => array(
-                    array('label' => 'Модели',
-                        'url' => array('/admin/products'),
-                        'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-                        'icon' => 'fa fa-calendar',
-                    ),
-                    array('label' => 'Категории',
-                        'url' => array('/admin/category'),
-                        'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-                        'icon' => 'fa fa-calendar',
-                    ),
-                )
+            $this->menu[$page->id] = array(
+                'label' => $page->page_title,
+                'url' => array('/pages/default/view', 'id' => $page->id),
             );
-
-
-			if ($page->level == $level)
-				echo CHtml::closeTag('li') . "\n";
-			else if ($page->level>$level)
-				echo CHtml::openTag('ul') . "\n";
-			else
-			{
-				echo CHtml::closeTag('li') . "\n";
-
-				for ($i = $level - $page->level; $i; $i--)
-				{
-					echo CHtml::closeTag('ul') . "\n";
-					echo CHtml::closeTag('li') . "\n";
-				}
-			}
-
-			echo CHtml::openTag('li');
-			echo CHtml::link($page->page_title, array('/pages/default/view', 'id' => $page->id));
-			$level = $page->level;
-		}
-
-		for ($i = $level; $i; $i--)
-		{
-			echo CHtml::closeTag('li') . "\n";
-			echo CHtml::closeTag('ul') . "\n";
-		}
+        }
+        return $this->menu;
 	}
-
 }

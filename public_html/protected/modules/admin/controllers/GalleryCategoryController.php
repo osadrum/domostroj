@@ -2,14 +2,9 @@
 
 class GalleryCategoryController extends AdminController
 {
-    public $defaultAction = 'admin';
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
+    public function actionView($id)
 
+	{
         $model=$this->loadModel($id);
 
         $criteria = new CDbCriteria();
@@ -29,16 +24,9 @@ class GalleryCategoryController extends AdminController
 		));
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
 	public function actionCreate()
 	{
 		$model=new GalleryCategory;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['GalleryCategory']))
 		{
@@ -64,21 +52,12 @@ class GalleryCategoryController extends AdminController
 		));
 	}
 
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['GalleryCategory']))
 		{
-
 
 			$model->attributes=$_POST['GalleryCategory'];
 
@@ -106,19 +85,12 @@ class GalleryCategoryController extends AdminController
 		));
 	}
 
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
 	public function actionDelete($id)
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-			// we only allow deletion via POST request
 			$this->loadModel($id)->deleteNode();
 
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 		}
@@ -126,9 +98,6 @@ class GalleryCategoryController extends AdminController
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
-	/**
-	 * Lists all models.
-	 */
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('GalleryCategory');
@@ -137,13 +106,10 @@ class GalleryCategoryController extends AdminController
 		));
 	}
 
-	/**
-	 * Manages all models.
-	 */
 	public function actionAdmin()
 	{
 		$model=new GalleryCategory('search');
-		$model->unsetAttributes();  // clear any default values
+		$model->unsetAttributes();
 		if(isset($_GET['GalleryCategory']))
 			$model->attributes=$_GET['GalleryCategory'];
 
@@ -171,11 +137,6 @@ class GalleryCategoryController extends AdminController
         }
     }
 
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer the ID of the model to be loaded
-	 */
 	public function loadModel($id)
 	{
 		$model=GalleryCategory::model()->findByPk($id);
@@ -184,10 +145,6 @@ class GalleryCategoryController extends AdminController
 		return $model;
 	}
 
-	/**
-	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
-	 */
 	protected function performAjaxValidation($model)
 	{
 		if(isset($_POST['ajax']) && $_POST['ajax']==='gallery-category-form')

@@ -6,6 +6,7 @@ class AdminController extends Controller
 
     public $layout='//layouts/admin_column2';
 
+    public $defaultAction = 'admin';
     public function init(){
         $this->leftMenuAdmin = array(
             array('label' => 'Страницы',
@@ -17,6 +18,39 @@ class AdminController extends Controller
                 'url' => array('/admin/galleryCategory'),
                 'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
                 'icon' => 'fa fa-picture-o',
+            ),
+            array('label' => 'Справочники',
+                'url' => '#',
+                'icon' => 'fa fa-book',
+                'linkOptions' => array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
+                    'data-close-others'=>"true"),
+                'items' => array(
+                    array('label' => 'Типы конструктивов',
+                        'url' => array('/admin/catConstructType'),
+                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                    ),
+                    array('label' => 'Конструктивы',
+                        'url' => array('/admin/catConstruct'),
+                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                    ),
+
+                    array('label' => 'Сертификаты',
+                        'url' => array('/privatePartners/documents/certificate'),
+                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                    ),
+                    array('label' => 'Сертификаты',
+                        'url' => array('/privatePartners/documents/certificate'),
+                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                    ),
+                    array('label' => 'Сертификаты',
+                        'url' => array('/privatePartners/documents/certificate'),
+                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                    ),
+                    array('label' => 'Сертификаты',
+                        'url' => array('/privatePartners/documents/certificate'),
+                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                    ),
+            )
             ),
             array('label' => 'Настройки',
                 'url' => array('/admin/settings'),

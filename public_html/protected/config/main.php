@@ -23,6 +23,9 @@ return array(
 		// uncomment the following to enable the Gii tool
 
 		'gii'=>array(
+            'generatorPaths'=>array(
+                'bootstrap.gii',
+            ),
 			'class'=>'system.gii.GiiModule',
 			'password'=>'gii',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.

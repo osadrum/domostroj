@@ -1,6 +1,7 @@
 <?php
 
 class PagesController extends AdminController {
+    public $defaultAction = 'index';
 
     public function actionCreate()
     {

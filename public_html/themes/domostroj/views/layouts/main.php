@@ -61,7 +61,6 @@
                     } else {
                         $link = '/';
                     } ?>
-
                     <?php $this->widget('ext.widgets.breadcrumbs.BreadcrumbsWidget', array(
                         'homeLink'=>'<li>'.CHtml::link('Главная',$link).'</li>',
                         'htmlOptions'=>array('class'=>'breadcrumb'),

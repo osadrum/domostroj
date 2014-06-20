@@ -67,6 +67,10 @@ class Controller extends CController
         if (isset(Yii::app()->user->role)) {
             if (Yii::app()->user->role == 'admin'){
                 $this->menuItemsAdmin = array(
+                    array('label' => 'Профиль',
+                        'url' => array('/admin/default/profile'),
+                        //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
+                    ),
                     array('label' => 'Выход',
                         'url' => array('/site/logout'),
                         //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,

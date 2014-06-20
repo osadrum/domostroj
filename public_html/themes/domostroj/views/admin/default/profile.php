@@ -13,7 +13,7 @@ $this->pageIcon = '<i class="fa fa-user"></i> ';
 <div class="form-group">
     <?php echo CHtml::link('Сменить пароль','#modalPassword',array(
         'data-toggle'=>"modal",
-        'class' => 'btn btn-primary btn-xs',
+        'class' => 'btn btn-xs btn-two',
         'id'=>'edit_password'
     )); ?>
 </div>

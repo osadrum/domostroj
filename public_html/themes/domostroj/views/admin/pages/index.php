@@ -15,7 +15,7 @@ $('.table').treeTable({
 ?>
 
 <div class="btn-toolbar">
-    <?= CHtml::link('Создать страницу', array('create'), array('class' => 'btn btn-xs btn-two')) ?>
+    <?= CHtml::link('Добавить страницу', array('create'), array('class' => 'btn btn-xs btn-two')) ?>
 </div>
 <div class="panel-body">
     <div class="row">

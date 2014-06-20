@@ -1,5 +1,8 @@
 <?php
-$this->pageTitle = Yii::t('settings', 'Управление настройками');
+$this->pageTitle = 'Управление настройками';
+$this->breadcrumbs=array(
+    $this->pageTitle,
+);
 $this->pageIcon = '<i class="fa fa-cogs"></i> ';
 ?>
 <div class="col-lg-12">

@@ -2,6 +2,8 @@
 
 class SettingsController extends AdminController
 {
+    public $defaultAction = 'index';
+
     public function actionIndex()
     {
         $settings = new Settings('search');

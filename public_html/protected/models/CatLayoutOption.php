@@ -55,7 +55,7 @@ class CatLayoutOption extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
+            'title' => 'Наименование',
 		);
 	}
 

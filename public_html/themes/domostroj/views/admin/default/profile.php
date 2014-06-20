@@ -1,5 +1,8 @@
 <?php
 $this->pageTitle = 'Профиль администратора';
+$this->breadcrumbs=array(
+    $this->pageTitle,
+);
 $this->pageIcon = '<i class="fa fa-user"></i> ';
 ?>
 

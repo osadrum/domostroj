@@ -1,5 +1,8 @@
 <?php
 $this->pageTitle = 'Список альбомов';
+$this->breadcrumbs=array(
+    $this->pageTitle,
+);
 $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
 ?>
 <?php echo CHtml::link('Добавить альбом', Yii::app()->createUrl('/admin/galleryCategory/create'), array('class' => 'btn btn-xs btn-two')) ?>

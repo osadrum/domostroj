@@ -55,7 +55,7 @@ class CatConstructType extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
+			'title' => 'Наименование',
 		);
 	}
 
@@ -95,4 +95,13 @@ class CatConstructType extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public static function getListType(){
+        $types = self::model()->findAll();
+        $typesArray = [];
+        foreach ($types as $type){
+            $typesArray[$type->id] =  $type->title;
+        }
+        return $typesArray;
+    }
 }

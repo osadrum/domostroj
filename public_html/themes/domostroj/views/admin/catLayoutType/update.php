@@ -1,18 +1,29 @@
 <?php
+$this->pageTitle = 'Редактирование "' . $model->title . '"';
 $this->breadcrumbs=array(
-	'Cat Layout Types'=>array('index'),
-	$model->title=>array('view','id'=>$model->id),
-	'Update',
+    'Справочник типов планировки'=>array('admin'),
+    $this->pageTitle,
 );
-
-$this->menu=array(
-	array('label'=>'List CatLayoutType','url'=>array('index')),
-	array('label'=>'Create CatLayoutType','url'=>array('create')),
-	array('label'=>'View CatLayoutType','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage CatLayoutType','url'=>array('admin')),
-);
+$this->pageIcon = '<i class="fa fa-book"></i> ';
 ?>
-
-<h1>Update CatLayoutType <?php echo $model->id; ?></h1>
-
-<?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Редактирование "<?php echo $model->title ?>"
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

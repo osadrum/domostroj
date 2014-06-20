@@ -1,18 +1,16 @@
 <?php
+$this->pageTitle = 'Редактирование "' . $model->title . '"';
 $this->breadcrumbs=array(
-    'Cat Constructs'=>array('index'),
-    $model->id=>array('view','id'=>$model->id),
-    'Update',
+    'Справочник типов конструктива'=>array('admin'),
+    $this->pageTitle
 );
-
-$this->pageTitle = 'Редактирование тип конструктива';
 $this->pageIcon = '<i class="fa fa-book"></i> ';
 ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Редактирование типа конструктива
+                Редактирование "<?php echo $model->title ?>"
             </div>
             <div class="panel-body">
                 <div class="row">

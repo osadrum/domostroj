@@ -1,16 +1,15 @@
 <?php
+$this->pageTitle = 'Справочник типов конструктива';
 $this->breadcrumbs=array(
-	'Cat Construct Types'=>array('index'),
-	'Manage',
+    $this->pageTitle
 );
-$this->pageTitle = 'Справочник типов конструктивов';
 $this->pageIcon = '<i class="fa fa-book"></i> ';
 ?>
 <?php echo CHtml::link('Добавить типа конструктив', Yii::app()->createUrl('/admin/catConstructType/create'), array('class' => 'btn btn-xs btn-two')) ?>
 <div class="panel-body">
     <div class="row">
         <?php $this->widget('bootstrap.widgets.TbGridView', array(
-            'id' => 'news-category-grid',
+            'id' => 'cat-construct-types-grid',
             'dataProvider' => $model->search(),
             'template' => '{items} {pager}',
             'filter' => $model,

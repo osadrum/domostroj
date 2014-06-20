@@ -1,9 +1,9 @@
 <?php
-$this->breadcrumbs=array(
-	'Cat Constructs'=>array('index'),
-	'Create',
-);
 $this->pageTitle = 'Создание конструктива';
+$this->breadcrumbs=array(
+    'Справочник конструктива'=>array('admin'),
+    $this->pageTitle
+);
 $this->pageIcon = '<i class="fa fa-book"></i> ';
 ?>
 

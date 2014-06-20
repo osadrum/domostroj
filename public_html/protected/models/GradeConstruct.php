@@ -50,8 +50,8 @@ class GradeConstruct extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'_grade' => 'Grade',
-			'_construct' => 'Construct',
+			'_grade' => 'Комплектация',
+			'_construct' => 'Конструктив',
 		);
 	}
 

@@ -62,9 +62,9 @@ class Grade extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'_project' => 'Project',
-			'_type' => 'Type',
-			'price' => 'Price',
+			'_project' => 'Проект',
+			'_type' => 'Тип',
+			'price' => 'Стоимость',
 		);
 	}
 

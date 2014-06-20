@@ -55,7 +55,7 @@ class CatGradeType extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
+            'title' => 'Наименование',
 		);
 	}
 

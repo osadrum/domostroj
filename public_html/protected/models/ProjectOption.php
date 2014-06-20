@@ -52,9 +52,9 @@ class ProjectOption extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'_project' => 'Project',
-			'_option' => 'Option',
-			'value' => 'Value',
+			'_project' => 'Проект',
+			'_option' => 'Параметры',
+			'value' => 'Значение',
 		);
 	}
 

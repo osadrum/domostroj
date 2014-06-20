@@ -1,5 +1,9 @@
 <?php
 $this->pageTitle = 'Создание альбома';
+$this->breadcrumbs=array(
+    'Список альбомов'=>array('admin'),
+    $this->pageTitle,
+);
 $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
 ?>
 

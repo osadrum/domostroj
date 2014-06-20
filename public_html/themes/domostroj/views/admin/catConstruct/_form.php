@@ -5,7 +5,7 @@
 
 <div class="form-group">
     <?php echo $form->labelEx($model,'_type',array()) ?>
-    <?php echo $form->dropDownList($model,'_type',array(1=>1,2=>2),array('class'=>'form-control')); ?>
+    <?php echo $form->dropDownList($model,'_type',CatConstructType::getListType(),array('class'=>'form-control')); ?>
     <?php echo $form->error($model,'_type'); ?>
 </div><!-- /.form-group -->
 
@@ -44,7 +44,7 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
 
     function viewGetImage(image) {
         hideUploadButton();
-        $('#GalleryCategory_image').val(image);
+        $('#CatConstruct_image').val(image);
         $('.image').show().html('<img src="<?php echo Yii::app()->getRequest()->getHostInfo().Yii::app()->params['imagePath'] ?>small/'+image+'">' +
             '<br><a href="#" class="del_image" data-image-name="'+image+'">Удалить фото</a>');
     }
@@ -59,7 +59,7 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
         $('.image').hide().empty();
     }
 
-    $('#gallery-category-form').on('click', '.del_image', function() {
+    $('#cat-construct-form').on('click', '.del_image', function() {
         $.ajax({
             url: '<?php echo Yii::app()->createAbsoluteUrl('/admin/file/imageDelete') ?>',
             dataType: 'json',

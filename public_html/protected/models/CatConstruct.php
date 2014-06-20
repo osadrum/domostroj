@@ -61,9 +61,9 @@ class CatConstruct extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'_type' => 'Type',
-			'image' => 'Image',
-			'description' => 'Description',
+			'_type' => 'Тип',
+			'image' => 'Изображение',
+			'description' => 'Описание',
 		);
 	}
 

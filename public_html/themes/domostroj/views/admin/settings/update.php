@@ -1,6 +1,10 @@
 <?php
-$this->pageTitle = Yii::t('settings', 'Управление настройками');
-$this->pageIcon = '<i class="fa fa-cogs"></i> ';
+$this->pageTitle = 'Редактирование "' .$model->title . '"' ;
+$this->breadcrumbs=array(
+    'Управление настройками' => array('index'),
+    $this->pageTitle
+);
+$this->pageIcon = '<i class="fa fa-cogs"></i>';
 ?>
 <div class="col-lg-12">
     <div class="row">

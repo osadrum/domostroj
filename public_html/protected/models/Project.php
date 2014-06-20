@@ -74,15 +74,15 @@ class Project extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'meta_title' => 'Meta Title',
-			'meta_description' => 'Meta Description',
-			'meta_keywords' => 'Meta Keywords',
-			'image' => 'Image',
-			'sort' => 'Sort',
-			'is_published' => 'Is Published',
-			'_category' => 'Category',
+			'title' => 'Наименование',
+			'description' => 'Описание',
+			'meta_title' => 'Мета наименование',
+			'meta_description' => 'Мета описание',
+			'meta_keywords' => 'Ключевые слова',
+			'image' => 'Изображение',
+			'sort' => 'Сортировка',
+			'is_published' => 'Опубликовано',
+			'_category' => 'Категория',
 		);
 	}
 

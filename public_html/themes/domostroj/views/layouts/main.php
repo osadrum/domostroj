@@ -56,11 +56,17 @@
                     <h2><?= $this->pageIcon; ?> <?= $this->pageTitle; ?></h2>
                 </div>
                 <div class="col-md-6">
-                    <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Elements</a></li>
-                        <li class="active">Shortcodes</li>
-                    </ol>
+                    <?php if (isset($this->module) && $this->module->id === 'admin') {
+                        $link = '/admin/default/';
+                    } else {
+                        $link = '/';
+                    } ?>
+
+                    <?php $this->widget('ext.widgets.breadcrumbs.BreadcrumbsWidget', array(
+                        'homeLink'=>'<li>'.CHtml::link('Главная',$link).'</li>',
+                        'htmlOptions'=>array('class'=>'breadcrumb'),
+                        'links'=>$this->breadcrumbs,
+                    )); ?>
                 </div>
 
             </div>

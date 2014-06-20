@@ -63,10 +63,10 @@ class Layout extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'_project' => 'Project',
-			'_type' => 'Type',
-			'floor' => 'Floor',
-			'image' => 'Image',
+			'_project' => 'Проект',
+			'_type' => 'Тип',
+			'floor' => 'Этаж',
+			'image' => 'Изображение',
 		);
 	}
 

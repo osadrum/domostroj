@@ -2,10 +2,18 @@
 
 class DefaultController extends AdminController
 {
-	public function actionIndex()
+    public $defaultAction = 'index';
+
+    public function actionIndex()
 	{
 		$this->render('index');
 	}
+
+    public function actionCatalog()
+    {
+        $this->render('catalog');
+    }
+
 
     public function actionProfile() {
         $this->render('profile');

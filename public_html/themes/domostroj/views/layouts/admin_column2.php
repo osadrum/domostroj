@@ -1,4 +1,3 @@
-<?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
         <div class="col-md-3">
             <?php $this->widget('bootstrap.widgets.TbNavbar', array(

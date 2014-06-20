@@ -1,5 +1,9 @@
 <?php
-$this->pageTitle = 'Редактирование альбома';
+$this->pageTitle = 'Редактирование "' . $model->title . '"';
+$this->breadcrumbs=array(
+    'Список альбомов'=>array('admin'),
+    $this->pageTitle,
+);
 $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
 ?>
 <div class="row">
@@ -15,7 +19,7 @@ $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Редактирование альбома
+                Редактирование "<?php echo $model->title ?>"
             </div>
             <div class="panel-body">
                 <div class="row">

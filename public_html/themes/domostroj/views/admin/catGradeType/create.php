@@ -1,15 +1,30 @@
 <?php
+$this->pageTitle = 'Создание типа комплектации';
 $this->breadcrumbs=array(
-	'Cat Grade Types'=>array('index'),
-	'Create',
+    'Справочник типов комплектаций'=>array('admin'),
+    $this->pageTitle
 );
-
-$this->menu=array(
-	array('label'=>'List CatGradeType','url'=>array('index')),
-	array('label'=>'Manage CatGradeType','url'=>array('admin')),
-);
+$this->pageIcon = '<i class="fa fa-book"></i> ';
 ?>
 
-<h1>Create CatGradeType</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Создание типа комплектации
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

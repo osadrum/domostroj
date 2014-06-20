@@ -69,14 +69,14 @@ class ProjectCategory extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'meta_title' => 'Meta Title',
-			'meta_description' => 'Meta Description',
-			'meta_keywords' => 'Meta Keywords',
-			'image' => 'Image',
-			'is_published' => 'Is Published',
-			'_parent' => 'Parent',
+            'title' => 'Наименование',
+            'description' => 'Описание',
+            'meta_title' => 'Мета наименование',
+            'meta_description' => 'Мета описание',
+            'meta_keywords' => 'Ключевые слова',
+            'image' => 'Изображение',
+            'is_published' => 'Опубликовано',
+			'_parent' => 'Родитель',
 		);
 	}
 

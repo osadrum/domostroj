@@ -61,11 +61,11 @@ class ProjectImage extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'image' => 'Image',
-			'sort' => 'Sort',
-			'is_published' => 'Is Published',
-			'_project' => 'Project',
+			'title' => 'Наименование',
+			'image' => 'Изображение',
+			'sort' => 'Сортировка',
+			'is_published' => 'Опубликовано',
+			'_project' => 'Проект',
 		);
 	}
 

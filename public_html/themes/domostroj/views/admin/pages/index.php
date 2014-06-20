@@ -1,4 +1,4 @@
-<?
+<?php
 $this->pageTitle = 'Статические страницы';
 $this->pageIcon = '<i class="fa fa-file-o"></i> ';
 $this->breadcrumbs = array(

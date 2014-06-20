@@ -54,7 +54,6 @@ class CatConstructTypeController extends AdminController
 		$model->unsetAttributes();
 		if(isset($_GET['CatConstructType']))
 			$model->attributes=$_GET['CatConstructType'];
-
 		$this->render('admin',array(
 			'model'=>$model,
 		));

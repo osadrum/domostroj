@@ -52,9 +52,9 @@ class LayoutOption extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'_layout' => 'Layout',
-			'_option' => 'Option',
-			'value' => 'Value',
+			'_layout' => 'Планировка',
+			'_option' => 'Параметры',
+			'value' => 'Значение',
 		);
 	}
 

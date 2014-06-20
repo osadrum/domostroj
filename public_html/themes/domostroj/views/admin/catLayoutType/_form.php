@@ -3,18 +3,17 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
+<div class="form-group">
+    <?php echo $form->labelEx($model,'title',array()) ?>
+    <?php echo $form->textField($model,'title',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'title'); ?>
+</div><!-- /.form-group -->
 
-	<?php echo $form->errorSummary($model); ?>
-
-	<?php echo $form->textFieldRow($model,'title',array('class'=>'span5','maxlength'=>255)); ?>
-
-	<div class="form-actions">
-		<?php $this->widget('bootstrap.widgets.TbButton', array(
-			'buttonType'=>'submit',
-			'type'=>'primary',
-			'label'=>$model->isNewRecord ? 'Create' : 'Save',
-		)); ?>
-	</div>
-
+<div class="form-actions">
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType'=>'submit',
+        'type'=>'primary',
+        'label'=>$model->isNewRecord ? 'Создать' : 'Сохранить',
+    )); ?>
+</div>
 <?php $this->endWidget(); ?>

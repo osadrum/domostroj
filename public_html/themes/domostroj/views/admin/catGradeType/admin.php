@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 );
 $this->pageIcon = '<i class="fa fa-book"></i> ';
 ?>
-<?php echo CHtml::link('Добавить тип комплектации', Yii::app()->createUrl('/admin/catGradeType/create'), array('class' => 'btn btn-xs btn-two')) ?>
+<?php echo CHtml::link('Добавить тип комплектаций', Yii::app()->createUrl('/admin/catGradeType/create'), array('class' => 'btn btn-xs btn-two')) ?>
 <div class="panel-body">
     <div class="row">
         <?php $this->widget('bootstrap.widgets.TbGridView', array(

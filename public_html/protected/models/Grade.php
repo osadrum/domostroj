@@ -14,7 +14,7 @@
  * @property Project $project
  * @property CatConstruct[] $tblCatConstructs
  */
-class Grade extends CActiveRecord
+class Grade extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

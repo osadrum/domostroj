@@ -12,7 +12,7 @@
  * @property string $title
  * @property string $date_update
  */
-class Settings extends CActiveRecord
+class Settings extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

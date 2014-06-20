@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle = 'Создание типа комплектации';
+$this->pageTitle = 'Создание типа комплектаций';
 $this->breadcrumbs=array(
     'Справочник типов комплектаций'=>array('admin'),
     $this->pageTitle
@@ -11,7 +11,7 @@ $this->pageIcon = '<i class="fa fa-book"></i> ';
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Создание типа комплектации
+                Создание типа комплектаций
             </div>
             <div class="panel-body">
                 <div class="row">

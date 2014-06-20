@@ -10,7 +10,7 @@
  * The followings are the available model relations:
  * @property Grade[] $grades
  */
-class CatGradeType extends CActiveRecord
+class CatGradeType extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

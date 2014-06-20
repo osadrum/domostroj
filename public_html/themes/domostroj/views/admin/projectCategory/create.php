@@ -1,16 +1,18 @@
 <?php
-$this->pageTitle = 'Редактирование "' . $model->title . '"';
+$this->pageTitle = 'Создание категории проектов';
 $this->breadcrumbs=array(
-    'Справочник параметров проектов'=>array('admin'),
-    $this->pageTitle,
+    'Проекты' => array('/admin/project/admin'),
+    'Категории проектов'=>array('admin'),
+    $this->pageTitle
 );
-$this->pageIcon = '<i class="fa fa-book"></i> ';
+$this->pageIcon = '<i class="fa fa-home"></i> ';
 ?>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Редактирование "<?php echo $model->title ?>"
+                Создание категории проектов
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -27,4 +29,3 @@ $this->pageIcon = '<i class="fa fa-book"></i> ';
     </div>
     <!-- /.col-lg-12 -->
 </div>
-); ?>

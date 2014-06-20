@@ -9,64 +9,42 @@ $this->pageIcon = '<i class="fa fa-desctop"></i> ';
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="col-lg-3">
-                            <div class="w-box w-box-inverse">
+                        <div class="col-lg-2 col-md-6">
+                            <div class="w-box inverse">
                                 <div class="thmb-img">
-                                    <button type="button" class="btn btn-default btn-circle btn-xl btn-quick"
-                                            data-toggle="tooltip" data-placement="bottom" title=""
-                                            data-original-title="Проекты"
-                                            data-link="<?php echo Yii::app()->createUrl('/admin/project') ?>"><i
-                                            class="fa fa-home"></i></button>
+                                    <?= CHtml::link('<i class="fa fa-home"></i>', Yii::app()->createUrl('/admin/project')) ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="w-box w-box-inverse">
+                        <div class="col-lg-2 col-md-6">
+                            <div class="w-box inverse">
                                 <div class="thmb-img">
-                                    <button type="button" class="btn btn-default btn-circle btn-xl btn-quick"
-                                            data-toggle="tooltip"
-                                            data-placement="bottom" title="" data-original-title="Галерея"
-                                            data-link="<?php echo Yii::app()->createUrl('admin/galleryCategory') ?>"><i
-                                            class="fa fa-picture-o"></i></button>
+                                    <?= CHtml::link('<i class="fa fa-picture-o"></i>', Yii::app()->createUrl('/admin/galleryCategory')) ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="w-box w-box-inverse">
+                        <div class="col-lg-2 col-md-6">
+                            <div class="w-box inverse">
                                 <div class="thmb-img">
-                                    <button type="button" class="btn btn-default btn-circle btn-xl btn-quick"
-                                            data-toggle="tooltip" data-placement="bottom" title=""
-                                            data-original-title="Страницы"
-                                            data-link="<?php echo Yii::app()->createUrl('/admin/pages') ?>"><i
-                                            class="fa fa-file-o"></i></button>
+                                    <?= CHtml::link('<i class="fa fa-file-o"></i>', Yii::app()->createUrl('/admin/pages')) ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="w-box w-box-inverse">
+                        <div class="col-lg-2 col-md-6">
+                            <div class="w-box inverse">
                                 <div class="thmb-img">
-                                    <button type="button" class="btn btn-default btn-circle btn-xl btn-quick"
-                                            data-toggle="tooltip"
-                                            data-placement="bottom" title="" data-original-title="Справочники"
-                                            data-link="<?php echo Yii::app()->createUrl('/admin/catalog') ?>"><i
-                                            class="fa fa-book"></i></button>
+                                    <?= CHtml::link('<i class="fa fa-book"></i>', Yii::app()->createUrl('/admin/catalog')) ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="w-box w-box-inverse">
+                        <div class="col-lg-2 col-md-6">
+                            <div class="w-box inverse">
                                 <div class="thmb-img">
-                                    <button type="button" class="btn btn-default btn-circle btn-xl btn-quick"
-                                            data-toggle="tooltip"
-                                            data-placement="bottom" title="" data-original-title="Настройки"
-                                            data-link="<?php echo Yii::app()->createUrl('/admin/settings') ?>"><i
-                                            class="fa fa-cogs"></i></button>
+                                    <?= CHtml::link('<i class="fa fa-cogs"></i>', Yii::app()->createUrl('/admin/settings')) ?>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                     <!-- /.col-lg-6 (nested) -->
                 </div>
                 <!-- /.row (nested) -->

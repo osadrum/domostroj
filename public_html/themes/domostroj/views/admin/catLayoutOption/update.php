@@ -1,7 +1,7 @@
 <?php
 $this->pageTitle = 'Редактирование "' . $model->title . '"';
 $this->breadcrumbs=array(
-    'Справочник параметров планировки'=>array('admin'),
+    'Справочник параметров планировок'=>array('admin'),
     $this->pageTitle,
 );
 $this->pageIcon = '<i class="fa fa-book"></i> ';

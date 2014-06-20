@@ -15,7 +15,7 @@
  * @property Project $project
  * @property CatLayoutOption[] $tblCatLayoutOptions
  */
-class Layout extends CActiveRecord
+class Layout extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

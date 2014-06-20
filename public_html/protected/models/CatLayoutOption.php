@@ -10,7 +10,7 @@
  * The followings are the available model relations:
  * @property Layout[] $tblLayouts
  */
-class CatLayoutOption extends CActiveRecord
+class CatLayoutOption extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

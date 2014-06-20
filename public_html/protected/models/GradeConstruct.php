@@ -7,7 +7,7 @@
  * @property integer $_grade
  * @property integer $_construct
  */
-class GradeConstruct extends CActiveRecord
+class GradeConstruct extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

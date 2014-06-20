@@ -14,7 +14,7 @@
  * The followings are the available model relations:
  * @property Project $project
  */
-class ProjectImage extends CActiveRecord
+class ProjectImage extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

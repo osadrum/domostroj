@@ -8,7 +8,7 @@
  * @property integer $_option
  * @property string $value
  */
-class LayoutOption extends CActiveRecord
+class LayoutOption extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

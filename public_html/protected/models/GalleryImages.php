@@ -13,7 +13,7 @@
  * The followings are the available model relations:
  * @property GalleryCategory $category
  */
-class GalleryImages extends CActiveRecord
+class GalleryImages extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

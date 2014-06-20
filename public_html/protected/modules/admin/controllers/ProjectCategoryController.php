@@ -1,14 +1,14 @@
 <?php
 
-class ProjectController extends AdminController
+class ProjectCategoryController extends AdminController
 {
-
 	public function actionCreate()
 	{
-		$model=new Project;
-		if(isset($_POST['Project']))
+		$model=new ProjectCategory;
+
+		if(isset($_POST['ProjectCategory']))
 		{
-			$model->attributes=$_POST['Project'];
+			$model->attributes=$_POST['ProjectCategory'];
 			if($model->save())
 				$this->redirect(array('admin'));
 		}
@@ -18,13 +18,13 @@ class ProjectController extends AdminController
 		));
 	}
 
-
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-		if(isset($_POST['Project']))
+
+		if(isset($_POST['ProjectCategory']))
 		{
-			$model->attributes=$_POST['Project'];
+			$model->attributes=$_POST['ProjectCategory'];
 			if($model->save())
 				$this->redirect(array('admin'));
 		}
@@ -38,10 +38,8 @@ class ProjectController extends AdminController
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-			// we only allow deletion via POST request
 			$this->loadModel($id)->delete();
 
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 		}
@@ -51,10 +49,10 @@ class ProjectController extends AdminController
 
 	public function actionAdmin()
 	{
-		$model=new Project('search');
+		$model=new ProjectCategory('search');
 		$model->unsetAttributes();
-		if(isset($_GET['Project']))
-			$model->attributes=$_GET['Project'];
+		if(isset($_GET['ProjectCategory']))
+			$model->attributes=$_GET['ProjectCategory'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -63,7 +61,7 @@ class ProjectController extends AdminController
 
 	public function loadModel($id)
 	{
-		$model=Project::model()->findByPk($id);
+		$model=ProjectCategory::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -71,7 +69,7 @@ class ProjectController extends AdminController
 
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='project-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='project-category-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

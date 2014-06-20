@@ -1,7 +1,7 @@
 <?php
-$this->pageTitle = 'Создание параметра планировки';
+$this->pageTitle = 'Создание параметра проектов';
 $this->breadcrumbs=array(
-    'Справочник параметров проекта'=>array('admin'),
+    'Справочник параметров проектов'=>array('admin'),
     $this->pageTitle,
 );
 $this->pageIcon = '<i class="fa fa-book"></i> ';
@@ -11,7 +11,7 @@ $this->pageIcon = '<i class="fa fa-book"></i> ';
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Создание параметра планировки
+                Создание параметра проектов
             </div>
             <div class="panel-body">
                 <div class="row">

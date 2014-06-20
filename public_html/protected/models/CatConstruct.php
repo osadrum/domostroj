@@ -13,7 +13,7 @@
  * @property CatConstructType $type
  * @property Grade[] $tblGrades
  */
-class CatConstruct extends CActiveRecord
+class CatConstruct extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

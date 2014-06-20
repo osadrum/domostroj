@@ -10,6 +10,17 @@
 </div>
 
 <div class="form-group">
+    <?php echo $form->labelEx($model,'_category',array()) ?>
+    <?php echo $form->dropDownList($model,'_category',ActiveRecord::getListType('ProjectCategory'),array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'_category'); ?>
+</div>
+
+<div class="form-group">
+    <?php echo $form->labelEx($model,'sort',array()) ?>
+    <?php echo $form->textField($model,'sort',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'sort'); ?>
+</div>
+<div class="form-group">
     <?php echo $form->labelEx($model,'description',array()) ?>
     <?php $this->widget('application.extensions.ckeditor2.TheCKEditorWidget',array(
         'model'=>$model,                # Data-Model (form model)
@@ -108,12 +119,6 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
     <?php echo $form->labelEx($model,'is_published',array()) ?>
     <?php echo $form->dropDownList($model,'is_published',ActiveRecord::getIsPublishedTitleList(),array('class'=>'form-control')); ?>
     <?php echo $form->error($model,'is_published'); ?>
-</div>
-
-<div class="form-group">
-    <?php echo $form->labelEx($model,'_category',array()) ?>
-    <?php echo $form->dropDownList($model,'_category',ActiveRecord::getIsPublishedTitleList(),array('class'=>'form-control')); ?>
-    <?php echo $form->error($model,'_category'); ?>
 </div>
 <hr>
 <h3>SEO параметры</h3>

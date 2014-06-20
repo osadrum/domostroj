@@ -8,7 +8,7 @@
  * @property integer $_option
  * @property string $value
  */
-class ProjectOption extends CActiveRecord
+class ProjectOption extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

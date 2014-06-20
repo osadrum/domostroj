@@ -1,11 +1,11 @@
 <?php
-$this->pageTitle = 'Справочник параметров проекта';
+$this->pageTitle = 'Справочник параметров проектов';
 $this->breadcrumbs=array(
     $this->pageTitle,
 );
 $this->pageIcon = '<i class="fa fa-book"></i> ';
 ?>
-<?php echo CHtml::link('Добавить параметр проекта', Yii::app()->createUrl('/admin/catProjectOption/create'), array('class' => 'btn btn-xs btn-two')) ?>
+<?php echo CHtml::link('Добавить параметр проектов', Yii::app()->createUrl('/admin/catProjectOption/create'), array('class' => 'btn btn-xs btn-two')) ?>
 <div class="panel-body">
     <div class="row">
         <?php $this->widget('bootstrap.widgets.TbGridView', array(

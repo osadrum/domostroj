@@ -22,7 +22,7 @@
  * @property ProjectImage[] $projectImages
  * @property CatProjectOption[] $tblCatProjectOptions
  */
-class Project extends CActiveRecord
+class Project extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

@@ -11,7 +11,7 @@
  * The followings are the available model relations:
  * @property Users[] $users
  */
-class Role extends CActiveRecord
+class Role extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

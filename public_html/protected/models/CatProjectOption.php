@@ -10,7 +10,7 @@
  * The followings are the available model relations:
  * @property Project[] $tblProjects
  */
-class CatProjectOption extends CActiveRecord
+class CatProjectOption extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name

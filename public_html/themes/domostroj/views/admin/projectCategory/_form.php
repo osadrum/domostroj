@@ -1,13 +1,39 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-    'id'=>'cat-construct-form',
-    'enableAjaxValidation'=>false,
+	'id'=>'project-category-form',
+	'enableAjaxValidation'=>false,
 )); ?>
+<div class="form-group">
+    <?php echo $form->labelEx($model,'title',array()) ?>
+    <?php echo $form->textField($model,'title',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'title'); ?>
+</div>
 
 <div class="form-group">
-    <?php echo $form->labelEx($model,'_type',array()) ?>
-    <?php echo $form->dropDownList($model,'_type',ActiveRecord::getListType('CatConstructType'),array('class'=>'form-control')); ?>
-    <?php echo $form->error($model,'_type'); ?>
-</div><!-- /.form-group -->
+    <?php echo $form->labelEx($model,'_parent',array()) ?>
+    <?php echo $form->dropDownList($model,'_parent',ActiveRecord::getListType(get_class($model)),array('empty'=>'-','class'=>'form-control')); ?>
+    <?php echo $form->error($model,'_parent'); ?>
+</div>
+
+<div class="form-group">
+    <?php echo $form->labelEx($model,'description',array()) ?>
+    <?php $this->widget('application.extensions.ckeditor2.TheCKEditorWidget',array(
+        'model'=>$model,                # Data-Model (form model)
+        'attribute'=>'description',         # Attribute in the Data-Model
+        'height'=>'200px',
+        'width'=>'100%',
+        'config'=>array(
+            'filebrowserUploadUrl' => Yii::app()->createUrl('/admin/default/imgUpload'),
+        ),
+        'toolbarSet'=>Yii::app()->params['CKEditorTool'],           # EXISTING(!) Toolbar (see: ckeditor.js)
+        'ckeditor'=>Yii::app()->basePath.'/../ckeditor/ckeditor.php',
+        # Path to ckeditor.php
+        'ckBasePath'=>Yii::app()->baseUrl.'/ckeditor/',
+        # Relative Path to the Editor (from Web-Root)
+        'css' => Yii::app()->baseUrl.'/css/index.css',
+        # Additional Parameters
+    ) ); ?>
+    <?php echo $form->error($model,'description'); ?>
+</div>
 
 <div class="form-group">
     <?php echo $form->labelEx($model,'image',array()) ?>
@@ -44,7 +70,7 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
 
     function viewGetImage(image) {
         hideUploadButton();
-        $('#CatConstruct_image').val(image);
+        $('#ProjectCategory_image').val(image);
         $('.image').show().html('<img src="<?php echo Yii::app()->getRequest()->getHostInfo().Yii::app()->params['imagePath'] ?>small/'+image+'">' +
             '<br><a href="#" class="del_image" data-image-name="'+image+'">Удалить фото</a>');
     }
@@ -59,7 +85,7 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
         $('.image').hide().empty();
     }
 
-    $('#cat-construct-form').on('click', '.del_image', function() {
+    $('#project-category-form').on('click', '.del_image', function() {
         $.ajax({
             url: '<?php echo Yii::app()->createAbsoluteUrl('/admin/file/imageDelete') ?>',
             dataType: 'json',
@@ -82,26 +108,34 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
         <br><a href="#" class="del_image" data-image-name="<?php echo $model->image ?>">Удалить фото</a>
     <?php endif ?>
 </div>
+
 <div class="form-group">
-    <?php echo $form->labelEx($model,'description',array()) ?>
-    <?php $this->widget('application.extensions.ckeditor2.TheCKEditorWidget',array(
-        'model'=>$model,                # Data-Model (form model)
-        'attribute'=>'description',         # Attribute in the Data-Model
-        'height'=>'200px',
-        'width'=>'100%',
-        'config'=>array(
-            'filebrowserUploadUrl' => Yii::app()->createUrl('/admin/default/imgUpload'),
-        ),
-        'toolbarSet'=>Yii::app()->params['CKEditorTool'],           # EXISTING(!) Toolbar (see: ckeditor.js)
-        'ckeditor'=>Yii::app()->basePath.'/../ckeditor/ckeditor.php',
-        # Path to ckeditor.php
-        'ckBasePath'=>Yii::app()->baseUrl.'/ckeditor/',
-        # Relative Path to the Editor (from Web-Root)
-        'css' => Yii::app()->baseUrl.'/css/index.css',
-        # Additional Parameters
-    ) ); ?>
-    <?php echo $form->error($model,'description'); ?>
-</div><!-- /.form-group -->
+    <?php echo $form->labelEx($model,'is_published',array()) ?>
+    <?php echo $form->dropDownList($model,'is_published',ActiveRecord::getIsPublishedTitleList(),array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'is_published'); ?>
+</div>
+
+<hr>
+<h3>SEO параметры</h3>
+
+<div class="form-group">
+    <?php echo $form->labelEx($model,'meta_title',array()) ?>
+    <?php echo $form->textField($model,'meta_title',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'meta_title'); ?>
+</div>
+
+<div class="form-group">
+    <?php echo $form->labelEx($model,'meta_description',array()) ?>
+    <?php echo $form->textField($model,'meta_description',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'meta_description'); ?>
+</div>
+
+<div class="form-group">
+    <?php echo $form->labelEx($model,'meta_keywords',array()) ?>
+    <?php echo $form->textField($model,'meta_keywords',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'meta_keywords'); ?>
+</div>
+
 <div class="form-actions">
     <?php $this->widget('bootstrap.widgets.TbButton', array(
         'buttonType'=>'submit',
@@ -110,4 +144,3 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
     )); ?>
 </div>
 <?php $this->endWidget(); ?>
-

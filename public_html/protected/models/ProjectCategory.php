@@ -19,7 +19,7 @@
  * @property ProjectCategory $parent
  * @property ProjectCategory[] $projectCategories
  */
-class ProjectCategory extends CActiveRecord
+class ProjectCategory extends ActiveRecord
 {
 	/**
 	 * @return string the associated database table name
@@ -123,4 +123,8 @@ class ProjectCategory extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+
+
 }

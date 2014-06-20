@@ -76,7 +76,7 @@ class ProjectCategory extends ActiveRecord
             'meta_keywords' => 'Ключевые слова',
             'image' => 'Изображение',
             'is_published' => 'Опубликовано',
-			'_parent' => 'Родитель',
+			'_parent' => 'Родительская категория',
 		);
 	}
 

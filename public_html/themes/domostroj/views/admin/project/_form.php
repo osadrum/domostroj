@@ -2,19 +2,16 @@
 	'id'=>'project-form',
 	'enableAjaxValidation'=>false,
 )); ?>
-
-<div class="form-group">
-    <?php echo $form->labelEx($model,'title',array()) ?>
-    <?php echo $form->textField($model,'title',array('class'=>'form-control')); ?>
-    <?php echo $form->error($model,'title'); ?>
-</div>
-
 <div class="form-group">
     <?php echo $form->labelEx($model,'_category',array()) ?>
     <?php echo $form->dropDownList($model,'_category',ActiveRecord::getListType('ProjectCategory'),array('class'=>'form-control')); ?>
     <?php echo $form->error($model,'_category'); ?>
 </div>
-
+<div class="form-group">
+    <?php echo $form->labelEx($model,'title',array()) ?>
+    <?php echo $form->textField($model,'title',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'title'); ?>
+</div>
 <div class="form-group">
     <?php echo $form->labelEx($model,'sort',array()) ?>
     <?php echo $form->textField($model,'sort',array('class'=>'form-control')); ?>
@@ -148,5 +145,7 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
         'label'=>$model->isNewRecord ? 'Создать' : 'Сохранить',
     )); ?>
 </div>
+
+
 
 <?php $this->endWidget(); ?>

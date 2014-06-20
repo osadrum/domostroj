@@ -34,6 +34,7 @@ class Controller extends CController
     {
         Yii::app()->getClientScript()->registerCoreScript('jquery');
         Yii::app()->clientScript->registerCssFile($this->getAssetsUrl() . '/css/global-style.css');
+        Yii::app()->clientScript->registerCssFile($this->getAssetsUrl() . '/css/style.css');
         Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/hover-dropdown/bootstrap-hover-dropdown.min.js');
         Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/masonry/masonry.js');
         Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/page-scroller/jquery.ui.totop.min.js');

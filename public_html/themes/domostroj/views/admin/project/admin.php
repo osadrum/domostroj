@@ -34,6 +34,33 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     'value' => 'ActiveRecord::getIsPublishedTitle($data->is_published)',
                 ),
                 array(
+                    'name' => 'countImages',
+                    'htmlOptions' => array(
+                        'style' => 'text-align: center;'
+                    ),
+                    'filter' => '',
+                    'type' => 'raw',
+                    'value' => 'Project::projectSettings($data->id,image)'
+                ),
+                array(
+                    'name' => 'layouts',
+                    'htmlOptions' => array(
+                        'style' => 'text-align: center;'
+                    ),
+                    'filter' => '',
+                    'type' => 'raw',
+                    'value' => 'Project::projectSettings($data->id,layout)'
+                ),
+                array(
+                    'name' => 'grades',
+                    'htmlOptions' => array(
+                        'style' => 'text-align: center;'
+                    ),
+                    'filter' => '',
+                    'type' => 'raw',
+                    'value' => 'Project::projectSettings($data->id,grade)'
+                ),
+                array(
                     'class' => 'bootstrap.widgets.TbButtonColumn',
                     'template' => '{update} &nbsp{delete}',
                 )

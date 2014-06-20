@@ -1,0 +1,86 @@
+#ajax_loader {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-image: url(../images/loader.gif);
+    position: fixed;
+    right: 20px;
+    top: 60px;
+}
+#listImages .items .image_preview {
+    display: inline-block;
+    padding: 1px;
+    width: 180px;
+    border: 1px solid #666;
+    margin: 3px;
+}
+
+#listImages .items div img {
+    max-width: 176px;
+    max-height: 180px;
+}
+#listProjectImage .items .image_preview, #listGalleryImages .items .image_preview {
+    display: inline-block;
+    padding: 1px;
+    width: 146px;
+    border: 1px solid #666;
+    margin: 3px;
+    text-align: center;
+}
+
+#listProjectImage .items div img, #listGalleryImages .items div img {
+    max-width: 140px;
+    max-height: 95px;
+}
+.control-buttons {
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    background-color: #fff;
+    padding: 0 3px 0 3px;
+    border-radius: 5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+
+}
+.image-title {
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+    padding: 0 3px 0 3px;
+}
+.image_preview {
+    position: relative;
+
+}
+.image_delete {
+    /* display:none;*/
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+}
+.image_edit {
+    /* display:none;*/
+    border: none;
+    color: blue;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.image_public {
+    /*display:none;*/
+    border: none;
+    color: green;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.image_preview:hover .image_delete,
+.image_preview:hover .image_public {
+    display: inline;
+}
+button {
+    outline: none;
+}

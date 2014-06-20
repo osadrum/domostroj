@@ -3,17 +3,16 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 <div class="form-group">
+    <?php echo $form->labelEx($model,'_parent',array()) ?>
+    <?php echo $form->dropDownList($model,'_parent',ActiveRecord::getListType(get_class($model)),array('empty'=>'Главная категория','class'=>'form-control')); ?>
+    <?php echo $form->error($model,'_parent'); ?>
+</div>
+
+<div class="form-group">
     <?php echo $form->labelEx($model,'title',array()) ?>
     <?php echo $form->textField($model,'title',array('class'=>'form-control')); ?>
     <?php echo $form->error($model,'title'); ?>
 </div>
-
-<div class="form-group">
-    <?php echo $form->labelEx($model,'_parent',array()) ?>
-    <?php echo $form->dropDownList($model,'_parent',ActiveRecord::getListType(get_class($model)),array('empty'=>'-','class'=>'form-control')); ?>
-    <?php echo $form->error($model,'_parent'); ?>
-</div>
-
 <div class="form-group">
     <?php echo $form->labelEx($model,'description',array()) ?>
     <?php $this->widget('application.extensions.ckeditor2.TheCKEditorWidget',array(

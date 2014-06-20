@@ -32,7 +32,6 @@ class ProjectImage extends ActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
 			array('sort, is_published, _project', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>127),

@@ -63,6 +63,7 @@ class Project extends ActiveRecord
 			'layouts' => array(self::HAS_MANY, 'Layout', '_project'),
 			'category' => array(self::BELONGS_TO, 'ProjectCategory', '_category'),
 			'projectImages' => array(self::HAS_MANY, 'ProjectImage', '_project'),
+			'countImages' => array(self::STAT, 'ProjectImage', '_project'),
 			'tblCatProjectOptions' => array(self::MANY_MANY, 'CatProjectOption', '{{project_option}}(_project, _option)'),
 		);
 	}
@@ -79,8 +80,11 @@ class Project extends ActiveRecord
 			'meta_title' => 'Мета наименование',
 			'meta_description' => 'Мета описание',
 			'meta_keywords' => 'Ключевые слова',
-			'image' => 'Изображение',
-			'sort' => 'Сортировка',
+            'countImages' => 'Доп. изображения',
+            'layouts' => 'Планировка',
+            'grades' => 'Комплектация',
+            'image' => 'Изображение',
+			'sort' => '№ п/п',
 			'is_published' => 'Опубликовано',
 			'_category' => 'Категория',
 		);
@@ -130,4 +134,24 @@ class Project extends ActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public static function hasPhotoProject($project_id)
+    {
+        $project = self::model()->findByPk($project_id);
+
+    }
+
+    public static function projectSettings($project_id,$settings)
+    {
+        $project = self::model()->findByPk($project_id);
+        if ($settings == 'image') {
+            return ($project->countImages > 0) ? CHtml::link($project->countImages." изобр.", Yii::app()->createUrl("/admin/project/photo", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить изобр.", Yii::app()->createUrl("/admin/project/photo", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+        } elseif ($settings == 'layout') {
+            return (count($project->layouts) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+        } elseif ($settings == 'grade') {
+            return (count($project->grades) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+        }
+    }
+
+
 }

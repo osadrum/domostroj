@@ -33,7 +33,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                                     'minSizeLimit' => 1 * 1024,
                                     'auto' => false,
                                     'multiple' => true,
-                                    'onComplete' => "js:function(id, fileName, responseJSON){ ajaxListUpdate('listGalleryImages'); }",
+                                    'onComplete' => "js:function(id, fileName, responseJSON){ ajaxListUpdate('listProjectImage'); }",
                                     'messages' => array(
                                         'typeError' => "{file} has invalid extension. Only {extensions} are allowed.",
                                         'sizeError' => "{file} is too large, maximum file size is {sizeLimit}.",
@@ -94,6 +94,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
 </div>
 
 <script>
+
     $('#listProjectImage').on('click', '.image_edit', function() {
         $('#image-title-input').val($(this).attr('data-title'));
         $('#image-sort-input').val($(this).attr('data-sort'));
@@ -108,7 +109,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
             type: 'post',
             success: function(html) {
                 if (html == 'ok') {
-                    ajaxListUpdate('listImages');
+                    ajaxListUpdate('listProjectImage');
                     $('#modal').modal('hide');
                 }
             }
@@ -164,4 +165,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
         return false;
 
     })
+    function ajaxListUpdate(listId){
+        $("#"+listId).yiiListView.update(listId);
+    }
 </script>

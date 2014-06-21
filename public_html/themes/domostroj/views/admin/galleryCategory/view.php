@@ -125,4 +125,7 @@ $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
         return false;
 
     })
+    function ajaxListUpdate(listId){
+        $("#"+listId).yiiListView.update(listId);
+    }
 </script>

@@ -10,7 +10,7 @@ class ProjectController extends AdminController
         ));
     }
 
-    public function actionPhoto($id)
+    public function actionImage($id)
 
     {
         $criteria = new CDbCriteria();
@@ -24,10 +24,22 @@ class ProjectController extends AdminController
             ),
         ));
 
-        $this->render('photo',array(
+        $this->render('image',array(
             'model'=>$this->loadModel($id),
             'images' => $images,
         ));
+    }
+
+    public function actionImageOptionEdit() {
+        $image = ProjectImage::model()->findByPk($_POST['id']);
+
+        $image->title = $_POST['title'];
+        $image->sort = $_POST['sort'];
+        if ($image->save()) {
+            echo 'ok';
+        } else {
+            echo 'no';
+        }
     }
 
     public function actionLayout($id)
@@ -37,7 +49,7 @@ class ProjectController extends AdminController
         $criteria->condition = '_project=:project';
         $criteria->params = array(':project'=>$id);
 
-        $images=new CActiveDataProvider('Layout', array(
+        $layout=new CActiveDataProvider('Layout', array(
             'criteria' => $criteria,
             'pagination'=>array(
                 'pageSize'=>48,
@@ -46,7 +58,7 @@ class ProjectController extends AdminController
 
         $this->render('layout',array(
             'model'=>$this->loadModel($id),
-            'images' => $images,
+            'layout' => $layout,
         ));
     }
 
@@ -57,7 +69,7 @@ class ProjectController extends AdminController
         $criteria->condition = '_project=:project';
         $criteria->params = array(':project'=>$id);
 
-        $images=new CActiveDataProvider('Grade', array(
+        $grade=new CActiveDataProvider('Grade', array(
             'criteria' => $criteria,
             'pagination'=>array(
                 'pageSize'=>48,
@@ -66,7 +78,7 @@ class ProjectController extends AdminController
 
         $this->render('grade',array(
             'model'=>$this->loadModel($id),
-            'images' => $images,
+            'grade' => $grade,
         ));
     }
 

@@ -145,7 +145,7 @@ class Project extends ActiveRecord
     {
         $project = self::model()->findByPk($project_id);
         if ($settings == 'image') {
-            return ($project->countImages > 0) ? CHtml::link($project->countImages." изобр.", Yii::app()->createUrl("/admin/project/photo", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить изобр.", Yii::app()->createUrl("/admin/project/photo", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+            return ($project->countImages > 0) ? CHtml::link($project->countImages." изобр.", Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить изобр.", Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'layout') {
             return (count($project->layouts) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'grade') {

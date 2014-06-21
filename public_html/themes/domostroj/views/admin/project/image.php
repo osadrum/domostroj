@@ -1,7 +1,7 @@
 <?php
 $this->pageTitle = 'Изображения "' . $model->title . '"';
-$this->breadcrumbs=array(
-    'Проекты'=>array('admin'),
+$this->breadcrumbs = array(
+    'Проекты' => array('admin'),
     $this->pageTitle
 );
 $this->pageIcon = '<i class="fa fa-home"></i> ';
@@ -11,7 +11,8 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
         <?php echo CHtml::link('<span class="fa fa-arrow-left"></span> перейти к списку проектов', Yii::app()->createUrl('/admin/project'), array('class' => 'btn btn-xs btn-two')) ?>
         <?php echo CHtml::link('<span class="fa fa-home"></span> свойства проекта', Yii::app()->createUrl('/admin/project/update', array('id' => $model->id)), array('class' => 'btn btn-xs btn-two')) ?>
     </div>
-</div><div class="panel-body">
+</div>
+<div class="panel-body">
 
     <div class="row">
         <div class="panel panel-default">
@@ -75,7 +76,46 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
         <!-- /.panel -->
     </div>
 </div>
+<div id="modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="catalog-title">Название</h4>
+            </div>
+            <div class="modal-body" >
+                <input type="text" name="title" id="image-title-input" value="">
+                <input type="text" name="sort" id="image-sort-input" value="">
+                <input type="hidden" name="title" id="image-id-input" value="">
+                <a href="#" class="btn btn-success image-title-sent">Сохранить</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
 <script>
+    $('#listProjectImage').on('click', '.image_edit', function() {
+        $('#image-title-input').val($(this).attr('data-title'));
+        $('#image-sort-input').val($(this).attr('data-sort'));
+        $('#image-id-input').val($(this).attr('data-id'));
+        $('#modal').modal('toggle');
+    });
+
+    $('.image-title-sent').on('click', function() {
+        $.ajax({
+            url: '<?php echo Yii::app()->createAbsoluteUrl('/admin/project/imageOptionEdit') ?>',
+            data: {id: $('#image-id-input').val(), title: $('#image-title-input').val(), sort: $('#image-sort-input').val()},
+            type: 'post',
+            success: function(html) {
+                if (html == 'ok') {
+                    ajaxListUpdate('listImages');
+                    $('#modal').modal('hide');
+                }
+            }
+        });
+        return false;
+    });
+
     $('#listProjectImage').on('click', '.image_delete', function () {
         if (confirm('Удалить?')) {
             var item = $(this).parents('.image_preview');

@@ -4,6 +4,7 @@
             <img src="<?php echo Yii::app()->getRequest()->getHostInfo().Yii::app()->params['imagePath'] ?>small/<?php echo $data->image ?>">
         </a>
         <div class="control-buttons">
+            <span class="image_edit" data-id="<?php echo $data->id ?>" data-title="<?php echo $data->title ?>" data-sort="<?php echo $data->sort ?>"><span class="fa fa-pencil"></span></span>
 
             <span class="image_public" data-id="<?php echo $data->id ?>">
                 <span class="fa fa-<?php echo ($data->is_published == 1) ? 'check-circle-o':'circle-o' ?>"></span>

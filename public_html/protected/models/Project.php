@@ -150,6 +150,8 @@ class Project extends ActiveRecord
             return (count($project->layouts) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'grade') {
             return (count($project->grades) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+        } elseif ($settings == 'layoutOptions') {
+            return (count($project->layouts->layoutOptions) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/layoutOptions", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/layoutOptions", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         }
     }
 

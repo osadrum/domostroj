@@ -5,9 +5,9 @@ $this->breadcrumbs=array(
 );
 $this->pageIcon = '<i class="fa fa-home"></i> ';
 ?>
-<?php echo CHtml::link('Категории проектов', Yii::app()->createUrl('/admin/projectCategory'), array('class' => 'btn btn-xs btn-two')) ?>
-
 <?php echo CHtml::link('Добавить проект', Yii::app()->createUrl('/admin/project/create'), array('class' => 'btn btn-xs btn-two')) ?>
+
+<?php echo CHtml::link('Категории проектов', Yii::app()->createUrl('/admin/projectCategory'), array('class' => 'btn btn-xs btn-two')) ?>
 <div class="panel-body">
     <div class="row">
         <?php $this->widget('bootstrap.widgets.TbGridView', array(

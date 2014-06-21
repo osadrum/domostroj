@@ -67,6 +67,7 @@ class Layout extends ActiveRecord
 			'_type' => 'Тип',
 			'floor' => 'Этаж',
 			'image' => 'Изображение',
+            'tblCatLayoutOptions' => 'Помещения'
 		);
 	}
 

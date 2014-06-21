@@ -43,12 +43,19 @@ class ProjectController extends AdminController
     }
 
     public function actionLayout($id)
-
     {
+        $layoutModel = new Layout();
+        if (isset($_POST['Layout']) && isset($_POST['Project'])){
+            $layoutModel->_project = $_POST['Project']['id'];
+            $layoutModel->_type = $_POST['Layout']['_type'];
+            $layoutModel->image = $_POST['Layout']['image'];
+            if ($layoutModel->save()){
+                $this->redirect(array('layout','id'=>$_POST['Project']['id']));
+            }
+        }
         $criteria = new CDbCriteria();
         $criteria->condition = '_project=:project';
         $criteria->params = array(':project'=>$id);
-
         $layout=new CActiveDataProvider('Layout', array(
             'criteria' => $criteria,
             'pagination'=>array(
@@ -59,6 +66,7 @@ class ProjectController extends AdminController
         $this->render('layout',array(
             'model'=>$this->loadModel($id),
             'layout' => $layout,
+            'layoutModel' => $layoutModel,
         ));
     }
 

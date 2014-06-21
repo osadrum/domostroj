@@ -9,7 +9,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
 <?php echo CHtml::link('<span class="fa fa-arrow-left"></span> Перейти к списку проектов',
     Yii::app()->createUrl('/admin/project'), array('class' => 'btn btn-xs btn-two')) ?>
 
-<?php echo CHtml::link('Добавить элемент планировки','#',
+<?php echo CHtml::link('Добавить уровень','#',
     array('class' => 'btn btn-xs btn-two add_layout', 'data-title'=>$model->id)) ?>
 
 <?php echo CHtml::link('<span class="fa fa-home"></span> Cвойства проекта', Yii::app()->createUrl('/admin/project/update', array('id' => $model->id)), array('class' => 'btn btn-xs btn-two')) ?>
@@ -21,13 +21,32 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
             'template' => '{items} {pager}',
             //'filter' => $image,
             'columns' => array(
-                '_type',
-                'floor',
+                array(
+                    'name' => '_type',
+                    'filter' => ActiveRecord::getListType('CatLayoutType'),
+                    'value' => 'ActiveRecord::getTitleType("CatLayoutType",$data->_type)',
+                ),
+                array(
+                    'name' => 'floor',
+                    'htmlOptions' => array(
+                        'style' => 'text-align: center;'
+                    ),
+                    'value' => '($data->floor == null) ? "-" : $data->floor',
+                ),
                 array(
                     'name' => 'image',
                     'type' => 'raw',
                     'filter' => '',
                     'value' => 'CHtml::image(Yii::app()->getRequest()->getHostInfo().Yii::app()->params["imagePath"]."small/".$data->image, "", array("style"=>"max-width: 150px"))',
+                ),
+                array(
+                    'name' => 'tblCatLayoutOptions',
+                    'htmlOptions' => array(
+                        'style' => 'text-align: center;'
+                    ),
+                    'filter' => '',
+                    'type' => 'raw',
+                    'value' => 'Project::projectSettings($data->_project,layoutOptions)'
                 ),
                 array(
                     'class' => 'bootstrap.widgets.TbButtonColumn',
@@ -38,22 +57,9 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     </div>
     <!-- /.row (nested) -->
 </div>
-<div id="modal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="catalog-title">Название</h4>
-            </div>
-            <div class="modal-body" >
-                <input type="text" name="title" id="image-title-input" value="">
-                <input type="text" name="sort" id="image-sort-input" value="">
-                <input type="hidden" name="title" id="image-id-input" value="">
-                <a href="#" class="btn btn-success image-title-sent">Сохранить</a>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
+
+<?php $this->renderPartial('_layout_modal',array('layoutModel'=>$layoutModel,'model'=>$model))?>
+
 <script>
     $('.add_layout').on('click', function() {
         $('#image-title-input').val($(this).attr('data-title'));

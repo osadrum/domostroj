@@ -9,14 +9,14 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
 <?php echo CHtml::link('<span class="fa fa-arrow-left"></span> Перейти к списку проектов',
     Yii::app()->createUrl('/admin/project'), array('class' => 'btn btn-xs btn-two')) ?>
 
-<?php echo CHtml::link('Добавить уровень','#',
-    array('class' => 'btn btn-xs btn-two add_layout', 'data-title'=>$model->id)) ?>
+<?php echo CHtml::link('Добавить уровень',Yii::app()->createUrl("/admin/project/ajaxLayout"),
+    array('class' => 'btn btn-xs btn-two add_layout', 'data-id'=>$model->id)) ?>
 
 <?php echo CHtml::link('<span class="fa fa-home"></span> Cвойства проекта', Yii::app()->createUrl('/admin/project/update', array('id' => $model->id)), array('class' => 'btn btn-xs btn-two')) ?>
 <div class="panel-body">
     <div class="row">
         <?php $this->widget('bootstrap.widgets.TbGridView', array(
-            'id' => 'project-image-grid',
+            'id' => 'project-layout-grid',
             'dataProvider' => $layout,
             'template' => '{items} {pager}',
             //'filter' => $image,
@@ -25,13 +25,6 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     'name' => '_type',
                     'filter' => ActiveRecord::getListType('CatLayoutType'),
                     'value' => 'ActiveRecord::getTitleType("CatLayoutType",$data->_type)',
-                ),
-                array(
-                    'name' => 'floor',
-                    'htmlOptions' => array(
-                        'style' => 'text-align: center;'
-                    ),
-                    'value' => '($data->floor == null) ? "-" : $data->floor',
                 ),
                 array(
                     'name' => 'image',
@@ -46,26 +39,60 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSettings($data->_project,layoutOptions)'
+                    'value' => 'Project::projectSetting($data->_project,layoutOptions,$data->id)'
                 ),
                 array(
                     'class' => 'bootstrap.widgets.TbButtonColumn',
                     'template' => '{update} &nbsp{delete}',
+                    'buttons' => array(
+                        'update' => array(
+                            'label'=>'Редактировать уровень',
+                            'url' => 'Yii::app()->createUrl("/admin/project/ajaxLayout/id/$data->id")',
+                            'options' =>  array(
+                                'class' => 'add_layout',
+                                'data-id'=>'$data->_project')
+                        ),
+                        'delete' => array(
+                            'label'=>'Удалить уровень',
+                            'url' => 'Yii::app()->createUrl("/admin/project/layoutDelete/id/$data->id")',
+                            'click'=>'function(){return confirm("Удалить уровень?");}'
+                        )
+
+                    )
                 )
             ),
         )); ?>
     </div>
     <!-- /.row (nested) -->
 </div>
-
-<?php $this->renderPartial('_layout_modal',array('layoutModel'=>$layoutModel,'model'=>$model))?>
-
+    <?php $this->renderPartial('_layoutModal')?>
 <script>
     $('.add_layout').on('click', function() {
-        $('#image-title-input').val($(this).attr('data-title'));
-        $('#image-sort-input').val($(this).attr('data-sort'));
-        $('#image-id-input').val($(this).attr('data-id'));
         $('#modal').modal('toggle');
+        $.ajax({
+            url: $(this).attr('href'),
+            data: {project_id:$(this).attr('data-id')},
+            type: 'post',
+            success: function(html) {
+                $('.modal_layout_option').html(html);
+            }
+        });
+
+        return false;
+    });
+    $('.layout_option').on('click', function() {
+        $('#modal').modal('toggle');
+
+        $.ajax({
+            url: $(this).attr('href'),
+            data: {layout_id:$(this).attr('data-layout-id')},
+            type: 'post',
+            success: function(html) {
+                $('.modal_layout_option').html(html);
+            }
+        });
+
+        return false;
     });
 
 </script>

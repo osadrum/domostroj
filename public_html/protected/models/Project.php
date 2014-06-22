@@ -141,9 +141,12 @@ class Project extends ActiveRecord
 
     }
 
-    public static function projectSettings($project_id,$settings)
+    public static function projectSetting($project_id,$settings,$layout_id=null)
     {
         $project = self::model()->findByPk($project_id);
+        if ($layout_id != 0){
+            $layoutOption = LayoutOption::model()->findAllByAttributes(array('_layout'=>$layout_id));
+        }
         if ($settings == 'image') {
             return ($project->countImages > 0) ? CHtml::link($project->countImages." изобр.", Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить изобр.", Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'layout') {
@@ -151,9 +154,17 @@ class Project extends ActiveRecord
         } elseif ($settings == 'grade') {
             return (count($project->grades) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'layoutOptions') {
-            return (count($project->layouts->layoutOptions) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/layoutOptions", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/layoutOptions", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+            if (count($layoutOption) > 0){
+                $title = 'Изменить';
+                $class = "btn btn-xs btn-two layout_option";
+            } else {
+                $title = 'Добавить';
+                $class = "btn btn-xs btn-four layout_option";
+            }
+            return CHtml::link($title,
+                Yii::app()->createUrl("/admin/project/ajaxLayoutOption"),
+                array("class"=>$class, 'data-layout-id'=>$layout_id));
         }
     }
-
 
 }

@@ -44,15 +44,6 @@ class ProjectController extends AdminController
 
     public function actionLayout($id)
     {
-        $layoutModel = new Layout();
-        if (isset($_POST['Layout']) && isset($_POST['Project'])){
-            $layoutModel->_project = $_POST['Project']['id'];
-            $layoutModel->_type = $_POST['Layout']['_type'];
-            $layoutModel->image = $_POST['Layout']['image'];
-            if ($layoutModel->save()){
-                $this->redirect(array('layout','id'=>$_POST['Project']['id']));
-            }
-        }
         $criteria = new CDbCriteria();
         $criteria->condition = '_project=:project';
         $criteria->params = array(':project'=>$id);
@@ -62,12 +53,108 @@ class ProjectController extends AdminController
                 'pageSize'=>48,
             ),
         ));
-
         $this->render('layout',array(
             'model'=>$this->loadModel($id),
             'layout' => $layout,
-            'layoutModel' => $layoutModel,
         ));
+    }
+
+    public function actionLayoutSave($id=null){
+        if (isset($_POST['Layout']) && isset($_POST['Project'])){
+            $layoutModel = Layout::model()->findByPk($id);
+            if ($layoutModel == null){
+                $layoutModel = new Layout();
+            }
+            $floor = Layout::model()->findByAttributes(
+                array(
+                    '_project'=>$_POST['Project']['id'],
+                    '_type' => 1,
+                ));
+            if ($floor != null){
+                $floor = $floor + 1;
+            } else {
+                $floor = 1;
+            }
+            $layoutModel->_project = $_POST['Project']['id'];
+            $layoutModel->_type = $_POST['Layout']['_type'];
+            if ($_POST['Layout']['_type'] == 1){
+                $layoutModel->floor = $floor;
+            }
+            $layoutModel->image = $_POST['Layout']['image'];
+            if ($layoutModel->save()){
+                $this->redirect(array('layout','id'=>$_POST['Project']['id']));
+            }
+        }
+    }
+
+    public function actionAjaxLayout($id=null)
+    {
+        if ($id != null){
+            $layoutModel = Layout::model()->findByPk($id);
+            $model = $layoutModel->project;
+        } else {
+            $model = $this->loadModel($_POST['project_id']);
+            $layoutModel = new Layout();
+        }
+        if ($_POST['project_id'] != null){
+                $this->renderPartial('_layoutForm',
+                    array(
+                        'model'=>$model,
+                        'layoutModel' => $layoutModel), false, true);
+        }
+    }
+
+
+    public function actionAjaxLayoutOption()
+    {
+        if ($_POST['layout_id'] != null){
+            $catLayoutOption = CatLayoutOption::model()->findAll();
+            $layoutOptionModel = LayoutOption::model()->findAllByAttributes(array('_layout'=>$_POST['layout_id']));
+            $layoutList = array();
+            foreach ($layoutOptionModel as $layout) {
+                $layoutList[$layout->_option] = $layout->value;
+            }
+
+            if (Yii::app()->request->isAjaxRequest){
+                $this->renderPartial('_layoutOptionForm',
+                    array('layoutOptionModel'=>$layoutList,
+                          'catLayoutOption'=>$catLayoutOption,
+                          'layout_id'=>$_POST['layout_id']), false, true);
+            }
+        }
+    }
+
+    public function actionLayoutOptionSave()
+    {
+            $layoutOptionModel = LayoutOption::model()->findAllByAttributes(array('_layout'=>$_POST['layout_id']));
+            $project_id = Layout::model()->findByPk($_POST['layout_id'])->_project;
+        if ($layoutOptionModel != null){
+            foreach ($layoutOptionModel as $layout){
+                $layout->delete();
+            }
+        }
+        $layoutArray = array_intersect_key($_POST['Layout']['value'], $_POST['Layout']['option']);
+        foreach ($_POST['Layout']['option'] as $key=>$value){
+            $layoutOptionModel = new LayoutOption();
+            $layoutOptionModel->_layout = $_POST['layout_id'];
+            $layoutOptionModel->_option = $key;
+            $layoutOptionModel->value = $layoutArray[$key];
+            $layoutOptionModel->save();
+        }
+
+        $this->redirect(array('layout','id'=>$project_id));
+
+    }
+
+    public function actionLayoutDelete($id){
+        $layoutOptionModel = LayoutOption::model()->findAllByAttributes(array('_layout'=>$id));
+        foreach ($layoutOptionModel as $layout){
+            $layout->delete();
+        }
+        $layoutModel = Layout::model()->findByPk($id);
+        $project_id = $layoutModel->_project;
+        $layoutModel->delete();
+        $this->redirect(array('layout','id'=>$project_id));
     }
 
     public function actionGrade($id)
@@ -188,8 +275,20 @@ class ProjectController extends AdminController
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
+            $project = $this->loadModel($id);
+            $projectImage = ProjectImage::model()->findAllByAttributes(array('_project'=>$id));
+            foreach ($projectImage as $image){
+                $image->delete();
+            }
+            foreach ($project->layouts as $layout){
+                foreach ($layout->layoutOptions as $layoutOption){
+                    $layoutOption->delete();
+                }
+                $layout->delete();
+            }
+            $project->delete();
+
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))

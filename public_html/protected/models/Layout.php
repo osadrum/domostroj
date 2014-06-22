@@ -53,6 +53,7 @@ class Layout extends ActiveRecord
 			'type' => array(self::BELONGS_TO, 'CatLayoutType', '_type'),
 			'project' => array(self::BELONGS_TO, 'Project', '_project'),
 			'tblCatLayoutOptions' => array(self::MANY_MANY, 'CatLayoutOption', '{{layout_option}}(_layout, _option)'),
+			'layoutOptions' => array(self::HAS_MANY, 'LayoutOption', '_layout'),
 		);
 	}
 

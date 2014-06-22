@@ -40,7 +40,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSettings($data->id,image)'
+                    'value' => 'Project::projectSetting($data->id,image)'
                 ),
                 array(
                     'name' => 'layouts',
@@ -49,7 +49,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSettings($data->id,layout)'
+                    'value' => 'Project::projectSetting($data->id,layout)'
                 ),
                 array(
                     'name' => 'grades',
@@ -58,7 +58,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSettings($data->id,grade)'
+                    'value' => 'Project::projectSetting($data->id,grade)'
                 ),
                 array(
                     'class' => 'bootstrap.widgets.TbButtonColumn',

@@ -53,6 +53,11 @@ class m140618_115652_create_tables_for_projects extends CDbMigration
             'title' => 'varchar(255) NOT NULL',
         ));
 
+        $this->insert('{{cat_layout_type}}', array(
+            'id' => 1,
+            'title' => 'Этаж'
+        ));
+
         $this->createTable('{{cat_construct_type}}', array(
             'id' => 'int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             'title' => 'varchar(255) NOT NULL',
@@ -84,6 +89,7 @@ class m140618_115652_create_tables_for_projects extends CDbMigration
             'floor' => 'int(10)',
             'image' => 'varchar(127)',
         ));
+
 
         $this->createTable('{{layout_option}}', array(
             '_layout' => 'int(10) NOT NULL',
@@ -123,20 +129,27 @@ class m140618_115652_create_tables_for_projects extends CDbMigration
 
 	public function down()
 	{
-        $this->dropForeignKey('FK-project-project','{{project}}');
-        $this->dropForeignKey('FK-project-project_category','{{project}}');
-        $this->dropForeignKey('FK-project_images-project','{{project_image}}');
-        $this->dropForeignKey('FK-project_options-project','{{project_option}}');
-        $this->dropForeignKey('FK-project_options-cat_project_options','{{project_option}}');
         $this->dropForeignKey('FK-cat_construct-cat_construct_type','{{cat_construct}}');
-        $this->dropForeignKey('FK-layout-cat_layout_type','{{layout}}');
-        $this->dropForeignKey('FK-layout-project','{{layout}}');
-        $this->dropForeignKey('FK-layout_option-layout','{{layout_option}}');
-        $this->dropForeignKey('FK-layout_option-cat_layout_option','{{layout_option}}');
-        $this->dropForeignKey('FK-grade-project','{{grade}}');
-        $this->dropForeignKey('FK-grade-cat_grade_type','{{grade}}');
-        $this->dropForeignKey('FK-grade_construct-grade','{{grade_construct}}');
         $this->dropForeignKey('FK-grade_construct-cat_construct','{{grade_construct}}');
+        $this->dropForeignKey('FK-grade_construct-grade','{{grade_construct}}');
+        $this->dropForeignKey('FK-grade-cat_grade_type','{{grade}}');
+        $this->dropForeignKey('FK-grade-project','{{grade}}');
+        $this->dropForeignKey('FK-layout_option-cat_layout_option','{{layout_option}}');
+        $this->dropForeignKey('FK-layout_option-layout','{{layout_option}}');
+        $this->dropForeignKey('FK-layout-project','{{layout}}');
+        $this->dropForeignKey('FK-layout-cat_layout_type','{{layout}}');
+        $this->dropForeignKey('FK-project-project_category','{{project}}');
+        $this->dropForeignKey('FK-project_category-project_category','{{project_category}}');
+        $this->dropForeignKey('FK-project_image-project','{{project_image}}');
+        $this->dropForeignKey('FK-project_option-project','{{project_option}}');
+        $this->dropForeignKey('FK-project_option-cat_project_option','{{project_option}}');
+
+
+
+
+
+
+
 
         $this->dropTable('{{project}}');
         $this->dropTable('{{project_category}}');

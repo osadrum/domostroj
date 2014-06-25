@@ -61,7 +61,7 @@ class CatConstruct extends ActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'_type' => 'Тип',
+			'_type' => 'Конструктив',
 			'image' => 'Изображение',
 			'description' => 'Описание',
 		);

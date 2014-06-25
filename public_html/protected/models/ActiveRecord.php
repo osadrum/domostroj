@@ -30,8 +30,10 @@ class ActiveRecord extends CActiveRecord
     }
 
     public static function getTitleType($class,$id){
-        $model = $class::model()->findByPk($id);
-        return $model->title;
+        if ($id){
+            return $class::model()->findByPk($id)->title;
+        }
+        return 'Главная категория';
     }
 
 }

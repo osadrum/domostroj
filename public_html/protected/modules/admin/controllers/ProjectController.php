@@ -462,6 +462,12 @@ class ProjectController extends AdminController
                 }
                 $layout->delete();
             }
+            foreach ($project->grades as $grade){
+                $grade->delete();
+                    foreach ($grade->gradeConstructs as $construct){
+                        $construct->delete();
+                    }
+            }
             foreach ($projectOptionModel as $project){
                 $project->delete();
             }

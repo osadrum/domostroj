@@ -33,7 +33,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     'value' => 'CHtml::image(Yii::app()->getRequest()->getHostInfo().Yii::app()->params["imagePath"]."small/".$data->image, "", array("style"=>"max-width: 150px"))',
                 ),
                 array(
-                    'name' => 'tblCatLayoutOptions',
+                    'name' => 'layoutOptions',
                     'htmlOptions' => array(
                         'style' => 'text-align: center;'
                     ),
@@ -74,7 +74,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
             data: {project_id:$(this).attr('data-id')},
             type: 'post',
             success: function(html) {
-                $('.modal_layout_option').html(html);
+                $('.modal_option').html(html);
             }
         });
 
@@ -88,7 +88,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
             data: {layout_id:$(this).attr('data-layout-id')},
             type: 'post',
             success: function(html) {
-                $('.modal_layout_option').html(html);
+                $('.modal_option').html(html);
             }
         });
 

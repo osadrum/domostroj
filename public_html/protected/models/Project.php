@@ -141,11 +141,14 @@ class Project extends ActiveRecord
 
     }
 
-    public static function projectSetting($project_id,$settings,$layout_id=null)
+    public static function projectSetting($project_id,$settings,$layout_id=null,$grade_id=null)
     {
         $project = self::model()->findByPk($project_id);
         if ($layout_id != 0){
             $layoutOption = LayoutOption::model()->findAllByAttributes(array('_layout'=>$layout_id));
+        }
+        if ($grade_id != 0){
+            $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$grade_id));
         }
         if ($settings == 'image') {
             return ($project->countImages > 0) ? CHtml::link($project->countImages." изобр.", Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить изобр.", Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
@@ -164,6 +167,30 @@ class Project extends ActiveRecord
             return CHtml::link($title,
                 Yii::app()->createUrl("/admin/project/ajaxLayoutOption"),
                 array("class"=>$class, 'data-layout-id'=>$layout_id));
+        } elseif ($settings == 'gradeConstructs') {
+            if (count($gradeConstruct) > 0){
+                $title = 'Добавить';
+                $class = "btn btn-xs btn-two grade_construct";
+                $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$grade_id));
+                $gradeConstructTypeList = '';
+                foreach ($gradeConstruct as $construct){
+                    $gradeConstructTypeList .= $construct->catConstruct->type->title . '  ';
+                    $gradeConstructTypeList .=  CHtml::link('<i class="fa fa-pencil"></i>','#',
+                        array('data-construct-id'=>$construct->catConstruct->id,
+                            'data-constructType-id'=>$construct->catConstruct->_type,
+                            'data-grade-id'=>$grade_id,'class'=>'edit_construct')) . '  ';
+                    $gradeConstructTypeList .=  CHtml::link('<i class="fa fa-trash-o"></i>','#',
+                        array('data-construct-id'=>$construct->catConstruct->id,
+                            'data-grade-id'=>$grade_id,
+                            'class'=>'del_construct')) . '</br>';
+                }
+            } else {
+                $title = 'Добавить';
+                $class = "btn btn-xs btn-four grade_construct";
+            }
+            return CHtml::link($title,
+                Yii::app()->createUrl("/admin/project/ajaxGradeConstructType"),
+                array("class"=>$class, 'data-grade-id'=>$grade_id)) . '</br>' . $gradeConstructTypeList;
         }
     }
 

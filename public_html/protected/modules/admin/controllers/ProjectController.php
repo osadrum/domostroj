@@ -104,7 +104,6 @@ class ProjectController extends AdminController
         }
     }
 
-
     public function actionAjaxLayoutOption()
     {
         if ($_POST['layout_id'] != null){
@@ -177,7 +176,129 @@ class ProjectController extends AdminController
         ));
     }
 
-	public function actionCreate()
+    public function actionAjaxGrade($id=null)
+    {
+        if ($id != null){
+            $gradeModel = Grade::model()->findByPk($id);
+            $model = $gradeModel->project;
+        } else {
+            $model = $this->loadModel($_POST['project_id']);
+            $gradeModel = new Grade();
+        }
+        if ($_POST['project_id'] != null){
+            $this->renderPartial('_gradeForm',
+                array(
+                    'model'=>$model,
+                    'gradeModel' => $gradeModel), false, true);
+        }
+    }
+
+    public function actionGradeSave($id=null){
+        if (isset($_POST['Grade']) && isset($_POST['Project'])){
+            $gradeModel = Grade::model()->findByPk($id);
+            if ($gradeModel == null){
+                $gradeModel = new Grade();
+            }
+            $gradeModel->_project = $_POST['Project']['id'];
+            $gradeModel->_type = $_POST['Grade']['_type'];
+            $gradeModel->price = $_POST['Grade']['price'];
+            if ($gradeModel->save()){
+                $this->redirect(array('grade','id'=>$_POST['Project']['id']));
+            }
+        }
+    }
+
+    public function actionAjaxGradeConstructType()
+    {
+        if ($_POST['grade_id'] != null){
+            $catConstruct = CatConstruct::model()->findAll();
+
+            $catConstructType = CatConstructType::model()->findAll();
+            $gradeConstructModel = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$_POST['grade_id']));
+
+            $gradeList = array();
+            foreach ($gradeConstructModel as $grade) {
+                $gradeList[$grade->_construct] = $grade->_construct;
+            }
+
+            if (Yii::app()->request->isAjaxRequest){
+                $this->renderPartial('_gradeConstructTypeForm',
+                    array('gradeConstructModel'=>$gradeList,
+                        'catConstruct'=>$catConstruct,
+                        'catConstructType'=>$catConstructType,
+                        'grade_id'=>$_POST['grade_id']), false, true);
+            }
+        }
+    }
+
+    public function actionAjaxGradeConstruct()
+    {
+        if (!empty($_POST['grade_id']) && !empty($_POST['catConstructType'])){
+
+            $criteria = new CDbCriteria();
+            $criteria->condition = '_type=:type';
+            $criteria->params = array(':type'=>$_POST['catConstructType']);
+
+            $catConstruct = CatConstruct::model()->findAll($criteria);
+            if (!empty($_POST['construct_id'])){
+                $construct_old_id = $_POST['construct_id'];
+            } else {
+                $construct_old_id = 0;
+            }
+            $this->renderPartial('_gradeConstructForm',
+                array(
+                    'construct_old_id'=>$construct_old_id,
+                    'catConstruct'=>$catConstruct,
+                    'grade_id'=>$_POST['grade_id']), false, true);
+        }
+    }
+
+    public function actionAjaxDelGradeConstruct()
+    {
+        if (!empty($_POST['grade_id']) && !empty($_POST['construct_id'])){
+            $gradeConstruct = GradeConstruct::model()->findByAttributes(array('_grade'=>$_POST['grade_id'],'_construct'=> $_POST['construct_id']));
+            if ($gradeConstruct->delete()){
+                echo 'ok';
+            } else {
+                echo 'error';
+            }
+        }
+        Yii::app()->end();
+    }
+
+    public function actionAjaxGradeConstructSave()
+    {
+        if (!empty($_POST['grade_id']) && !empty($_POST['construct_id'])){
+            if (!empty($_POST['construct_old_id'])){
+                $gradeConstruct = GradeConstruct::model()->findByAttributes(array('_grade'=>$_POST['grade_id'],'_construct'=>$_POST['construct_old_id']));
+            }
+            if ($gradeConstruct == null){
+                $gradeConstruct = new GradeConstruct();
+            }
+            $gradeConstruct->_construct = $_POST['construct_id'];
+            $gradeConstruct->_grade = $_POST['grade_id'];
+            if ($gradeConstruct->save()){
+                echo 'ok';
+            } else {
+                echo 'error';
+            }
+        }
+        Yii::app()->end();
+    }
+
+    public function actionGradeDelete($id){
+        $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$id));
+        foreach ($gradeConstruct as $construct){
+            $construct->delete();
+        }
+        $grade = Grade::model()->findByPk($id);
+        $project = $grade->_project;
+        $grade->delete();
+        $this->redirect(array('grade','id'=>$project));
+
+    }
+
+    public function actionCreate()
 	{
 		$model=new Project;
         $image = new ProjectImage();

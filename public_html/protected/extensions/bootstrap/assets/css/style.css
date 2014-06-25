@@ -87,3 +87,19 @@ button {
 .modal-dialog{
     width: 400px;
 }
+.construct {
+    border: 2px solid #555;
+    padding: 10px;
+    cursor: pointer;
+}
+.construct.selected,
+.construct:hover {
+    background-color: rgba(26, 183, 61, 0.33);
+}
+
+.construct+.construct {
+    margin-top: 5px;
+}
+.construct .construct-image {
+    margin-right: 5px;
+}

@@ -52,6 +52,7 @@ class Grade extends ActiveRecord
 			'type' => array(self::BELONGS_TO, 'CatGradeType', '_type'),
 			'project' => array(self::BELONGS_TO, 'Project', '_project'),
 			'tblCatConstructs' => array(self::MANY_MANY, 'CatConstruct', '{{grade_construct}}(_grade, _construct)'),
+            'gradeConstructs' => array(self::HAS_MANY, 'GradeConstruct', '_grade'),
 		);
 	}
 
@@ -65,6 +66,7 @@ class Grade extends ActiveRecord
 			'_project' => 'Проект',
 			'_type' => 'Тип',
 			'price' => 'Стоимость',
+			'gradeConstructs' => 'Конструктив',
 		);
 	}
 

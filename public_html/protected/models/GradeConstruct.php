@@ -41,7 +41,8 @@ class GradeConstruct extends ActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		);
+            'catConstruct' => array(self::BELONGS_TO, 'CatConstruct', '_construct'),
+        );
 	}
 
 	/**
@@ -91,4 +92,21 @@ class GradeConstruct extends ActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public static  function getListConstruct($grade_id){
+
+        $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$grade_id));
+        $selectedTypesArray = array();
+        foreach ($gradeConstruct as $construct){
+            $selectedTypesArray[$construct->catConstruct->_type] = $construct->catConstruct->type->title;
+        }
+        $types = CatConstructType::model()->findAll();
+        $typesArray = [];
+        foreach ($types as $type){
+            $typesArray[$type->id] =  $type->title;
+        }
+
+        return array_diff_key($typesArray,$selectedTypesArray);
+    }
+
 }

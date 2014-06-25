@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle = 'Редактирование "' . $model->title . '"';
+$this->pageTitle = 'Редактирование "' . ActiveRecord::getTitleType("CatConstructType",$model->_type) . '"';
 $this->breadcrumbs=array(
     'Справочник конструктивов'=>array('admin'),
     $this->pageTitle
@@ -10,7 +10,7 @@ $this->pageIcon = '<i class="fa fa-book"></i> ';
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Редактирование "<?php echo $model->title ?>"
+                Редактирование "<?php echo ActiveRecord::getTitleType("CatConstructType",$model->_type) ?>"
             </div>
             <div class="panel-body">
                 <div class="row">

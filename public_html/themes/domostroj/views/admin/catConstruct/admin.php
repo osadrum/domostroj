@@ -14,7 +14,11 @@ $this->pageIcon = '<i class="fa fa-book"></i> ';
             'template' => '{items} {pager}',
             'filter' => $model,
             'columns' => array(
-               '_type',
+                array(
+                    'name' => '_type',
+                    'filter' => ActiveRecord::getListType('CatConstructType'),
+                    'value' => 'ActiveRecord::getTitleType("CatConstructType",$data->_type)',
+                ),
                 array(
                     'name' => 'image',
                     'type' => 'raw',

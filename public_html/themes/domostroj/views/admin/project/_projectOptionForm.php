@@ -12,7 +12,7 @@
             if (array_key_exists($cat->id, $projectOptionModel)) {
                 $checked = true;
             }
-            if (!empty($projectOptionModel)){
+            if ($projectOptionModel[$cat->id] != null){
                 $value = $projectOptionModel[$cat->id];
             } else {
                 $value = '';

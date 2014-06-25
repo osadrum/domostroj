@@ -12,9 +12,14 @@
             if (array_key_exists($cat->id, $projectOptionModel)) {
                 $checked = true;
             }
+            if (!empty($projectOptionModel)){
+                $value = $projectOptionModel[$cat->id];
+            } else {
+                $value = '';
+            }
             echo '<tr>';
             echo '<td>'.CHtml::checkBox('Project[option]['.$cat->id.']', $checked) .'  '.$cat->title.' </td>';
-            echo '<td>'.CHtml::textField('Project[value]['.$cat->id.']', $projectOptionModel[$cat->id]);
+            echo '<td>'.CHtml::textField('Project[value]['.$cat->id.']', $value);
             echo '</td>';
             echo '<tr>';
         }

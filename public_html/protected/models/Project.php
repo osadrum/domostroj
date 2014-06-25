@@ -152,20 +152,41 @@ class Project extends ActiveRecord
             $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$grade_id));
         }
         if ($settings == 'image') {
-            return ($project->countImages > 0) ? CHtml::link($project->countImages." изобр.",
+            if ($project->countImages > 0){
+                $title = $project->countImages." изобр.";
+                $class = "btn btn-xs btn-two";
+            } else {
+                $title = "Добавить изобр.";
+                $class = "btn btn-xs btn-four";
+            }
+            return CHtml::link($title,
                 Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)),
-                array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить изобр.",
-                Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+                array("class"=>$class));
+
         } elseif ($settings == 'layout') {
-            return (count($project->layouts) > 0) ? CHtml::link("Изменить",
+            if (count($project->layouts) > 0){
+                $title = "Изменить";
+                $class = "btn btn-xs btn-two";
+            } else {
+                $title = "Добавить";
+                $class = "btn btn-xs btn-four";
+            }
+            return CHtml::link($title,
                 Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)),
-                array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/layout",
-                array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+                array("class"=>$class));
+
         } elseif ($settings == 'grade') {
-            return (count($project->grades) > 0) ? CHtml::link("Изменить",
+            if (count($project->grades) > 0){
+                $title = "Изменить";
+                $class = "btn btn-xs btn-two";
+            } else {
+                $title = "Добавить";
+                $class = "btn btn-xs btn-four";
+            }
+            return CHtml::link($title,
                 Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)),
-                array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить",
-                Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+                array("class"=>$class));
+
         } elseif ($settings == 'layoutOptions') {
             if (count($layoutOption) > 0){
                 $class = "btn btn-xs btn-two layout_option";

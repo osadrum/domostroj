@@ -159,32 +159,47 @@ class Project extends ActiveRecord
             return (count($project->grades) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'layoutOptions') {
             if (count($layoutOption) > 0){
-                $title = 'Изменить';
+                $title = 'Добавить';
                 $class = "btn btn-xs btn-two layout_option";
+                $projectLayoutOption = LayoutOption::model()->findAllByAttributes(array('_layout'=>$layout_id));
+                $layoutOptionTypeList = '<table class="table_construct">';
+                foreach ($projectLayoutOption as $layout){
+                    $layoutOptionTypeList .= '<tr><td>'.$layout->catLayoutOption->title . '</td>  ';
+                    $layoutOptionTypeList .= '<td>' . $layout->value . ' <td>кв.м.</td></td>';
+                    $layoutOptionTypeList .= '<td>'.CHtml::link('<i class="fa fa-pencil"></i>','#',
+                            array('data-option-id'=>$layout->catLayoutOption->id,
+                                'data-layout-id'=>$layout_id,'class'=>'edit_option')) . '  ';
+                    $layoutOptionTypeList .=  CHtml::link('<i class="fa fa-trash-o"></i>','#',
+                            array('data-option-id'=>$layout->catLayoutOption->id,
+                                'data-layout-id'=>$layout_id,
+                                'class'=>'del_option')) . '</td></tr>';
+                }
+                $layoutOptionTypeList .='</table>';
             } else {
                 $title = 'Добавить';
                 $class = "btn btn-xs btn-four layout_option";
             }
             return CHtml::link($title,
                 Yii::app()->createUrl("/admin/project/ajaxLayoutOption"),
-                array("class"=>$class, 'data-layout-id'=>$layout_id));
+                array("class"=>$class, 'data-layout-id'=>$layout_id)) . '</br>' . $layoutOptionTypeList;
         } elseif ($settings == 'gradeConstructs') {
             if (count($gradeConstruct) > 0){
                 $title = 'Добавить';
                 $class = "btn btn-xs btn-two grade_construct";
                 $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$grade_id));
-                $gradeConstructTypeList = '';
+                $gradeConstructTypeList = '<table class="table_construct">';
                 foreach ($gradeConstruct as $construct){
-                    $gradeConstructTypeList .= $construct->catConstruct->type->title . '  ';
-                    $gradeConstructTypeList .=  CHtml::link('<i class="fa fa-pencil"></i>','#',
+                    $gradeConstructTypeList .= '<tr><td>'.$construct->catConstruct->type->title . '</td>  ';
+                    $gradeConstructTypeList .= '<td>'.CHtml::link('<i class="fa fa-pencil"></i>','#',
                         array('data-construct-id'=>$construct->catConstruct->id,
                             'data-constructType-id'=>$construct->catConstruct->_type,
                             'data-grade-id'=>$grade_id,'class'=>'edit_construct')) . '  ';
                     $gradeConstructTypeList .=  CHtml::link('<i class="fa fa-trash-o"></i>','#',
                         array('data-construct-id'=>$construct->catConstruct->id,
                             'data-grade-id'=>$grade_id,
-                            'class'=>'del_construct')) . '</br>';
+                            'class'=>'del_construct')) . '</td></tr>';
                 }
+                $gradeConstructTypeList .='</table>';
             } else {
                 $title = 'Добавить';
                 $class = "btn btn-xs btn-four grade_construct";

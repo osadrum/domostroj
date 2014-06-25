@@ -43,7 +43,9 @@ class LayoutOption extends ActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		);
+            'catLayoutOption' => array(self::BELONGS_TO, 'CatLayoutOption', '_option'),
+
+        );
 	}
 
 	/**

@@ -7,7 +7,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
 ?>
 <?php echo CHtml::link('Добавить проект', Yii::app()->createUrl('/admin/project/create'), array('class' => 'btn btn-xs btn-two')) ?>
 
-<?php echo CHtml::link('Категории проектов', Yii::app()->createUrl('/admin/projectCategory'), array('class' => 'btn btn-xs btn-two')) ?>
+<?php echo CHtml::link('Категории проектов', Yii::app()->createUrl('/admin/projectCategory'), array('class' => 'btn btn-xs btn-three')) ?>
 <div class="panel-body">
     <div class="row">
         <?php $this->widget('bootstrap.widgets.TbGridView', array(
@@ -16,12 +16,12 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
             'template' => '{items} {pager}',
             'filter' => $model,
             'columns' => array(
+                'title',
                 array(
                     'name' => '_category',
                     'filter' => ActiveRecord::getListType('ProjectCategory'),
                     'value' => 'ActiveRecord::getTitleType("ProjectCategory",$data->_category)',
                 ),
-                'title',
               /*  array(
                     'name' => 'image',
                     'type' => 'raw',

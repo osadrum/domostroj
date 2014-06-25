@@ -6,12 +6,15 @@ $this->breadcrumbs = array(
 );
 $this->pageIcon = '<i class="fa fa-home"></i> ';
 ?>
-<?php echo CHtml::link('<span class="fa fa-arrow-left"></span> перейти к списку проектов', Yii::app()->createUrl('/admin/project'), array('class' => 'btn btn-xs btn-two')) ?>
+<?php echo CHtml::link('<span class="fa fa-arrow-left"></span> Назад',
+    Yii::app()->createUrl('/admin/project'), array('class' => 'btn btn-xs btn-three')) ?>
 
 <?php echo CHtml::link('Добавить комплектацию',Yii::app()->createUrl("/admin/project/ajaxGrade"),
     array('class' => 'btn btn-xs btn-two add_grade', 'data-id'=>$model->id)) ?>
 
-<?php echo CHtml::link('<span class="fa fa-home"></span> свойства проекта', Yii::app()->createUrl('/admin/project/update', array('id' => $model->id)), array('class' => 'btn btn-xs btn-two')) ?>
+<?php echo CHtml::link('<span class="fa fa-home"></span> свойства проекта',
+    Yii::app()->createUrl('/admin/project/update', array('id' => $model->id)),
+    array('class' => 'btn btn-xs btn-three')) ?>
 <div class="panel-body">
     <div class="row">
         <?php $this->widget('bootstrap.widgets.TbGridView', array(
@@ -29,7 +32,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                 array(
                     'name' => 'gradeConstructs',
                     'htmlOptions' => array(
-                        'style' => 'text-align: center;'
+                        'style' => 'text-align: center;width:25%',
                     ),
                     'filter' => '',
                     'type' => 'raw',
@@ -38,6 +41,9 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                 array(
                     'class' => 'bootstrap.widgets.TbButtonColumn',
                     'template' => '{update} &nbsp{delete}',
+                    'htmlOptions' => array(
+                        'style' => 'text-align: center;width:10%',
+                    ),
                     'buttons' => array(
                         'update' => array(
                             'label'=>'Редактировать комплектацию',

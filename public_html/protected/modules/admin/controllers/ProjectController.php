@@ -145,6 +145,19 @@ class ProjectController extends AdminController
 
     }
 
+    public function actionAjaxDelLayoutOption()
+    {
+        if (!empty($_POST['option_id']) && !empty($_POST['layout_id'])){
+            $layoutOption = LayoutOption::model()->findByAttributes(array('_layout'=>$_POST['layout_id'],'_option'=> $_POST['option_id']));
+            if ($layoutOption->delete()){
+                echo 'ok';
+            } else {
+                echo 'error';
+            }
+        }
+        Yii::app()->end();
+    }
+
     public function actionLayoutDelete($id){
         $layoutOptionModel = LayoutOption::model()->findAllByAttributes(array('_layout'=>$id));
         foreach ($layoutOptionModel as $layout){

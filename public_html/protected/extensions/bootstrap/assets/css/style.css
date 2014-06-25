@@ -103,3 +103,15 @@ button {
 .construct .construct-image {
     margin-right: 5px;
 }
+.table_construct {
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
+.table_construct td + td {
+    width: 17%;
+}
+.table_construct tr+tr{
+    border-top: 1px solid #ddd;
+
+}

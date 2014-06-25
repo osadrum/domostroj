@@ -104,7 +104,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
         if(confirm('Удалить помещение?')){
             $.ajax({
                 url: '<?php echo Yii::app()->createAbsoluteUrl('admin/project/ajaxDelLayoutOption')?>',
-                data: {option_id:$(this).attr('data-option-id'), layout_id:$(this).attr('data-layout-id')},
+                data: {id:$(this).attr('data-id')},
                 type: 'post',
                 success: function(html) {
                     if (html == 'ok') {
@@ -121,14 +121,11 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     $('.edit_option').on('click', function() {
         $('#modal').modal('toggle');
         $.ajax({
-            url: '<?php echo Yii::app()->createAbsoluteUrl('admin/project/ajaxGradeConstruct')?>',
-            data: {grade_id:$(this).attr('data-grade-id'), construct_id:$(this).attr('data-construct-id'), catConstructType:$(this).attr('data-constructType-id')},
+            url: '<?php echo Yii::app()->createAbsoluteUrl('admin/project/ajaxLayoutOption')?>',
+            data: {id:$(this).attr('data-id'),layout_id:$(this).attr('data-layout-id'), option_id:$(this).attr('data-option-id')},
             type: 'post',
             success: function(html) {
                 $('.modal_option').html(html);
-                $('.modal-dialog').animate({
-                    'width':'800px'
-                }, 200);
             }
         });
 

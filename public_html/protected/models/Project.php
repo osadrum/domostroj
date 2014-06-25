@@ -152,14 +152,22 @@ class Project extends ActiveRecord
             $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$grade_id));
         }
         if ($settings == 'image') {
-            return ($project->countImages > 0) ? CHtml::link($project->countImages." изобр.", Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить изобр.", Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+            return ($project->countImages > 0) ? CHtml::link($project->countImages." изобр.",
+                Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)),
+                array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить изобр.",
+                Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'layout') {
-            return (count($project->layouts) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+            return (count($project->layouts) > 0) ? CHtml::link("Изменить",
+                Yii::app()->createUrl("/admin/project/layout", array("id"=>$project_id)),
+                array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/layout",
+                array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'grade') {
-            return (count($project->grades) > 0) ? CHtml::link("Изменить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить", Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
+            return (count($project->grades) > 0) ? CHtml::link("Изменить",
+                Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)),
+                array("class"=>"btn btn-xs btn-two")) : CHtml::link("Добавить",
+                Yii::app()->createUrl("/admin/project/grade", array("id"=>$project_id)), array("class"=>"btn btn-xs btn-four"));
         } elseif ($settings == 'layoutOptions') {
             if (count($layoutOption) > 0){
-                $title = 'Добавить';
                 $class = "btn btn-xs btn-two layout_option";
                 $projectLayoutOption = LayoutOption::model()->findAllByAttributes(array('_layout'=>$layout_id));
                 $layoutOptionTypeList = '<table class="table_construct">';
@@ -168,23 +176,22 @@ class Project extends ActiveRecord
                     $layoutOptionTypeList .= '<td>' . $layout->value . ' <td>кв.м.</td></td>';
                     $layoutOptionTypeList .= '<td>'.CHtml::link('<i class="fa fa-pencil"></i>','#',
                             array('data-option-id'=>$layout->catLayoutOption->id,
-                                'data-layout-id'=>$layout_id,'class'=>'edit_option')) . '  ';
+                                'data-layout-id'=>$layout_id,'class'=>'edit_option',
+                                'data-id'=>$layout->id,'class'=>'edit_option',
+                            )) . '  ';
                     $layoutOptionTypeList .=  CHtml::link('<i class="fa fa-trash-o"></i>','#',
-                            array('data-option-id'=>$layout->catLayoutOption->id,
-                                'data-layout-id'=>$layout_id,
+                            array('data-id'=>$layout->id,
                                 'class'=>'del_option')) . '</td></tr>';
                 }
                 $layoutOptionTypeList .='</table>';
             } else {
-                $title = 'Добавить';
                 $class = "btn btn-xs btn-four layout_option";
             }
-            return CHtml::link($title,
+            return CHtml::link('Добавить помещение',
                 Yii::app()->createUrl("/admin/project/ajaxLayoutOption"),
                 array("class"=>$class, 'data-layout-id'=>$layout_id)) . '</br>' . $layoutOptionTypeList;
         } elseif ($settings == 'gradeConstructs') {
             if (count($gradeConstruct) > 0){
-                $title = 'Добавить';
                 $class = "btn btn-xs btn-two grade_construct";
                 $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$grade_id));
                 $gradeConstructTypeList = '<table class="table_construct">';
@@ -201,10 +208,9 @@ class Project extends ActiveRecord
                 }
                 $gradeConstructTypeList .='</table>';
             } else {
-                $title = 'Добавить';
                 $class = "btn btn-xs btn-four grade_construct";
             }
-            return CHtml::link($title,
+            return CHtml::link('Добавить конструктив',
                 Yii::app()->createUrl("/admin/project/ajaxGradeConstructType"),
                 array("class"=>$class, 'data-grade-id'=>$grade_id)) . '</br>' . $gradeConstructTypeList;
         } elseif ($settings == 'projectOption') {

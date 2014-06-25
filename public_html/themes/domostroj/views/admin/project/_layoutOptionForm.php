@@ -6,22 +6,16 @@
 <div class="form-group">
 
     <?php echo CHtml::hiddenField('layout_id', $layout_id); ?>
-    <table class="table table-bordered">
-        <?php foreach($catLayoutOption as $cat) {
-            $checked = false;
-            if (array_key_exists($cat->id, $layoutOptionModel)) {
-                $checked = true;
-            }
-            echo '<tr>';
-            echo '<td>'.CHtml::checkBox('Layout[option]['.$cat->id.']', $checked) .'  '.$cat->title.' </td>';
-            echo '<td>'.CHtml::textField('Layout[value]['.$cat->id.']', $layoutOptionModel[$cat->id]);
-            echo '  кв.м.</td>';
-            echo '<tr>';
-        }
-
-        ?>
-    </table>
-    </div>
+    <?php if (!empty($layoutOptionModel)) :?>
+        <?php echo CHtml::hiddenField('id', $layoutOptionModel->id); ?>
+    <?php endif;?>
+    <?php echo CHtml::dropDownList('option_id',$layoutOptionModel->_option,
+        ActiveRecord::getListType('CatLayoutOption'),
+        array('id'=>'option_id','class'=>'form-control'))?>
+</div>
+<div class="form-group">
+    <?php echo CHtml::textField('value',$layoutOptionModel->value,array('class'=>'form-control'));?>
+</div>
 
     <div class="form-actions">
         <?php $this->widget('bootstrap.widgets.TbButton', array(

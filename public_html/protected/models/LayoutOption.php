@@ -31,7 +31,7 @@ class LayoutOption extends ActiveRecord
 			array('value', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('_layout, _option, value', 'safe', 'on'=>'search'),
+			array('id,_layout, _option, value', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,6 +54,7 @@ class LayoutOption extends ActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+            'id' => 'ID',
 			'_layout' => 'Планировка',
 			'_option' => 'Параметры',
 			'value' => 'Значение',
@@ -77,7 +78,7 @@ class LayoutOption extends ActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+        $criteria->compare('id',$this->id);
 		$criteria->compare('_layout',$this->_layout);
 		$criteria->compare('_option',$this->_option);
 		$criteria->compare('value',$this->value,true);

@@ -108,15 +108,18 @@ class ProjectController extends AdminController
     {
         if ($_POST['layout_id'] != null){
             $catLayoutOption = CatLayoutOption::model()->findAll();
-            $layoutOptionModel = LayoutOption::model()->findAllByAttributes(array('_layout'=>$_POST['layout_id']));
             $layoutList = array();
-            foreach ($layoutOptionModel as $layout) {
+          /*  foreach ($layoutOptionModel as $layout) {
                 $layoutList[$layout->_option] = $layout->value;
+            }*/
+            if (!empty($_POST['option_id'])){
+                $layoutOptionModel =  LayoutOption::model()->findByPk($_POST['id']);
+            } else {
+                $layoutOptionModel = new LayoutOption();
             }
-
             if (Yii::app()->request->isAjaxRequest){
                 $this->renderPartial('_layoutOptionForm',
-                    array('layoutOptionModel'=>$layoutList,
+                    array('layoutOptionModel'=>$layoutOptionModel,
                           'catLayoutOption'=>$catLayoutOption,
                           'layout_id'=>$_POST['layout_id']), false, true);
             }
@@ -125,30 +128,27 @@ class ProjectController extends AdminController
 
     public function actionLayoutOptionSave()
     {
-            $layoutOptionModel = LayoutOption::model()->findAllByAttributes(array('_layout'=>$_POST['layout_id']));
+        if (!empty($_POST['layout_id']) && !empty($_POST['option_id']) && !empty($_POST['value'])){
             $project_id = Layout::model()->findByPk($_POST['layout_id'])->_project;
-        if ($layoutOptionModel != null){
-            foreach ($layoutOptionModel as $layout){
-                $layout->delete();
+            if (!empty($_POST['id'])){
+                $layoutOptionModel = LayoutOption::model()->findByPk($_POST['id']);
+            } else {
+                $layoutOptionModel = new LayoutOption();
+            }
+            $layoutOptionModel->_layout = $_POST['layout_id'];
+            $layoutOptionModel->_option = $_POST['option_id'];
+            $layoutOptionModel->value = $_POST['value'];
+            if ($layoutOptionModel->save()){
+                $this->redirect(array('layout','id'=>$project_id));
+
             }
         }
-        $layoutArray = array_intersect_key($_POST['Layout']['value'], $_POST['Layout']['option']);
-        foreach ($_POST['Layout']['option'] as $key=>$value){
-            $layoutOptionModel = new LayoutOption();
-            $layoutOptionModel->_layout = $_POST['layout_id'];
-            $layoutOptionModel->_option = $key;
-            $layoutOptionModel->value = $layoutArray[$key];
-            $layoutOptionModel->save();
-        }
-
-        $this->redirect(array('layout','id'=>$project_id));
-
     }
 
     public function actionAjaxDelLayoutOption()
     {
-        if (!empty($_POST['option_id']) && !empty($_POST['layout_id'])){
-            $layoutOption = LayoutOption::model()->findByAttributes(array('_layout'=>$_POST['layout_id'],'_option'=> $_POST['option_id']));
+        if (!empty($_POST['id'])){
+            $layoutOption = LayoutOption::model()->findByPk($_POST['id']);
             if ($layoutOption->delete()){
                 echo 'ok';
             } else {
@@ -357,6 +357,7 @@ class ProjectController extends AdminController
 		if(isset($_POST['Project']))
 		{
 			$model->attributes=$_POST['Project'];
+			$model->is_published=0;
 			if($model->save())
                 $this->redirect(array('view','id'=>$model->id));
 		}

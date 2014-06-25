@@ -92,10 +92,10 @@ class m140618_115652_create_tables_for_projects extends CDbMigration
 
 
         $this->createTable('{{layout_option}}', array(
+            'id' => 'int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             '_layout' => 'int(10) NOT NULL',
             '_option' => 'int(10) NOT NULL',
             'value' => 'varchar(255) NOT NULL',
-            'PRIMARY KEY (`_layout`, `_option`)'
         ));
 
         $this->createTable('{{grade}}', array(

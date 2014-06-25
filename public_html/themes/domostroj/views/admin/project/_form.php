@@ -111,12 +111,13 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
         <br><a href="#" class="del_image" data-image-name="<?php echo $model->image ?>">Удалить фото</a>
     <?php endif ?>
 </div>
-
-<div class="form-group">
-    <?php echo $form->labelEx($model,'is_published',array()) ?>
-    <?php echo $form->dropDownList($model,'is_published',ActiveRecord::getIsPublishedTitleList(),array('class'=>'form-control')); ?>
-    <?php echo $form->error($model,'is_published'); ?>
-</div>
+<?php if (!empty($model->grades) && !empty($model->layouts) && !empty($model->projectOption) && !empty($model->projectImages)) :?>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'is_published',array()) ?>
+        <?php echo $form->dropDownList($model,'is_published',ActiveRecord::getIsPublishedTitleList(),array('class'=>'form-control')); ?>
+        <?php echo $form->error($model,'is_published'); ?>
+    </div>
+<?php endif; ?>
 <hr>
 <h3>SEO параметры</h3>
 

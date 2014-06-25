@@ -30,7 +30,8 @@ class ActiveRecord extends CActiveRecord
     }
 
     public static function getTitleType($class,$id){
-        return $class::model()->findByPk($id)->title;
+        $model = $class::model()->findByPk($id);
+        return $model->title;
     }
 
 }

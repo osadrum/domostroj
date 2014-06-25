@@ -35,7 +35,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,image)'
+                    'value' => 'Project::projectSetting($data->id,"image")'
                 ),
                 array(
                     'name' => 'layouts',
@@ -44,7 +44,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,layout)'
+                    'value' => 'Project::projectSetting($data->id,"layout")'
                 ),
                 array(
                     'name' => 'grades',
@@ -53,7 +53,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,grade)'
+                    'value' => 'Project::projectSetting($data->id,"grade")'
                 ),
                 array(
                     'name' => 'projectOption',
@@ -62,7 +62,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,projectOption)'
+                    'value' => 'Project::projectSetting($data->id,"projectOption")'
                 ),
                 array(
                     'name' => 'is_published',

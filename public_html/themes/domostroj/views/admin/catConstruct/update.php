@@ -1,7 +1,7 @@
 <?php
 $this->pageTitle = 'Редактирование "' . ActiveRecord::getTitleType("CatConstructType",$model->_type) . '"';
 $this->breadcrumbs=array(
-    'Справочник конструктивов'=>array('admin'),
+    'Справочник видов конструктивов'=>array('admin'),
     $this->pageTitle
 );
 $this->pageIcon = '<i class="fa fa-book"></i> ';

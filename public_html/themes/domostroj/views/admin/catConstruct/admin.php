@@ -1,11 +1,11 @@
 <?php
-$this->pageTitle = 'Справочник конструктивов';
+$this->pageTitle = 'Справочник видов конструктивов';
 $this->breadcrumbs=array(
     $this->pageTitle
 );
 $this->pageIcon = '<i class="fa fa-book"></i> ';
 ?>
-<?php echo CHtml::link('Добавить конструктив', Yii::app()->createUrl('/admin/catConstruct/create'), array('class' => 'btn btn-xs btn-two')) ?>
+<?php echo CHtml::link('Добавить вид конструктивов', Yii::app()->createUrl('/admin/catConstruct/create'), array('class' => 'btn btn-xs btn-two')) ?>
 <div class="panel-body">
     <div class="row">
         <?php $this->widget('bootstrap.widgets.TbGridView', array(

@@ -1,7 +1,7 @@
 <?php
-$this->pageTitle = 'Создание типа планировок';
+$this->pageTitle = 'Создание уровня';
 $this->breadcrumbs=array(
-    'Справочник типов планировок'=>array('admin'),
+    'Справочник уровней'=>array('admin'),
     $this->pageTitle,
 );
 $this->pageIcon = '<i class="fa fa-book"></i> ';
@@ -11,7 +11,7 @@ $this->pageIcon = '<i class="fa fa-book"></i> ';
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Создание типа планировок
+                Создание уровня
             </div>
             <div class="panel-body">
                 <div class="row">

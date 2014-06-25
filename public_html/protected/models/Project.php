@@ -83,6 +83,7 @@ class Project extends ActiveRecord
             'countImages' => 'Доп. изображения',
             'layouts' => 'Планировка',
             'grades' => 'Комплектация',
+            'tblCatProjectOptions' => 'Параметры',
             'image' => 'Изображение',
 			'sort' => '№ п/п',
 			'is_published' => 'Опубликовано',

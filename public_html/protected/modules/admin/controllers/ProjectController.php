@@ -298,6 +298,45 @@ class ProjectController extends AdminController
 
     }
 
+    public function actionAjaxProjectOption()
+    {
+        if ($_POST['project_id'] != null){
+            $catProjectOption = CatProjectOption::model()->findAll();
+            $projectOptionModel = ProjectOption::model()->findAllByAttributes(array('_project'=>$_POST['project_id']));
+            $projectList = array();
+            foreach ($projectOptionModel as $project) {
+                $projectList[$project->_option] = $project->value;
+            }
+            if (Yii::app()->request->isAjaxRequest){
+                $this->renderPartial('_projectOptionForm',
+                    array('projectOptionModel'=>$projectList,
+                        'catProjectOption'=>$catProjectOption,
+                        'project_id'=>$_POST['project_id']), false, true);
+            }
+        }
+    }
+
+    public function actionProjectOptionSave()
+    {
+        $projectOptionModel = ProjectOption::model()->findAllByAttributes(array('_project'=>$_POST['project_id']));
+        if ($projectOptionModel != null){
+            foreach ($projectOptionModel as $project){
+                $project->delete();
+            }
+        }
+        $projectArray = array_intersect_key($_POST['Project']['value'], $_POST['Project']['option']);
+        foreach ($_POST['Project']['option'] as $key=>$value){
+            $projectOptionModel = new ProjectOption();
+            $projectOptionModel->_project = $_POST['project_id'];
+            $projectOptionModel->_option = $key;
+            $projectOptionModel->value = $projectArray[$key];
+            $projectOptionModel->save();
+        }
+
+        $this->redirect(array('/admin/project'));
+
+    }
+
     public function actionCreate()
 	{
 		$model=new Project;
@@ -398,6 +437,8 @@ class ProjectController extends AdminController
 		{
             $project = $this->loadModel($id);
             $projectImage = ProjectImage::model()->findAllByAttributes(array('_project'=>$id));
+            $projectOptionModel = ProjectOption::model()->findAllByAttributes(array('_project'=>$id));
+
             foreach ($projectImage as $image){
                 $image->delete();
             }
@@ -406,6 +447,9 @@ class ProjectController extends AdminController
                     $layoutOption->delete();
                 }
                 $layout->delete();
+            }
+            foreach ($projectOptionModel as $project){
+                $project->delete();
             }
             $project->delete();
 

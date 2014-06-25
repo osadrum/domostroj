@@ -55,15 +55,15 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     'type' => 'raw',
                     'value' => 'Project::projectSetting($data->id,grade)'
                 ),
-                /*array(
-                    'name' => 'tblCatProjectOptions',
+                array(
+                    'name' => 'projectOption',
                     'htmlOptions' => array(
                         'style' => 'text-align: center;'
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,grade)'
-                ),*/
+                    'value' => 'Project::projectSetting($data->id,projectOption)'
+                ),
                 array(
                     'name' => 'is_published',
                     'filter' => ActiveRecord::getIsPublishedTitleList(),
@@ -79,6 +79,25 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     <!-- /.row (nested) -->
 </div>
 <!-- /.panel-body -->
+<?php $this->renderPartial('_layoutModal')?>
+
+<script>
+    $('.project_option').on('click', function() {
+        $('#modal').modal('toggle');
+
+        $.ajax({
+            url: $(this).attr('href'),
+            data: {project_id:$(this).attr('data-project-id')},
+            type: 'post',
+            success: function(html) {
+                $('.modal_option').html(html);
+            }
+        });
+
+        return false;
+    });
+
+</script>
 
 
 

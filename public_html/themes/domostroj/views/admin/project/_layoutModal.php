@@ -5,8 +5,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <?php if ($this->action->id == 'grade'){
                     $title = 'Комплектация';
-                } else {
+                } elseif ($this->action->id == 'layout') {
                     $title = 'Планировка';
+                } else {
+                    $title = 'Параметры';
                 }?>
                 <h4 class="catalog-title"><?= $title; ?></h4>
             </div>

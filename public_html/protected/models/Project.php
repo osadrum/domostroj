@@ -64,7 +64,7 @@ class Project extends ActiveRecord
 			'category' => array(self::BELONGS_TO, 'ProjectCategory', '_category'),
 			'projectImages' => array(self::HAS_MANY, 'ProjectImage', '_project'),
 			'countImages' => array(self::STAT, 'ProjectImage', '_project'),
-			'tblCatProjectOptions' => array(self::MANY_MANY, 'CatProjectOption', '{{project_option}}(_project, _option)'),
+			'projectOption' => array(self::MANY_MANY, 'CatProjectOption', '{{project_option}}(_project, _option)'),
 		);
 	}
 
@@ -83,7 +83,7 @@ class Project extends ActiveRecord
             'countImages' => 'Доп. изображения',
             'layouts' => 'Планировка',
             'grades' => 'Комплектация',
-            'tblCatProjectOptions' => 'Параметры',
+            'projectOption' => 'Параметры',
             'image' => 'Изображение',
 			'sort' => '№ п/п',
 			'is_published' => 'Опубликовано',
@@ -192,6 +192,18 @@ class Project extends ActiveRecord
             return CHtml::link($title,
                 Yii::app()->createUrl("/admin/project/ajaxGradeConstructType"),
                 array("class"=>$class, 'data-grade-id'=>$grade_id)) . '</br>' . $gradeConstructTypeList;
+        } elseif ($settings == 'projectOption') {
+            if ($project->projectOption != null){
+                $title = 'Изменить';
+                $class = "btn btn-xs btn-two project_option";
+
+            } else {
+                $title = 'Добавить';
+                $class = "btn btn-xs btn-four project_option";
+            }
+            return CHtml::link($title,
+                Yii::app()->createUrl("/admin/project/ajaxProjectOption"),
+                array("class"=>$class, 'data-project-id'=>$project_id));
         }
     }
 

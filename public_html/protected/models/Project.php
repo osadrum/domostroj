@@ -40,7 +40,7 @@ class Project extends ActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, meta_title, meta_description, meta_keywords', 'required'),
+			array('title', 'required'),
 			array('sort, is_published, _category', 'numerical', 'integerOnly'=>true),
 			array('title, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>127),

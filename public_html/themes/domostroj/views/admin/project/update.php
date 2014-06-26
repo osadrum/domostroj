@@ -241,6 +241,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
 
 <script>
     $('.add_layout').on('click', function() {
+        $('.modal_option').html('');
         $('#modal').modal('toggle');
         $.ajax({
             url: $(this).attr('href'),
@@ -254,8 +255,8 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
         return false;
     });
     $('.layout_option').on('click', function() {
+        $('.modal_option').html('');
         $('#modal').modal('toggle');
-
         $.ajax({
             url: $(this).attr('href'),
             data: {layout_id:$(this).attr('data-layout-id')},
@@ -287,6 +288,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     });
 
     $('.edit_option').on('click', function() {
+        $('.modal_option').html('');
         $('#modal').modal('toggle');
         $.ajax({
             url: '<?php echo Yii::app()->createAbsoluteUrl('admin/project/ajaxLayoutOption')?>',
@@ -300,6 +302,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
         return false;
     });
     $('.project_option').on('click', function() {
+        $('.modal_option').html('');
         $('#modal').modal('toggle');
 
         $.ajax({
@@ -316,6 +319,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
 
 
     $('.add_grade').on('click', function() {
+        $('.modal_option').html('');
         $('#modal').modal('toggle');
         $('.modal-dialog').animate({
             'width':'400px'
@@ -332,8 +336,8 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
         return false;
     });
     $('.grade_construct').on('click', function() {
+        $('.modal_option').html('');
         $('#modal').modal('toggle');
-
         $.ajax({
             url: $(this).attr('href'),
             data: {grade_id:$(this).attr('data-grade-id')},
@@ -368,6 +372,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     });
 
     $('.edit_construct').on('click', function() {
+        $('.modal_option').html('');
         $('#modal').modal('toggle');
         $.ajax({
             url: '<?php echo Yii::app()->createAbsoluteUrl('admin/project/ajaxGradeConstruct')?>',

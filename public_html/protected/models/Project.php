@@ -41,6 +41,7 @@ class Project extends ActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title', 'required'),
+			array('sort', 'default','value'=>0),
 			array('sort, is_published, _category', 'numerical', 'integerOnly'=>true),
 			array('title, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>127),

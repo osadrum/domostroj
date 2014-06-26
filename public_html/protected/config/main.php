@@ -8,6 +8,7 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Домострой',
+    'language' => 'ru',
     'theme' => 'domostroj',
 	// preloading 'log' component
 	'preload'=>array('log', 'bootstrap'),
@@ -58,6 +59,11 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
+        'clientScript' => array(
+            'scriptMap' => array(
+                'jquery.js' => '/js/jquery.js',
+            ),
+        ),
         'db'=> require('db.php'),
 
 		'errorHandler'=>array(

@@ -8,11 +8,12 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
 ?>
 <div class="row">
     <div class="col-lg-12">
-        <?php echo CHtml::link('<span class="fa fa-arrow-left"></span> Назад', Yii::app()->createUrl('/admin/project'),
-            array('class' => 'btn btn-xs btn-three')) ?>
-        <?php echo CHtml::link('<span class="fa fa-home"></span> свойства проекта',
+        <?php echo CHtml::link('<span class="fa fa-home"></span> Свойства проекта',
             Yii::app()->createUrl('/admin/project/update', array('id' => $model->id)),
             array('class' => 'btn btn-xs btn-three')) ?>
+        <?php echo CHtml::link('<span class="fa fa-list"></span> Список проектов', Yii::app()->createUrl('/admin/project'),
+            array('class' => 'btn btn-xs btn-three')) ?>
+
     </div>
 </div>
 <div class="panel-body">

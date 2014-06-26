@@ -34,10 +34,10 @@ $(document).ready(function() {
 		'scrolling'   		: 'no'
 	});
 	// Masonry
-    /*var container = document.querySelector('#masonryWr');
+	var container = document.querySelector('#masonryWr');
 	var msnry = new Masonry( container, {
 	  itemSelector: '.item'
-	});*/
+	});
 	// Scroll to top
 	$().UItoTop({ easingType: 'easeOutQuart' });
 	// Inview animations

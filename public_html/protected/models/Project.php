@@ -142,7 +142,7 @@ class Project extends ActiveRecord
 
     }
 
-    public static function projectSetting($project_id,$settings,$layout_id=null,$grade_id=null)
+    public static function projectSetting($project_id,$settings,$layout_id=null,$grade_id=null,$title=null)
     {
         $project = self::model()->findByPk($project_id);
         if ($layout_id != 0){
@@ -152,23 +152,21 @@ class Project extends ActiveRecord
             $gradeConstruct = GradeConstruct::model()->findAllByAttributes(array('_grade'=>$grade_id));
         }
         if ($settings == 'image') {
-            if ($project->countImages > 0){
-                $title = $project->countImages." изобр.";
-                $class = "btn btn-xs btn-two";
-            } else {
-                $title = "Добавить изобр.";
-                $class = "btn btn-xs btn-four";
-            }
-            return CHtml::link($title,
+
+            return CHtml::link('Редактировать',
                 Yii::app()->createUrl("/admin/project/image", array("id"=>$project_id)),
-                array("class"=>$class));
+                array("class"=>"btn btn-xs btn-two"));
 
         } elseif ($settings == 'layout') {
             if (count($project->layouts) > 0){
-                $title = "Изменить";
+                if ($title == null){
+                    $title = "Изменить";
+                }
                 $class = "btn btn-xs btn-two";
             } else {
-                $title = "Добавить";
+                if ($title == null){
+                    $title = "Добавить";
+                }
                 $class = "btn btn-xs btn-four";
             }
             return CHtml::link($title,
@@ -177,10 +175,14 @@ class Project extends ActiveRecord
 
         } elseif ($settings == 'grade') {
             if (count($project->grades) > 0){
-                $title = "Изменить";
+                if ($title == null){
+                    $title = "Изменить";
+                }
                 $class = "btn btn-xs btn-two";
             } else {
-                $title = "Добавить";
+                if ($title == null){
+                    $title = "Добавить";
+                }
                 $class = "btn btn-xs btn-four";
             }
             return CHtml::link($title,
@@ -211,6 +213,7 @@ class Project extends ActiveRecord
             return CHtml::link('Добавить помещение',
                 Yii::app()->createUrl("/admin/project/ajaxLayoutOption"),
                 array("class"=>$class, 'data-layout-id'=>$layout_id)) . '</br>' . $layoutOptionTypeList;
+
         } elseif ($settings == 'gradeConstructs') {
             if (count($gradeConstruct) > 0){
                 $class = "btn btn-xs btn-two grade_construct";
@@ -234,19 +237,42 @@ class Project extends ActiveRecord
             return CHtml::link('Добавить конструктив',
                 Yii::app()->createUrl("/admin/project/ajaxGradeConstructType"),
                 array("class"=>$class, 'data-grade-id'=>$grade_id)) . '</br>' . $gradeConstructTypeList;
+
         } elseif ($settings == 'projectOption') {
             if ($project->projectOption != null){
-                $title = 'Изменить';
+                if ($title == null){
+                    $title = 'Изменить';
+                }
                 $class = "btn btn-xs btn-two project_option";
 
             } else {
-                $title = 'Добавить';
-                $class = "btn btn-xs btn-four project_option";
+                if ($title == null){
+                    $title = 'Добавить';
+                }
+                $class = "btn btn-xs btn-two project_option";
             }
             return CHtml::link($title,
                 Yii::app()->createUrl("/admin/project/ajaxProjectOption"),
                 array("class"=>$class, 'data-project-id'=>$project_id));
         }
+    }
+
+    public static function hasOption($model,$option){
+        if ($option == 'image'){
+            $data = $model->projectImages;
+        } elseif ($option == 'layout'){
+            $data = $model->layouts;
+        } elseif ($option == 'grade'){
+            $data = $model->layouts;
+        } elseif ($option == 'projectOption'){
+            $data = $model->layouts;
+        }
+        if (!empty($data)){
+            return '<i class="fa fa-check"></i>';
+        } else {
+            return '<i class="fa fa-circle-o"></i>';
+        }
+
     }
 
 }

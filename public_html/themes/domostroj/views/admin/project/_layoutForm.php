@@ -24,7 +24,7 @@
 <?php
 $this->widget('ext.EAjaxUpload.EAjaxUpload',
     array(
-        'id' => 'uploadFile',
+        'id' => 'uploadLayoutFile',
         'config' => array(
             'action' => Yii::app()->createUrl('/admin/file/imageUpload?type=imageSizeCategory'),
             'allowedExtensions' => Yii::app()->params['imageTypes'], //array("jpg","jpeg","gif","exe","mov" and etc...
@@ -77,11 +77,11 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
 
     function hideUploadButton() {
         $('.qq-upload-success').remove();
-        $('#uploadFile').hide();
+        $('#uploadLayoutFile').hide();
     }
 
     function showUploadButton() {
-        $('#uploadFile').show();
+        $('#uploadLayoutFile').show();
         $('.image').hide().empty();
     }
 

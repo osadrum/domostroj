@@ -22,7 +22,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     'filter' => ActiveRecord::getListType('ProjectCategory'),
                     'value' => 'ActiveRecord::getTitleType("ProjectCategory",$data->_category)',
                 ),
-              /*  array(
+                /*array(
                     'name' => 'image',
                     'type' => 'raw',
                     'filter' => '',
@@ -34,8 +34,8 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                         'style' => 'text-align: center;'
                     ),
                     'filter' => '',
-                    'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,"image")'
+                    'type' => 'html',
+                    'value' => 'Project::hasOption($data,"image")'
                 ),
                 array(
                     'name' => 'layouts',
@@ -44,7 +44,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,"layout")'
+                    'value' => 'Project::hasOption($data,"layout")'
                 ),
                 array(
                     'name' => 'grades',
@@ -53,7 +53,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,"grade")'
+                    'value' => 'Project::hasOption($data,"grade")'
                 ),
                 array(
                     'name' => 'projectOption',
@@ -62,7 +62,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                     ),
                     'filter' => '',
                     'type' => 'raw',
-                    'value' => 'Project::projectSetting($data->id,"projectOption")'
+                    'value' => 'Project::hasOption($data,"projectOption")'
                 ),
                 array(
                     'name' => 'is_published',
@@ -78,9 +78,6 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     </div>
     <!-- /.row (nested) -->
 </div>
-<!-- /.panel-body -->
-<?php $this->renderPartial('_layoutModal')?>
-
 <script>
     $('.project_option').on('click', function() {
         $('#modal').modal('toggle');

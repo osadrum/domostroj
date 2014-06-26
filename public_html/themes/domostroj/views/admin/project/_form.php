@@ -111,7 +111,7 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
         <br><a href="#" class="del_image" data-image-name="<?php echo $model->image ?>">Удалить фото</a>
     <?php endif ?>
 </div>
-<?php if (!empty($model->grades) && !empty($model->layouts) && !empty($model->projectOption) && !empty($model->projectImages)) :?>
+<?php if (!empty($model->grades) && !empty($model->layouts) && !empty($model->projectOption)) :?>
     <div class="form-group">
         <?php echo $form->labelEx($model,'is_published',array()) ?>
         <?php echo $form->dropDownList($model,'is_published',ActiveRecord::getIsPublishedTitleList(),array('class'=>'form-control')); ?>

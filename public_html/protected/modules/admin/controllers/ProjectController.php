@@ -2,13 +2,13 @@
 
 class ProjectController extends AdminController
 {
-    public function actionView($id)
+   /* public function actionView($id)
 
     {
         $this->render('view',array(
             'model'=>$this->loadModel($id),
         ));
-    }
+    }*/
 
     public function actionImage($id)
 
@@ -42,7 +42,7 @@ class ProjectController extends AdminController
         }
     }
 
-    public function actionLayout($id)
+   /* public function actionLayout($id)
     {
         $criteria = new CDbCriteria();
         $criteria->condition = '_project=:project';
@@ -57,7 +57,7 @@ class ProjectController extends AdminController
             'model'=>$this->loadModel($id),
             'layout' => $layout,
         ));
-    }
+    }*/
 
     public function actionLayoutSave($id=null){
         if (isset($_POST['Layout']) && isset($_POST['Project'])){
@@ -82,7 +82,7 @@ class ProjectController extends AdminController
             }
             $layoutModel->image = $_POST['Layout']['image'];
             if ($layoutModel->save()){
-                $this->redirect(array('layout','id'=>$_POST['Project']['id']));
+                $this->redirect(array('/admin/project/update/id/' . $_POST['Project']['id']));
             }
         }
     }
@@ -139,7 +139,7 @@ class ProjectController extends AdminController
             $layoutOptionModel->_option = $_POST['option_id'];
             $layoutOptionModel->value = $_POST['value'];
             if ($layoutOptionModel->save()){
-                $this->redirect(array('layout','id'=>$project_id));
+                $this->redirect(array('/admin/project/update/id/' . $project_id));
 
             }
         }
@@ -166,10 +166,10 @@ class ProjectController extends AdminController
         $layoutModel = Layout::model()->findByPk($id);
         $project_id = $layoutModel->_project;
         $layoutModel->delete();
-        $this->redirect(array('layout','id'=>$project_id));
+        $this->redirect(array('/admin/project/update/id/' . $project_id));
     }
 
-    public function actionGrade($id)
+   /* public function actionGrade($id)
 
     {
         $criteria = new CDbCriteria();
@@ -187,7 +187,7 @@ class ProjectController extends AdminController
             'model'=>$this->loadModel($id),
             'grade' => $grade,
         ));
-    }
+    }*/
 
     public function actionAjaxGrade($id=null)
     {
@@ -216,7 +216,7 @@ class ProjectController extends AdminController
             $gradeModel->_type = $_POST['Grade']['_type'];
             $gradeModel->price = $_POST['Grade']['price'];
             if ($gradeModel->save()){
-                $this->redirect(array('grade','id'=>$_POST['Project']['id']));
+                $this->redirect(array('/admin/project/update/id/' . $_POST['Project']['id']));
             }
         }
     }
@@ -307,7 +307,7 @@ class ProjectController extends AdminController
         $grade = Grade::model()->findByPk($id);
         $project = $grade->_project;
         $grade->delete();
-        $this->redirect(array('grade','id'=>$project));
+        $this->redirect(array('/admin/project/update/id/' . $project));
 
     }
 
@@ -346,7 +346,7 @@ class ProjectController extends AdminController
             $projectOptionModel->save();
         }
 
-        $this->redirect(array('/admin/project'));
+        $this->redirect(array('/admin/project/update/id/' . $_POST['project_id']));
 
     }
 
@@ -359,7 +359,7 @@ class ProjectController extends AdminController
 			$model->attributes=$_POST['Project'];
 			$model->is_published=0;
 			if($model->save())
-                $this->redirect(array('view','id'=>$model->id));
+                $this->redirect(array('update','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -378,9 +378,35 @@ class ProjectController extends AdminController
 			if($model->save())
 				$this->redirect(array('admin'));
 		}
+        $criteria = new CDbCriteria();
+        $criteria->condition = '_project=:project';
+        $criteria->params = array(':project'=>$id);
 
+        $projectImage=new CActiveDataProvider('ProjectImage', array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>4,
+            ),
+        ));
+        $projectLayout=new CActiveDataProvider('Layout', array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>4,
+            ),
+        ));
+        $projectGrade=new CActiveDataProvider('Grade', array(
+            'criteria' => $criteria,
+            'pagination'=>array(
+                'pageSize'=>4,
+            ),
+        ));
+        $projectOption= ProjectOption::model()->findAllByAttributes(array('_project'=>$id));
 		$this->render('update',array(
 			'model'=>$model,
+			'projectImage'=>$projectImage,
+			'projectLayout'=>$projectLayout,
+			'projectGrade'=>$projectGrade,
+			'projectOption'=>$projectOption,
 		));
 	}
 

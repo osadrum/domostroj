@@ -32,20 +32,20 @@ class Controller extends CController
 
     public function init()
     {
-        Yii::app()->getClientScript()->registerCoreScript('jquery');
+        Yii::app()->getClientScript()->registerCoreScript('jquery', CClientScript::POS_END);
         Yii::app()->clientScript->registerCssFile($this->getAssetsUrl() . '/css/global-style.css');
         Yii::app()->clientScript->registerCssFile($this->getAssetsUrl() . '/css/style.css');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/hover-dropdown/bootstrap-hover-dropdown.min.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/masonry/masonry.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/page-scroller/jquery.ui.totop.min.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/mixitup/jquery.mixitup.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/mixitup/jquery.mixitup.init.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/fancybox/jquery.fancybox.pack.js?v=2.1.5');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/easy-pie-chart/jquery.easypiechart.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/waypoints/waypoints.min.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/sticky/jquery.sticky.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/js/jquery.wp.custom.js');
-        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/js/jquery.wp.switcher.js');
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/hover-dropdown/bootstrap-hover-dropdown.min.js', CClientScript::POS_END);
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/masonry/masonry.js', CClientScript::POS_END);
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/page-scroller/jquery.ui.totop.min.js', CClientScript::POS_END);
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/mixitup/jquery.mixitup.js', CClientScript::POS_END);
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/mixitup/jquery.mixitup.init.js', CClientScript::POS_END);
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/fancybox/jquery.fancybox.pack.js?v=2.1.5', CClientScript::POS_END);
+        //Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/easy-pie-chart/jquery.easypiechart.js');
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/waypoints/waypoints.min.js', CClientScript::POS_END);
+        //Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/sticky/jquery.sticky.js');
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/js/jquery.wp.custom.js', CClientScript::POS_END);
+       // Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/js/jquery.wp.switcher.js');
 
         $this->menuItems = array(
             array('label' => 'Проекты',

@@ -243,6 +243,9 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     $('.add_layout').on('click', function() {
         $('.modal_option').html('');
         $('#modal').modal('toggle');
+        $('.modal-dialog').animate({
+            'width':'400px'
+        }, 200);
         $.ajax({
             url: $(this).attr('href'),
             data: {project_id:$(this).attr('data-id')},
@@ -257,6 +260,9 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     $('.layout_option').on('click', function() {
         $('.modal_option').html('');
         $('#modal').modal('toggle');
+        $('.modal-dialog').animate({
+            'width':'400px'
+        }, 200);
         $.ajax({
             url: $(this).attr('href'),
             data: {layout_id:$(this).attr('data-layout-id')},
@@ -290,6 +296,9 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     $('.edit_option').on('click', function() {
         $('.modal_option').html('');
         $('#modal').modal('toggle');
+        $('.modal-dialog').animate({
+            'width':'400px'
+        }, 200);
         $.ajax({
             url: '<?php echo Yii::app()->createAbsoluteUrl('admin/project/ajaxLayoutOption')?>',
             data: {id:$(this).attr('data-id'),layout_id:$(this).attr('data-layout-id'), option_id:$(this).attr('data-option-id')},
@@ -304,6 +313,9 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     $('.project_option').on('click', function() {
         $('.modal_option').html('');
         $('#modal').modal('toggle');
+        $('.modal-dialog').animate({
+            'width':'400px'
+        }, 200);
 
         $.ajax({
             url: $(this).attr('href'),
@@ -338,6 +350,9 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     $('.grade_construct').on('click', function() {
         $('.modal_option').html('');
         $('#modal').modal('toggle');
+        $('.modal-dialog').animate({
+            'width':'400px'
+        }, 200);
         $.ajax({
             url: $(this).attr('href'),
             data: {grade_id:$(this).attr('data-grade-id')},
@@ -374,15 +389,15 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
     $('.edit_construct').on('click', function() {
         $('.modal_option').html('');
         $('#modal').modal('toggle');
+        $('.modal-dialog').animate({
+            'width':'800px'
+        }, 200);
         $.ajax({
             url: '<?php echo Yii::app()->createAbsoluteUrl('admin/project/ajaxGradeConstruct')?>',
             data: {grade_id:$(this).attr('data-grade-id'), construct_id:$(this).attr('data-construct-id'), catConstructType:$(this).attr('data-constructType-id')},
             type: 'post',
             success: function(html) {
                 $('.modal_option').html(html);
-                $('.modal-dialog').animate({
-                    'width':'800px'
-                }, 200);
             }
         });
 

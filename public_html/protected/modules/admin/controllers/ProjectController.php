@@ -337,12 +337,11 @@ class ProjectController extends AdminController
                 $project->delete();
             }
         }
-        $projectArray = array_intersect_key($_POST['Project']['value'], $_POST['Project']['option']);
-        foreach ($_POST['Project']['option'] as $key=>$value){
+        foreach ($_POST['Project']['value'] as $key=>$value){
             $projectOptionModel = new ProjectOption();
             $projectOptionModel->_project = $_POST['project_id'];
             $projectOptionModel->_option = $key;
-            $projectOptionModel->value = $projectArray[$key];
+            $projectOptionModel->value = $value;
             $projectOptionModel->save();
         }
 

@@ -18,7 +18,7 @@
                 $value = '';
             }
             echo '<tr>';
-            echo '<td>'.CHtml::checkBox('Project[option]['.$cat->id.']', $checked) .'  '.$cat->title.' </td>';
+            echo '<td>'.$cat->title.' </td>';
             echo '<td>'.CHtml::textField('Project[value]['.$cat->id.']', $value);
             echo '</td>';
             echo '<tr>';

@@ -36,6 +36,7 @@ return array(
             'cacheId'=>'pagesPathsMap',
         ),
         'admin',
+        'catalog'
     ),
 
 	// application components

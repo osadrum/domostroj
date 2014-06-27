@@ -62,7 +62,17 @@ class ProjectCategory extends ActiveRecord
 		);
 	}
 
-	/**
+    public function scopes()
+    {
+        return array(
+            'published' => array(
+                'condition'=>'is_published=1',
+            )
+        );
+    }
+
+
+    /**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()

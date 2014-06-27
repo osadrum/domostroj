@@ -48,16 +48,26 @@ class Controller extends CController
        // Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/js/jquery.wp.switcher.js');
 
         $this->menuItems = array(
-            array('label' => 'Проекты',
-                'url' => array('/admin/category'),
-                'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-            ),
             array('label' => 'Контакты',
                 'url' => array('/admin/category'),
                 'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
             ),
-
         );
+        $projectCategory = ProjectCategory::model()->published()->findAll();
+
+        $projectMenu = array();
+        if ($projectCategory != null) {
+            $projectItems = array();
+            foreach ($projectCategory as $cat) {
+                $projectItems[] = array(
+                    'label' => $cat->title,
+                    'url' => array('/projects/category/', 'id' => $cat->id),
+                );
+            }
+            $projectMenu = array(array('label' => 'Проекты', 'url' => '#', 'linkOptions'=> array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
+                'data-close-others'=>"true"),  'items' => $projectItems));
+        }
+        $this->menuItems = array_merge($projectMenu, $this->menuItems);
 
         $pageMenu = new PageTree();
         $pagesMenu = $pageMenu->menu();
@@ -65,6 +75,7 @@ class Controller extends CController
         if (!empty($pagesMenu)) {
             $this->menuItems = array_merge($pagesMenu, $this->menuItems);
         }
+
         if (isset(Yii::app()->user->role)) {
             if (Yii::app()->user->role == 'admin'){
                 $this->menuItemsAdmin = array(
@@ -81,7 +92,6 @@ class Controller extends CController
 
             }
         }
-
 
         parent::init();
     }

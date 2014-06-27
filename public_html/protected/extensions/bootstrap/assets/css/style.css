@@ -128,7 +128,10 @@ button {
     font-size: 16px;
 }
 .filter-row {
-    padding: 16px 0;
+    position: relative;
+}
+.filter-col {
+    margin: 10px 0;
 }
 select {
     padding: 5px 8px;
@@ -139,4 +142,22 @@ select option {
 }
 .filter-row .range-field {
     width: 70px;
+}
+.filter-slider {
+    display:inline-block;
+    height:12px;
+    width:240px;
+    margin-top: 10px
+}
+.btn-filter {
+    position: absolute;
+    padding: 5px 20px 5px 20px;
+    right: 0;
+    bottom: -34px;
+    border-top: 1px solid #fcfcfc;
+    border-left: 1px solid #e91b23;
+    border-right: 1px solid #e91b23;
+    border-bottom: 1px solid #e91b23;
+    background: #fcfcfc;
+    z-index: 9999;
 }

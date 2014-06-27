@@ -14,6 +14,11 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                 <div class="panel-heading">
                     Редактирование "<?php echo $model->title ?>"
                 </div>
+                <?php if (empty($model->grades) && !empty($model->layouts) && !empty($model->projectOption)) :?>
+                    <div class="alert alert-danger" style="margin-bottom: 0px">
+                       Для того чтобы опубликовать проект необходимо заполенить разделы "Планировка", "Комплектация" и "Параметры проекта"
+                    </div>
+                <?php endif;?>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">

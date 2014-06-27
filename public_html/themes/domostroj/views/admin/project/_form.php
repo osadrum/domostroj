@@ -48,7 +48,7 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
     array(
         'id'=>'uploadFile',
         'config'=>array(
-            'action'=>Yii::app()->createUrl('/admin/file/imageUpload?type=imageSizeCategory'),
+            'action'=>Yii::app()->createUrl('/admin/file/imageUpload?type=imageSizeProject'),
             'allowedExtensions'=>Yii::app()->params['imageTypes'],//array("jpg","jpeg","gif","exe","mov" and etc...
             'sizeLimit'=>Yii::app()->params['sizeLimit'],// maximum file size in bytes
             'minSizeLimit'=>1*1024,

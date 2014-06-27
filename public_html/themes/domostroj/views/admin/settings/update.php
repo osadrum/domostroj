@@ -50,6 +50,9 @@ $this->pageIcon = '<i class="fa fa-cogs"></i>';
                             <?php
                             elseif ($model->type == 'bool') : ?>
                                 <?php echo $form->dropDownList($model, 'value', array(1 => 'Да', 0 => 'Нет'), array('class' => 'form-control')); ?>
+                            <?php
+                            elseif ($model->type == 'send') : ?>
+                                <?php echo $form->dropDownList($model, 'value', array(0 => 'Email', 1 => 'SMS', 2=>'SMS и Email'), array('class' => 'form-control')); ?>
                             <?php endif; ?>
                             <?php echo $form->error($model, 'value'); ?>
 

@@ -75,6 +75,20 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
+    public function actionAjaxFeedback(){
+        if(!empty($_POST['Feedback'])){
+
+        }
+    }
+
+    public function actionAjaxCallback(){
+
+    }
+
+    public function actionAjaxOrder(){
+
+    }
+
 	/**
 	 * Displays the login page
 	 */

@@ -112,13 +112,10 @@ return array(
         'imageSizeCategory' => array(
             'small' => array(459, 182),
         ),
-        'imageSizeProduct' => array(
-            'small' => array(220, 183),
-            'medium' => array(406, 350),
-            'large' => array(800, 600),
-        ),
-        'imageSizeOptions' => array(
-            'small' => array(61, 61),
+        'imageSizeProject' => array(
+            'small' => array(358, 269),
+            'medium' => array(570, 428),
+            'large' => array(1000, 750),
         ),
         'imageSizeGallery' => array(
             'small' => array(140, 212),
@@ -126,9 +123,8 @@ return array(
             'large' => array(800, 600),
         ),
         'imageSizeSlider' => array(
-            'small' => array(240, 200),
-            'large' => array(480, 400),
-            'high' => array(400, 240),
+            'small' => array(240, 80),
+            'high' => array(1308, 440),
         ),
         'imageQuality' => 100,
         'imagePath' => '/upload/images/',

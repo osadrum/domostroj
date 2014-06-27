@@ -61,10 +61,10 @@ class Controller extends CController
             foreach ($projectCategory as $cat) {
                 $projectItems[] = array(
                     'label' => $cat->title,
-                    'url' => array('/projects/category/', 'id' => $cat->id),
+                    'url' => array('/catalog/default', 'category' => $cat->id),
                 );
             }
-            $projectMenu = array(array('label' => 'Проекты', 'url' => '#', 'linkOptions'=> array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
+            $projectMenu = array(array('label' => 'Проекты', 'url' => array('/catalog'), 'linkOptions'=> array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
                 'data-close-others'=>"true"),  'items' => $projectItems));
         }
         $this->menuItems = array_merge($projectMenu, $this->menuItems);

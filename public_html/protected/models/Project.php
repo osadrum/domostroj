@@ -52,6 +52,15 @@ class Project extends ActiveRecord
 		);
 	}
 
+    public function scopes()
+    {
+        return array(
+            'published' => array(
+                'condition'=>'is_published=1',
+            )
+        );
+    }
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -66,6 +75,7 @@ class Project extends ActiveRecord
 			'projectImages' => array(self::HAS_MANY, 'ProjectImage', '_project'),
 			'countImages' => array(self::STAT, 'ProjectImage', '_project'),
 			'projectOption' => array(self::MANY_MANY, 'CatProjectOption', '{{project_option}}(_project, _option)'),
+
 		);
 	}
 

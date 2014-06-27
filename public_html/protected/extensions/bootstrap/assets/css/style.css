@@ -115,3 +115,28 @@ button {
     border-top: 1px solid #ddd;
 
 }
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+.line-phone {
+    font-size: 20px;
+}
+.schedule-work {
+    font-size: 16px;
+}
+.filter-row {
+    padding: 16px 0;
+}
+select {
+    padding: 5px 8px;
+    background-color: #fff;
+}
+select option {
+    padding: 5px 0;
+}
+.filter-row .range-field {
+    width: 70px;
+}

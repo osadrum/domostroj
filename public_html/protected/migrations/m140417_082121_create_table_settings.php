@@ -49,14 +49,6 @@ class m140417_082121_create_table_settings extends CDbMigration
         $this->insert('{{settings}}', array(
             'type' => 'text',
             'section' => 'Контакты',
-            'name' => 'hotLinePhone',
-            'value' => '8 (800) 250-17-18',
-            'title' => 'Телефон Горячей линии',
-        ));
-
-        $this->insert('{{settings}}', array(
-            'type' => 'text',
-            'section' => 'Контакты',
             'name' => 'phone',
             'value' => '+7(495) 780-34-94',
             'title' => 'Телефон',

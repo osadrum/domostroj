@@ -46,7 +46,7 @@ $('.table').treeTable({
                         'width' => 200,
                     ),
                 ),
-                array(
+               /* array(
                     'class' => 'ext.jtogglecolumn.JToggleColumn',
                     'name' => 'is_published',
                     'filter' => array('0' => 'Нет', '1' => 'Да'),
@@ -54,7 +54,7 @@ $('.table').treeTable({
                     'uncheckedButtonLabel' => 'Опубликовать',
                     'headerHtmlOptions' => array('width' => 100),
                     'htmlOptions' => array('style' => 'text-align: center;'),
-                ),
+                ),*/
                 array(
                     'class' => 'bootstrap.widgets.TbButtonColumn',
                     'template' => '{update} {delete}',

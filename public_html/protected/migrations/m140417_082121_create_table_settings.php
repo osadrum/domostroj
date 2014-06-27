@@ -42,7 +42,7 @@ class m140417_082121_create_table_settings extends CDbMigration
             'type' => 'text',
             'section' => 'Контакты',
             'name' => 'email',
-            'value' => 'admin@example.com',
+            'value' => '',
             'title' => 'E-mail администратора',
         ));
 
@@ -50,7 +50,7 @@ class m140417_082121_create_table_settings extends CDbMigration
             'type' => 'text',
             'section' => 'Контакты',
             'name' => 'hotLinePhone',
-            'value' => '8 (800) 250-17-18',
+            'value' => '',
             'title' => 'Телефон Горячей линии',
         ));
 
@@ -58,7 +58,7 @@ class m140417_082121_create_table_settings extends CDbMigration
             'type' => 'text',
             'section' => 'Контакты',
             'name' => 'phone',
-            'value' => '+7(495) 780-34-94',
+            'value' => '',
             'title' => 'Телефон',
         ));
 
@@ -66,7 +66,7 @@ class m140417_082121_create_table_settings extends CDbMigration
             'type' => 'text',
             'section' => 'Контакты',
             'name' => 'address',
-            'value' => '141400, МО, г. Химки, Бутаково, д.4',
+            'value' => '',
             'title' => 'Адрес',
         ));
 
@@ -83,7 +83,7 @@ class m140417_082121_create_table_settings extends CDbMigration
             'type' => 'text',
             'section' => 'Контакты',
             'name' => 'map',
-            'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2237.597054187131!2d37.436148800000005!3d55.88700399999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b538f56cf4ab4d%3A0x2fbc9cfeadc01488!2z0YPQuy4g0JHRg9GC0LDQutC-0LLQsCwgNCwg0KXQuNC80LrQuCwg0JzQvtGB0LrQvtCy0YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsINCg0L7RgdGW0Y8!5e0!3m2!1suk!2sua!4v1394022061308" width="700" height="330" frameborder="0" style="border:0"></iframe>',
+            'value' => '',
             'title' => 'Код карты',
         ));
 

@@ -166,7 +166,7 @@ EOD;
 
         $function = CJavaScript::encode($this->toggle_button['click']);
         $class = preg_replace('/\s+/', '.', $this->toggle_button['options']['class']);
-        $js[] = "jQuery('#{$this->grid->id} a.{$class}').live('click',$function);";
+        $js[] = "jQuery('#{$this->grid->id}').on('click', 'a.{$class}', $function);";
 
         if ($js !== array())
             Yii::app()->getClientScript()->registerScript(__CLASS__ . '#' . $this->id, implode("\n", $js));

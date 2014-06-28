@@ -52,60 +52,61 @@
             </div>
         </div>
     </header>
-        <section class="slice bg-2 p-15">
-            <div class="cta-wr">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <h1>
-                                <?= $this->pageIcon; ?> <?= $this->pageTitle; ?>
-                            </h1>
-                        </div>
-                        <div class="col-md-4 text-right">
-
-                            <span class="line-phone"><?php echo Settings::getCacheValue('phone'); ?></span><br>
-                            <span class="schedule-work"><?php echo Settings::getCacheValue('scheduleWork'); ?></span>
-
-                        </div>
-                        <div class="col-md-3">
-                            <a class="btn btn-one btn-lg pull-right" title="" href="" target="blank">
-                                <i class="fa fa-phone"></i> Заказать звонок
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="pg-opt pin">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-
-                    </div>
-                    <div class="col-md-6">
-                        <?php if (isset($this->module) && $this->module->id === 'admin') {
-                            $link = '/admin/default/';
-                        } else {
-                            $link = '/';
-                        } ?>
-                        <?php $this->widget('ext.widgets.breadcrumbs.BreadcrumbsWidget', array(
-                            'homeLink' => '<li>' . CHtml::link('Главная', $link) . '</li>',
-                            'htmlOptions' => array('class' => 'breadcrumb'),
-                            'links' => $this->breadcrumbs,
-                        )); ?>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <?php if (1) : ?>
-            <?php $this->widget('ext.widgets.filter.FilterWidget'); ?>
-        <?php endif; ?>
 
     <?php if ($_SERVER['REQUEST_URI'] == '/') :?>
         <?php $this->widget('ext.widgets.slider.SliderWidget'); ?>
+    <?php endif; ?>
+
+    <section class="slice bg-2 p-15">
+        <div class="cta-wr">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h1>
+                            <?= $this->pageIcon; ?> <?= $this->pageTitle; ?>
+                        </h1>
+                    </div>
+                    <div class="col-md-4 text-right">
+
+                        <span class="line-phone"><?php echo Settings::getCacheValue('phone'); ?></span><br>
+                        <span class="schedule-work"><?php echo Settings::getCacheValue('scheduleWork'); ?></span>
+
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-one btn-lg pull-right" title="" href="" target="blank">
+                            <i class="fa fa-phone"></i> Заказать звонок
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pg-opt pin">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <?php if (isset($this->module) && $this->module->id === 'admin') {
+                        $link = '/admin/default/';
+                    } else {
+                        $link = '/';
+                    } ?>
+                    <?php $this->widget('ext.widgets.breadcrumbs.BreadcrumbsWidget', array(
+                        'homeLink' => '<li>' . CHtml::link('Главная', $link) . '</li>',
+                        'htmlOptions' => array('class' => 'breadcrumb'),
+                        'links' => $this->breadcrumbs,
+                    )); ?>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <?php if (1) : ?>
+        <?php $this->widget('ext.widgets.filter.FilterWidget'); ?>
     <?php endif; ?>
 
     <section class="slice bg-3 animate-hover-slide">
@@ -118,6 +119,7 @@
             </div>
         </div>
     </section>
+
     <footer class="footer">
         <div class="container">
             <div class="row">

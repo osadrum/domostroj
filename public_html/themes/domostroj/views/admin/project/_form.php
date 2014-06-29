@@ -13,6 +13,16 @@
     <?php echo $form->error($model,'title'); ?>
 </div>
 <div class="form-group">
+    <?php echo $form->labelEx($model,'area',array()) ?>
+    <?php echo $form->textField($model,'area',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'area'); ?>
+</div>
+<div class="form-group">
+    <?php echo $form->labelEx($model,'floor',array()) ?>
+    <?php echo $form->textField($model,'floor',array('class'=>'form-control')); ?>
+    <?php echo $form->error($model,'floor'); ?>
+</div>
+<div class="form-group">
     <?php echo $form->labelEx($model,'sort',array()) ?>
     <?php echo $form->textField($model,'sort',array('class'=>'form-control')); ?>
     <?php echo $form->error($model,'sort'); ?>

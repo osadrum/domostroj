@@ -98,7 +98,8 @@
     </div>
 
     <?php if (1) : ?>
-        <?php  $this->widget('ext.widgets.filter.FilterWidget'); ?>
+
+        <?php  $this->widget('ext.widgets.filter.FilterWidget', array('category' => $this->categoryProjects)); ?>
     <?php endif; ?>
 
     <section class="slice bg-3 animate-hover-slide">
@@ -196,5 +197,6 @@
         hoverPrevNext: false
     });
 </script-->
+<div id="preloader"></div>
 </body>
 </html>

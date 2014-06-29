@@ -14,6 +14,8 @@
  * @property integer $sort
  * @property integer $is_published
  * @property integer $_category
+ * @property integer $floor
+ * @property string $area
  *
  * The followings are the available model relations:
  * @property Grade[] $grades
@@ -40,7 +42,7 @@ class Project extends ActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
+			array('title, area, floor', 'required'),
 			array('sort', 'default','value'=>0),
 			array('sort, is_published, _category', 'numerical', 'integerOnly'=>true),
 			array('title, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
@@ -99,6 +101,8 @@ class Project extends ActiveRecord
 			'sort' => '№ п/п',
 			'is_published' => 'Опубликовано',
 			'_category' => 'Категория',
+            'area' => 'Общая площадь',
+            'floor' => 'Количество этажей'
 		);
 	}
 
@@ -130,7 +134,8 @@ class Project extends ActiveRecord
 		$criteria->compare('sort',$this->sort);
 		$criteria->compare('is_published',$this->is_published);
 		$criteria->compare('_category',$this->_category);
-
+        $criteria->compare('area',$this->area);
+        $criteria->compare('floor',$this->area);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -286,4 +291,40 @@ class Project extends ActiveRecord
 
     }
 
+    public static function getMinArea()
+    {
+        $sql = 'SELECT MIN(area)
+                FROM {{project}}
+                WHERE is_published=1';
+
+        $minArea = Yii::app()->db->createCommand($sql)->queryScalar();
+        return ($minArea != null)?$minArea:0;
+    }
+
+    public static function getMaxArea()
+    {
+        $sql = 'SELECT MAX(area)
+                FROM {{project}}
+                WHERE is_published=1';
+        $maxArea = Yii::app()->db->createCommand($sql)->queryScalar();
+        return ($maxArea != null)?$maxArea:0;
+    }
+
+    public static function getListAllFloors()
+    {
+        $sql = 'SELECT floor
+                FROM {{project}}
+                WHERE is_published = 1
+                GROUP BY floor';
+        $floors = Yii::app()->db->createCommand($sql)->queryAll();
+
+        $floorList = array();
+
+        foreach ($floors as $v) {
+
+            $floorList[$v['floor']] = $v['floor'] .' Этажный';
+        }
+
+        return $floorList;
+    }
 }

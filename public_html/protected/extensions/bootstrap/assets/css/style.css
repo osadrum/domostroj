@@ -131,7 +131,7 @@ button {
     position: relative;
 }
 .filter-col {
-    margin: 10px 0;
+    margin: 18px 0 10px 0;
 }
 select {
     padding: 5px 8px;
@@ -155,9 +155,32 @@ select option {
     right: 0;
     bottom: -34px;
     border-top: 1px solid #fcfcfc;
-    border-left: 1px solid #e91b23;
-    border-right: 1px solid #e91b23;
-    border-bottom: 1px solid #e91b23;
+    border-left: 1px solid #555;
+    border-right: 1px solid #555;
+    border-bottom: 1px solid #555;
     background: #fcfcfc;
-    z-index: 9999;
+    z-index: 9;
+}
+.grades {
+    padding: 15px;
+    text-align: right;
+}
+.grades .grade-title {
+    font-size: 16px;
+}
+.grades .grade-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+#preloader {
+    display: none;
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/preloader.gif);
+    position: fixed;
+    right: 50%;
+    top: 50%;
+}
+.clr {
+    clear:both;
 }

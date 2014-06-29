@@ -9,11 +9,11 @@
             </div>
         </div>
         <h2><?php echo $data->title ?></h2>
-        <p>
+        <div class="grades">
             <?php foreach ($data->grades as $grade) : ?>
-                <h2><?php echo $grade->type->title ?></h2>
-                <?php echo $grade->price ?> <i class="fa fa-rub"></i>
+                <span class="grade-title"><?php echo $grade->type->title ?></span>
+                <span class="grade-price"><?php echo $grade->price ?> </span><i class="fa fa-rub"></i><br>
             <?php endforeach; ?>
-        </p>
+        </div>
     </div>
 </div>

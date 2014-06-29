@@ -24,6 +24,7 @@ class Controller extends CController
     public $metaDescription;
     public $metaKeywords;
     public $pageIcon;
+    public $categoryProjects;
 	/**
 	 * @var array the breadcrumbs of the current page. The value of this property will
 	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
@@ -65,7 +66,7 @@ class Controller extends CController
                 );
             }
             $projectMenu = array(array('label' => 'Проекты', 'url' => array('/catalog'), 'linkOptions'=> array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
-                'data-close-others'=>"true"),  'items' => $projectItems));
+                'data-close-others'=>"true"), 'active' => ($this->module->id === 'catalog') ? true : false,  'items' => $projectItems));
         }
         $this->menuItems = array_merge($projectMenu, $this->menuItems);
 

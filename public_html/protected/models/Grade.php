@@ -108,4 +108,24 @@ class Grade extends ActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public static function getMinPrice()
+    {
+        $sql = 'SELECT MIN(grd.price)
+                FROM {{grade}} grd
+                INNER JOIN {{project}} AS pr ON pr.id=grd._project
+                WHERE pr.is_published=1';
+        $minPrice = Yii::app()->db->createCommand($sql)->queryScalar();
+        return ($minPrice != null)?$minPrice:0;
+    }
+
+    public static function getMaxPrice()
+    {
+        $sql = 'SELECT MAX(grd.price)
+                FROM {{grade}} grd
+                INNER JOIN {{project}} AS pr ON pr.id=grd._project
+                WHERE pr.is_published=1';
+        $maxPrice = Yii::app()->db->createCommand($sql)->queryScalar();
+        return ($maxPrice != null)?$maxPrice:0;
+    }
 }

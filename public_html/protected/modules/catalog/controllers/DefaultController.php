@@ -28,16 +28,19 @@ class DefaultController extends Controller
             $cat = ProjectCategory::model()->findByPk((int)$category);
             $this->categoryProjects = $category;
             $this->pageTitle .= ' - '.$cat->title;
+        } else {
+            $criteria->addCondition('_category IS NOT NULL');
         }
 
-        if (!empty($filterParams['category'])) {
-            $criteria->addCondition('_category='.(int)$filterParams['category']);
-        }
         if (!empty($filterParams['floor'])) {
             $criteria->addCondition('floor='.(int)$filterParams['floor']);
+        } else {
+            $criteria->addCondition('floor > 0');
         }
         if (!empty($filterParams['minArea']) && !empty($filterParams['maxArea'])) {
             $criteria->addCondition('area >= '.(int)$filterParams['minArea'].' AND area <= '.(int)$filterParams['maxArea']);
+        } else {
+            $criteria->addCondition('area > 0');
         }
         if (!empty($filterParams['minPrice']) && !empty($filterParams['maxPrice'])) {
             $criteria->join = " INNER JOIN {{grade}} AS grd ON grd._project=t.id";

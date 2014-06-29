@@ -102,7 +102,7 @@ class m140618_115652_create_tables_for_projects extends CDbMigration
             'id' => 'int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY',
             '_project' => 'int(10) NOT NULL',
             '_type' => 'int(10) NOT NULL',
-            'price' => 'varchar(255)',
+            'price' => 'decimal(10,2)',
         ));
 
         $this->createTable('{{grade_construct}}', array(

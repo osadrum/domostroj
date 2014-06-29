@@ -51,15 +51,19 @@ class Controller extends CController
         Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/js/jquery.wp.custom.js', CClientScript::POS_END);
        // Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl() . '/js/jquery.wp.switcher.js');
 
-        $this->menuItems = array(
-            array('label' => 'Контакты',
-                'url' => array('/admin/category'),
-                'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-            ),
+        $this->menuItems[] = array('label' => 'Главная',
+            'url' => Yii::app()->homeUrl,
+            'active' => ($this->id === 'site') ? true : false,
         );
-        $projectCategory = ProjectCategory::model()->published()->findAll();
 
-        $projectMenu = array();
+        $pageMenu = new PageTree();
+        $pagesMenu = $pageMenu->menu();
+
+        if (!empty($pagesMenu)) {
+            $this->menuItems[] = $pagesMenu;
+        }
+
+        $projectCategory = ProjectCategory::model()->published()->findAll();
         if ($projectCategory != null) {
             $projectItems = array();
             foreach ($projectCategory as $cat) {
@@ -68,32 +72,25 @@ class Controller extends CController
                     'url' => array('/catalog/default', 'category' => $cat->id),
                 );
             }
-            $projectMenu = array(array('label' => 'Проекты', 'url' => array('/catalog'), 'linkOptions'=> array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
-                'data-close-others'=>"true"), 'active' => ($this->module->id === 'catalog') ? true : false,  'items' => $projectItems));
+            $this->menuItems[] = array('label' => 'Проекты', 'url' => array('/catalog'), 'linkOptions'=> array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
+                'data-close-others'=>"true"), 'active' => ($this->module->id === 'catalog') ? true : false,  'items' => $projectItems);
         }
-        $this->menuItems = array_merge($projectMenu, $this->menuItems);
 
-        $pageMenu = new PageTree();
-        $pagesMenu = $pageMenu->menu();
-
-        if (!empty($pagesMenu)) {
-            $this->menuItems = array_merge($pagesMenu, $this->menuItems);
-        }
+        $this->menuItems[] = array('label' => 'Контакты',
+            'url' => array('/contacts'),
+            'active' => ($this->id === 'contacts') ? true : false,
+        );
 
         if (isset(Yii::app()->user->role)) {
             if (Yii::app()->user->role == 'admin'){
-                $this->menuItemsAdmin = array(
-                    array('label' => 'Профиль',
+                $this->menuItems[] = array('label' => 'Профиль',
                         'url' => array('/admin/default/profile'),
                         //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-                    ),
-                    array('label' => 'Выход',
+                );
+                $this->menuItems[] = array('label' => 'Выход',
                         'url' => array('/site/logout'),
                         //'active' => isset($this->module) ? $this->module->id === 'pages' && $this->id === 'admin' : false,
-                    ),
                 );
-                $this->menuItems = array_merge($this->menuItems, $this->menuItemsAdmin);
-
             }
         }
 

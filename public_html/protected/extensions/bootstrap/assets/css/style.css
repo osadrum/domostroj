@@ -184,7 +184,13 @@ select option {
 .clr {
     clear:both;
 }
-
 .floor {
     display: none;
+}
+
+.add-photo-row {
+    margin-bottom: 32px;
+}
+.project-options {
+
 }

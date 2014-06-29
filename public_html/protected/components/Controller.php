@@ -72,7 +72,7 @@ class Controller extends CController
                     'url' => array('/catalog/default', 'category' => $cat->id),
                 );
             }
-            $this->menuItems[] = array('label' => 'Проекты', 'url' => array('/catalog'), 'linkOptions'=> array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown",
+            $this->menuItems[] = array('label' => 'Проекты', 'url' => array('/catalog'), 'linkOptions'=> array('class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'data-hover'=>"dropdown", 'onclick'=>"location.href='".Yii::app()->createUrl('/catalog')."'",
                 'data-close-others'=>"true"), 'active' => ($this->module->id === 'catalog') ? true : false,  'items' => $projectItems);
         }
 

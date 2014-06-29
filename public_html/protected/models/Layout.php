@@ -111,4 +111,11 @@ class Layout extends ActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public function getTitleNum()
+    {
+        if ($this->_type == 1) {
+
+        }
+    }
 }

@@ -430,7 +430,7 @@ class ProjectController extends AdminController
 
             rename($originalFolder.$result['filename'],$originalFolder.$newName.'.'.$ext);
 
-            foreach (Yii::app()->params['imageSizeGallery'] as $path => $size) {
+            foreach (Yii::app()->params['imageSizeProject'] as $path => $size) {
                 $resizeImage = Yii::app()->image->load($originalFolder.$newName.'.'.$ext);
                 $resizeImage->resize($size[0], $size[1])->quality(Yii::app()->params['imageQuality']);
                 if (!file_exists($folder.$path))

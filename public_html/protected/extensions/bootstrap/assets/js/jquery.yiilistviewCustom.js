@@ -99,6 +99,13 @@
 		return settings.url || $('#'+id+' > div.keys').attr('title');
 	};
 
+    $.fn.centered = function() {
+        this.css("position","absolute");
+        this.css("top", (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop() + "px");
+        this.css("left", (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft() + "px");
+        return this;
+    };
+
 	/**
 	 * Performs an AJAX-based update of the list view contents.
 	 * @param id string the ID of the list view container
@@ -181,7 +188,7 @@
 		}
 
 		//$('#'+id).addClass(settings.loadingClass);
-        $('#preloader').show();
+        $('#preloader').centered().show();
 
 		if(settings.beforeAjaxUpdate != undefined)
 			settings.beforeAjaxUpdate(id, options);

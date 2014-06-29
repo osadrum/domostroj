@@ -204,5 +204,34 @@
         hoverPrevNext: false
     });
 </script-->
+<div id="preloader"></div>
+<script>
+    function open_modal(box) {
+        $("#background").show()
+        $(box).centered_modal();
+        $(box).delay(100).fadeIn(200);
+    }
+    function close_modal(box) {
+        $(box).hide();
+        //$("#background").delay(100).hide(1);
+    }
+
+    $(document).ready(function() {
+        $.fn.centered_modal = function() {
+            this.css("position","absolute");
+            this.css("top", (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop() + "px");
+            this.css("left", (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft() + "px");
+            return this;
+        }
+
+        $('#close').on('click', function(){
+            close_modal('#modal_window');
+        })
+
+        $('#button-order').on('click', function(){
+            open_modal('#modal_window');
+        })
+    });
+</script>
 </body>
 </html>

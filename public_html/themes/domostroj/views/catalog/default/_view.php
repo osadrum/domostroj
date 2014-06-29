@@ -5,7 +5,7 @@
             <div class="figcaption bg-2"></div>
             <div class="figcaption-btn">
                 <a href="<?php echo Statics::getImageLink($data->image, 'large') ?>" class="btn btn-xs btn-one theater"><i class="fa fa-search-plus"></i> Увеличить</a>
-                <a href="#" class="btn btn-xs btn-one"><i class="fa fa-link"></i> Посмотреть</a>
+                <a href="<?php echo Yii::app()->createUrl('/catalog/default/view', array('id'=>$data->id)) ?>" class="btn btn-xs btn-one"><i class="fa fa-link"></i> Посмотреть</a>
             </div>
         </div>
         <h2><?php echo $data->title ?></h2>

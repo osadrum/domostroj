@@ -77,7 +77,7 @@ class Project extends ActiveRecord
 			'projectImages' => array(self::HAS_MANY, 'ProjectImage', '_project'),
 			'countImages' => array(self::STAT, 'ProjectImage', '_project'),
 			'projectOption' => array(self::MANY_MANY, 'CatProjectOption', '{{project_option}}(_project, _option)'),
-
+            'option' => array(self::HAS_MANY, 'ProjectOption', '_project')
 		);
 	}
 

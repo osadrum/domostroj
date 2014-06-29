@@ -60,4 +60,21 @@ class DefaultController extends Controller
             'category' => $category,
         ));
     }
+
+    public function actionView($id)
+    {
+        $project = Project::model()->findByPk($id);
+        $addPhotos = $project->projectImages;
+        $options = $project->option;
+        $layouts = $project->layouts;
+        $grades = $project->grades;
+
+        $this->render('view', array(
+            'project' => $project,
+            'addPhotos' => $addPhotos,
+            'options' => $options,
+            'layouts' => $layouts,
+            'grades' => $grades
+        ));
+    }
 }

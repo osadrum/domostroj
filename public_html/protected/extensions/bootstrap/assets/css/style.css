@@ -149,17 +149,17 @@ select option {
     width:240px;
     margin-top: 10px
 }
-.btn-filter {
+.btn-show-filter {
     position: absolute;
-    padding: 5px 20px 5px 20px;
+    padding: 3px 10px 3px 10px;
     right: 0;
-    bottom: -34px;
-    border-top: 1px solid #fcfcfc;
+    top: -30px;
+    border-top: 1px solid #555;
     border-left: 1px solid #555;
     border-right: 1px solid #555;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #fcfcfc;
     background: #fcfcfc;
-    z-index: 9;
+    z-index: 999;
 }
 .grades {
     padding: 15px;

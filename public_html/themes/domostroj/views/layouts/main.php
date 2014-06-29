@@ -27,7 +27,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
-                        <img src="<?php echo $this->getAssetsUrl(); ?>/images/boomerang-logo-dark.png"
+                        <img src="<?php echo $this->getAssetsUrl(); ?>/images/logo.png"
                              alt="">
                     </a>
                 </div>

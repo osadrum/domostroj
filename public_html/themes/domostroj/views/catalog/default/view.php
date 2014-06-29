@@ -79,9 +79,9 @@ $this->breadcrumbs = array(
             <?php
             $cnt++;
             if ($cnt != 1) {
-                echo CHtml::link($grade->type->title, '#', array('class'=>'btn btn-xs'));
+                echo CHtml::link($grade->type->title, '#', array('class'=>'btn-grade btn btn-xs', 'data-id'=>'grade_'.$grade->id));
             } else {
-                echo CHtml::link($grade->type->title, '#', array('class'=>'btn btn-xs btn-four'));
+                echo CHtml::link($grade->type->title, '#', array('class'=>'btn-grade btn btn-xs btn-four', 'data-id'=>'grade_'.$grade->id));
             }
             ?>
         <?php endforeach; ?>
@@ -96,7 +96,7 @@ $this->breadcrumbs = array(
                 $visible = '';
             }
             ?>
-            <span class="price" <?php echo $visible ?>><?php echo $grade->price ?></span>
+            <span class="grade-price" id="price_grade_<?php echo $grade->id ?>" <?php echo $visible ?>><?php echo $grade->price ?></span>
         <?php endforeach; ?>
     </div>
 
@@ -110,7 +110,7 @@ $this->breadcrumbs = array(
                 $visible = '';
             }
             ?>
-        <div class="row" <?php echo $visible ?>>
+        <div class="row grade-construct" <?php echo $visible ?>  id="construct_grade_<?php echo $grade->id ?>">
             <?php foreach ($grade->gradeConstructs as $construct) : ?>
                 <div class="col-lg-4">
                     <img alt="" src="<?php echo Statics::getImageLink($construct->catConstruct->image) ?>" class="img-responsive">
@@ -123,3 +123,22 @@ $this->breadcrumbs = array(
         <?php endforeach; ?>
 
 <?php endif; ?>
+
+<script>
+
+        $('.btn-grade').on('click', function() {
+            var id = $(this).attr('data-id');
+
+            $('.btn-grade').removeClass('btn-four');
+            $(this).addClass('btn-four');
+
+            $('.grade-price').hide();
+            $('#price_'+id).show();
+
+            $('.grade-construct').hide();
+            $('#construct_'+id).show();
+            return false;
+        });
+
+
+</script>

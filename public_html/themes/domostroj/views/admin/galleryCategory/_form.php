@@ -3,13 +3,12 @@
     'enableAjaxValidation'=>false,
 )); ?>
 
-<div class="form-group">
-    <?php echo $form->labelEx($model,'_parent',array()) ?>
-    <?php echo $form->dropDownList($model,'_parent',GalleryCategory::getCategoryList(),array('empty'=>'Главная категория','class'=>'form-control')); ?>
-    <?php echo $form->error($model,'_parent'); ?>
-</div><!-- /.form-group -->
+<!--<div class="form-group">-->
+<!--    --><?php //echo $form->labelEx($model,'_parent',array()) ?>
+<!--    --><?php //echo $form->dropDownList($model,'_parent',GalleryCategory::getCategoryList(),array('empty'=>'Главная категория','class'=>'form-control')); ?>
+<!--    --><?php //echo $form->error($model,'_parent'); ?>
+<!--</div><!-- /.form-group -->
 
-<br>
 <div class="form-group">
     <?php echo $form->labelEx($model,'title',array()) ?>
     <?php echo $form->textField($model,'title',array('class'=>'form-control')); ?>
@@ -115,10 +114,8 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
 
 
 <div class="form-group">
-    <?php echo $form->labelEx($model,'is_published',array()) ?>
-    <?php echo $form->dropDownList($model,'is_published',ActiveRecord::getIsPublishedTitleList(),array('class'=>'form-control')); ?>
-    <?php echo $form->error($model,'is_published'); ?>
-</div><!-- /.form-group -->
+    <?php echo $form->checkBoxRow($model, 'is_published') ?>
+</div>
 
 <hr>
 <h3>SEO параметры</h3>

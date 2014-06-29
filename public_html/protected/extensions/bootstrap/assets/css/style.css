@@ -184,3 +184,7 @@ select option {
 .clr {
     clear:both;
 }
+
+.floor {
+    display: none;
+}

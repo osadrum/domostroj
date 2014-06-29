@@ -44,10 +44,10 @@ class Project extends ActiveRecord
 		return array(
 			array('title, area, floor', 'required'),
 			array('sort', 'default','value'=>0),
-			array('sort, is_published, _category', 'numerical', 'integerOnly'=>true),
+			array('sort,_category', 'numerical', 'integerOnly'=>true),
 			array('title, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>127),
-			array('description', 'safe'),
+			array('description, is_published', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, title, description, meta_title, meta_description, meta_keywords, image, sort, is_published, _category', 'safe', 'on'=>'search'),
@@ -279,9 +279,9 @@ class Project extends ActiveRecord
         } elseif ($option == 'layout'){
             $data = $model->layouts;
         } elseif ($option == 'grade'){
-            $data = $model->layouts;
+            $data = $model->grades;
         } elseif ($option == 'projectOption'){
-            $data = $model->layouts;
+            $data = $model->projectOption;
         }
         if (!empty($data)){
             return '<i class="fa fa-check"></i>';

@@ -23,6 +23,7 @@ $('#translit-btn').click(function() {
 </div>
 
 <?= $form->checkBoxRow($model, 'is_published') ?>
+<?= $form->checkBoxRow($model, 'is_showed_menu') ?>
 
 <?=
 $form->dropDownListRow($model, 'layout', array(

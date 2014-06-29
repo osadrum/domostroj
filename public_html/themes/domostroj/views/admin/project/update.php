@@ -16,7 +16,7 @@ $this->pageIcon = '<i class="fa fa-home"></i> ';
                 </div>
                 <?php if (empty($model->grades) && !empty($model->layouts) && !empty($model->projectOption)) :?>
                     <div class="alert alert-danger" style="margin-bottom: 0px">
-                       Для того чтобы опубликовать проект необходимо заполенить разделы "Планировка", "Комплектация" и "Параметры проекта"
+                       Для того чтобы опубликовать проект необходимо заполнить разделы "Планировка", "Комплектация" и "Параметры проекта"
                     </div>
                 <?php endif;?>
                 <div class="panel-body">

@@ -5,15 +5,19 @@
 
 )); ?>
 
-<div class="form-group">
-    <?php echo $form->labelEx($layoutModel, '_type', array()) ?>
-    <?php echo $form->dropDownList($layoutModel, '_type', ActiveRecord::getListType('CatLayoutType'), array('class' => 'form-control')); ?>
-    <?php echo $form->error($layoutModel, '_type'); ?>
-</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($layoutModel, '_type', array()) ?>
+        <?php echo $form->dropDownList($layoutModel, '_type', ActiveRecord::getListType('CatLayoutType'), array('empty'=>'Выберите вид уровня','class' => 'form-control layout_type')); ?>
+        <?php echo $form->error($layoutModel, '_type'); ?>
+    </div>
 
-<div class="form-group">
-    <?php echo $form->hiddenField($model, 'id', array('class' => 'form-control')); ?>
-</div>
+    <div class="form-group floor">
+        <?php echo $form->labelEx($layoutModel, 'floor', array()) ?>
+        <?php echo $form->textField($layoutModel, 'floor', array('class' => 'form-control')); ?>
+        <?php echo $form->error($layoutModel, 'floor'); ?>
+    </div>
+
+    <?php echo $form->hiddenField($model, 'id'); ?>
 
 <div class="form-group">
     <?php echo $form->labelEx($layoutModel, 'image', array()) ?>
@@ -67,6 +71,18 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
     <?php if ($layoutModel->image != null) : ?>
     hideUploadButton();
     <?php endif ?>
+    if ($(".layout_type option:selected").val() == 1){
+        $('.floor').show(200);
+    }
+    $('.layout_type').on('change', function() {
+        if ($(".layout_type option:selected").val() == 1){
+            $('.floor').show(200);
+        } else {
+            $('#Layout_floor').empty();
+            $('.floor').hide(200);
+        }
+    })
+
 
     function viewGetImage(image) {
         hideUploadButton();

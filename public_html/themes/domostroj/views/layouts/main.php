@@ -27,8 +27,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
-                        <img src="<?php echo $this->getAssetsUrl(); ?>/images/logo.png"
-                             alt="">
+                        <img src="<?php echo $this->getAssetsUrl(); ?>/images/logo.png" alt="">
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -73,7 +72,7 @@
 
                     </div>
                     <div class="col-md-3">
-                        <a class="btn btn-one btn-lg pull-right" title="" href="" target="blank">
+                        <a class="btn btn-one btn-lg pull-right modal-call-back" title="" href="#modal-call-back" target="blank">
                             <i class="fa fa-phone"></i> Заказать звонок
                         </a>
                     </div>
@@ -205,33 +204,81 @@
     });
 </script-->
 <div id="preloader"></div>
+<div id="modal-call-back" style="display:none">
+    <div class="call-back-title">Мы Вам перезвоним!</div>
+    <span class="modal-message"></span><br>
+    <form id="call-back-form">
+        <input id="modal-name" type="text" name="name" placeholder="Ваше имя" value=""><br>
+        <?php
+        $this->widget('CMaskedTextField', array(
+            'name' => 'phone',
+            'mask' => '+7 (999) 999-99-99',
+            'placeholder' => '_',
+            'completed' => 'function(){console.log("ok");}',
+            'htmlOptions' => array('id' => 'modal-phone', 'placeholder'=>'Ваш телефон')
+        ));
+        ?><br>
+        <a href="#" class="btn btn-four btn-call-back-send">Отправить</a>
+    </form>
+</div>
+<?php $this->widget('application.extensions.fancybox.EFancyBox', array(
+    'target' => '.modal-call-back',
+    'config' => array(
+        'fitToView' => true,
+        'loop' => false,
+        'width' => '360',
+        'height' => '190',
+        'autoSize' => false,
+        'closeClick' => false,
+        'openEffect' => 'elastic',
+        'closeEffect' => 'none',
+    ),
+));
+?>
 <script>
-    function open_modal(box) {
-        $("#background").show()
-        $(box).centered_modal();
-        $(box).delay(100).fadeIn(200);
-    }
-    function close_modal(box) {
-        $(box).hide();
-        //$("#background").delay(100).hide(1);
-    }
+        $('.btn-call-back-send').on('click', function() {
 
-    $(document).ready(function() {
-        $.fn.centered_modal = function() {
-            this.css("position","absolute");
-            this.css("top", (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop() + "px");
-            this.css("left", (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft() + "px");
-            return this;
-        }
+            var error = 0;
+            var callBackForm = $('#call-back-form');
+            var btn = $(this);
+            callBackForm.find("input[type=text]").not('[type="submit"]').each(function() {
 
-        $('#close').on('click', function(){
-            close_modal('#modal_window');
-        })
+                if($(this).val().length != 0) {
+                    $(this).css({'border' : '1px solid #78b79b','color':'#78b79b'});
+                } else {
+                    $(this).css({'border' : '1px solid #e86f56'});
+                    error++;
+                }
+            });
 
-        $('#button-order').on('click', function(){
-            open_modal('#modal_window');
-        })
-    });
+            if (error == 0) {
+                $.ajax({
+                    url: '<?php echo Yii::app()->createUrl('/site/ajaxCallback') ?>',
+                    type: 'post',
+                    dataType: 'json',
+                    data: callBackForm.serialize(),
+                    beforeSend: function() {
+                        btn.after('<span class="sending">Отправляем...</span>');
+                        btn.hide();
+                    },
+                    success: function(data) {
+                        if (data.status == 'ok') {
+                            $('.sending').remove();
+                            btn.show();
+                            $('#modal-name').val('');
+                            $('#modal-phone').val('');
+                            callBackForm.hide();
+                            $('.modal-message').html('Ваша заявка принята<br>Мы свяжемся с Вами в ближайшее время!').fadeIn(200).delay(4000).fadeOut(200, function() {
+                                $.fancybox.close();
+                                callBackForm.show(200);
+                            });
+
+                        }
+                    }
+                });
+            }
+            return false;
+        });
 </script>
 </body>
 </html>

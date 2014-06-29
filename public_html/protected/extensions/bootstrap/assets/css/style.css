@@ -243,3 +243,32 @@ select option {
 .project-row {
     margin-top: 30px;
 }
+#modal-call-back {
+    position: relative;
+    width: 360px;
+    height: 190px;
+    background: url(../images/operator.jpg) 0% 100% no-repeat;
+}
+.modal-message {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    text-align: right;
+}
+#call-back-form {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+}
+#modal-name,
+#modal-phone {
+    padding: 7px 14px;
+    width: 240px;
+    margin-bottom: 8px;
+}
+.call-back-title {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}

@@ -58,7 +58,7 @@ $this->breadcrumbs = array(
                     <li><i class="fa fa-check"></i> Ваших пожеланий по планировке</li>
                 </ul></div>
 
-            <a class="btn btn-two btn-call-back" title="" href="" target="blank">
+            <a class="btn btn-two btn-call-back modal-call-back" title="" href="#modal-call-back" target="blank">
                 <i class="fa fa-phone"></i> Заказать звонок
             </a>
         </div>

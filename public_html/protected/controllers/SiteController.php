@@ -59,17 +59,47 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
-    public function actionAjaxFeedback(){
+    public function actionAjaxFeedback()
+    {
         if(!empty($_POST['Feedback'])){
 
         }
     }
 
-    public function actionAjaxCallback(){
+    public function actionAjaxCallback()
+    {
+        $error = 0;
+        if (isset($_POST['name']) && isset($_POST['phone'])) {
 
+            $message = 'Заказ обратного звонка '.$_POST['name'].' тел:'.$_POST['phone'];
+
+            if (Settings::getCacheValue('callback') == 0) {
+                if (!Email::sendMail('admin', 'Заказ обратного звонка', $message)) {
+                    $error++;
+                }
+            } else if (Settings::getCacheValue('callback') == 1) {
+                if (!Sms::send('admin', $message)) {
+                    $error++;
+                }
+            } else if (Settings::getCacheValue('callback') == 2) {
+                if (!Email::sendMail('admin', 'Заказ обратного звонка', $message)) {
+                    $error++;
+                }
+                if (!Sms::send('admin', $message)) {
+                    $error++;
+                }
+            }
+        } else {
+            $error++;
+        }
+
+        echo CJSON::encode(array(
+            'status' => ($error==0)?'ok':'error'
+        ));
     }
 
-    public function actionAjaxOrder(){
+    public function actionAjaxOrder()
+    {
 
     }
 

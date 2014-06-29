@@ -41,7 +41,7 @@ class GalleryCategory extends ActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, image', 'required'),
+			array('title', 'required'),
 			array('is_published', 'numerical', 'integerOnly'=>true),
 			array('title, description, meta_description, meta_keywords', 'length', 'max'=>255),
 			array('image', 'length', 'max'=>127),

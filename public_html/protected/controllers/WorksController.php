@@ -1,8 +1,8 @@
 <?php
 
-class GalleryController extends Controller
+class WorksController extends Controller
 {
-  /*  public function actionAlbum()
+    public function actionIndex()
     {
         $criteria = new CDbCriteria();
         $criteria->condition = 'is_published=1';
@@ -14,6 +14,6 @@ class GalleryController extends Controller
                 'pageSize'=>15,
             ),
         ));
-        $this->render('index',array('catalog'=>$dataProvider));
-    }*/
+        $this->render('index',array('works'=>$dataProvider));
+    }
 }

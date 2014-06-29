@@ -60,7 +60,7 @@ class Controller extends CController
         $pagesMenu = $pageMenu->menu();
 
         if (!empty($pagesMenu)) {
-            $this->menuItems = array_merge($pagesMenu, $this->menuItems);
+            $this->menuItems = array_merge($this->menuItems, $pagesMenu);
         }
 
         $projectCategory = ProjectCategory::model()->published()->findAll();

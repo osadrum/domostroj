@@ -327,4 +327,16 @@ class Project extends ActiveRecord
 
         return $floorList;
     }
+
+    public static function autoPublish($id){
+        $model = self::model()->findByPk($id);
+        if (!empty($model->grades) && !empty($model->layouts) && !empty($model->projectOption)){
+            $model->is_published = 1;
+            $model->save();
+        } else {
+            $model->is_published = 0;
+            $model->save();
+        }
+        return true;
+    }
 }

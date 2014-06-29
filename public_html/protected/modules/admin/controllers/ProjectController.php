@@ -72,6 +72,7 @@ class ProjectController extends AdminController
             }
             $layoutModel->image = $_POST['Layout']['image'];
             if ($layoutModel->save()){
+                Project::autoPublish($_POST['Project']['id']);
                 $this->redirect(array('/admin/project/update/id/' . $_POST['Project']['id']));
             }
         }
@@ -156,6 +157,7 @@ class ProjectController extends AdminController
         $layoutModel = Layout::model()->findByPk($id);
         $project_id = $layoutModel->_project;
         $layoutModel->delete();
+        Project::autoPublish($project_id);
         $this->redirect(array('/admin/project/update/id/' . $project_id));
     }
 
@@ -206,6 +208,7 @@ class ProjectController extends AdminController
             $gradeModel->_type = $_POST['Grade']['_type'];
             $gradeModel->price = $_POST['Grade']['price'];
             if ($gradeModel->save()){
+                Project::autoPublish($_POST['Project']['id']);
                 $this->redirect(array('/admin/project/update/id/' . $_POST['Project']['id']));
             }
         }
@@ -295,9 +298,10 @@ class ProjectController extends AdminController
             $construct->delete();
         }
         $grade = Grade::model()->findByPk($id);
-        $project = $grade->_project;
+        $project_id = $grade->_project;
         $grade->delete();
-        $this->redirect(array('/admin/project/update/id/' . $project));
+        Project::autoPublish($project_id);
+        $this->redirect(array('/admin/project/update/id/' . $project_id));
 
     }
 
@@ -334,7 +338,7 @@ class ProjectController extends AdminController
             $projectOptionModel->value = $value;
             $projectOptionModel->save();
         }
-
+        Project::autoPublish($_POST['project_id']);
         $this->redirect(array('/admin/project/update/id/' . $_POST['project_id']));
 
     }
@@ -364,7 +368,7 @@ class ProjectController extends AdminController
 		if(isset($_POST['Project']))
 		{
 			$model->attributes=$_POST['Project'];
-			if($model->save())
+            if($model->save())
 				$this->redirect(array('admin'));
 		}
         $criteria = new CDbCriteria();

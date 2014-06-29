@@ -26,9 +26,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" title="Boomerang | One template. Infinite solutions">
+                    <a class="navbar-brand" href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
                         <img src="<?php echo $this->getAssetsUrl(); ?>/images/boomerang-logo-dark.png"
-                             alt="Boomerang | One template. Infinite solutions">
+                             alt="">
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -53,7 +53,7 @@
         </div>
     </header>
 
-    <?php if ($_SERVER['REQUEST_URI'] == '/') :?>
+    <?php if ($this->showSlider) :?>
         <?php $this->widget('ext.widgets.slider.SliderWidget'); ?>
     <?php endif; ?>
 

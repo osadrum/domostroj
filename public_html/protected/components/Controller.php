@@ -27,6 +27,7 @@ class Controller extends CController
     public $categoryProjects;
 
     public $showFilter = false;
+    public $showSlider = false;
 	/**
 	 * @var array the breadcrumbs of the current page. The value of this property will
 	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}

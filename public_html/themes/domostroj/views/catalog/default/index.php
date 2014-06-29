@@ -1,3 +1,8 @@
+<?php
+$this->breadcrumbs = array(
+    $this->pageTitle,
+);
+?>
 <div class="row">
     <?php $this->widget('ext.widgets.ProjectsListView', array(
         'id' => 'listProjects',

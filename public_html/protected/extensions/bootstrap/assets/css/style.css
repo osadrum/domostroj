@@ -149,17 +149,17 @@ select option {
     width:240px;
     margin-top: 10px
 }
-.btn-filter {
+.btn-show-filter {
     position: absolute;
-    padding: 5px 20px 5px 20px;
+    padding: 3px 10px 3px 10px;
     right: 0;
-    bottom: -34px;
-    border-top: 1px solid #fcfcfc;
+    top: -30px;
+    border-top: 1px solid #555;
     border-left: 1px solid #555;
     border-right: 1px solid #555;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #fcfcfc;
     background: #fcfcfc;
-    z-index: 9;
+    z-index: 999;
 }
 .grades {
     padding: 15px;
@@ -191,6 +191,55 @@ select option {
 .add-photo-row {
     margin-bottom: 32px;
 }
-.project-options {
-
+.box-promo {
+    position: relative;
+}
+.box-promo .btn-call-back {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+.vers {
+    display: inline-block;
+    margin-left: 50px;
+}
+.stages-payment {
+    padding: 0 16px;
+}
+.stage-desc {
+    text-align: center;
+}
+.stage {
+    margin-top: 15px;
+    float:left;
+    width: 15%;
+    text-align: center;
+}
+.next-stage {
+    margin-top: 15px;
+    float:left;
+    width: 6%;
+    text-align: center;
+    padding-top: 25px;
+}
+.stage-percent {
+    margin-top: 5px;
+    float:left;
+    width: 15%;
+    text-align: center;
+    font-weight: bold;
+}
+.next-stage-percent {
+    margin-top: 5px;
+    float:left;
+    width: 6%;
+}
+.stage-box {
+    width: 100%;
+    min-width: 69px;
+    height: 69px;
+    border: 1px solid #555;
+}
+.project-row {
+    margin-top: 30px;
 }

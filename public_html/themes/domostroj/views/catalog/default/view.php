@@ -24,44 +24,62 @@ $this->breadcrumbs = array(
         <?php endif; ?>
     </div>
 </div>
-<div class="row">
+<div class="row project-row">
     <div class="col-lg-6">
-        <ul class="project-options">
-            <li>Общая площадь:<?php echo $project->area ?></li>
-            <li>Этажность:<?php echo $project->floor ?></li>
-            <?php if (!empty($options)) : ?>
-                <?php foreach ($options as $option) : ?>
-                    <li><?php echo $option->optionTitle->title ?>: <?php echo $option->value ?></li>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </ul>
+        <table class="table table-bordered table-hover table-responsive">
+            <tbody>
+                <tr>
+                    <td><span class="option-title">Общая площадь:</span></td><td><?php echo $project->area ?></td>
+                </tr>
+                <tr>
+                    <td>Этажность</td><td><?php echo $project->floor ?></td>
+                </tr>
+
+                <?php if (!empty($options)) : ?>
+                    <?php foreach ($options as $option) : ?>
+                        <tr>
+                            <td><?php echo $option->optionTitle->title ?></td><td><?php echo $option->value ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
     </div>
     <div class="col-lg-6">
-        <div class="call-back-block1">
+        <div class="w-box popular box-promo">
             <h2>Что-то не подходит? Нет проблем!</h2>
-            Свяжитесь с нами и мы подберем варианты Вашего дома исходя из:
-            <ul>
-                <li>Бюджета</li>
-                <li>Возможного пятна застройки</li>
-                <li>Ваших пожеланий по планировке</li>
-            </ul>
+            <div class="col-lg-12">
+                Свяжитесь с нами и мы подберем варианты Вашего дома исходя из:
+            </div>
+            <div class="col-lg-12">
+                <ul class="list-check">
+                    <li><i class="fa fa-check"></i> Бюджета</li>
+                    <li><i class="fa fa-check"></i> Возможного пятна застройки</li>
+                    <li><i class="fa fa-check"></i> Ваших пожеланий по планировке</li>
+                </ul></div>
+
+            <a class="btn btn-two btn-call-back" title="" href="" target="blank">
+                <i class="fa fa-phone"></i> Заказать звонок
+            </a>
         </div>
     </div>
 </div>
 <?php if (!empty($layouts)) : ?>
-    <div class="row">
-        Планировка:
-        <?php $cnt=0; ?>
-        <?php foreach ($layouts as $layout) : ?>
-            <?php
-            $cnt++;
-            if ($cnt != 1) {
-                echo CHtml::link(ActiveRecord::getTitleType("CatLayoutType",$layout->_type) . "  " .$layout->floor, '#', array('class'=>'btn-layout btn btn-xs', 'data-id'=>'lt_'.$layout->id));
-            } else {
-                echo CHtml::link(ActiveRecord::getTitleType("CatLayoutType",$layout->_type) . "  " .$layout->floor, '#', array('class'=>'btn-layout btn btn-xs btn-four', 'data-id'=>'lt_'.$layout->id));
-            }
-            ?>
-        <?php endforeach; ?>
+    <div class="row project-row">
+        <div class="col-lg-12">
+            <h3 class="section-title">Планировка <span class="vers"><?php $cnt=0; ?>
+                <?php foreach ($layouts as $layout) : ?>
+                    <?php
+                    $cnt++;
+                    if ($cnt != 1) {
+                        echo CHtml::link(ActiveRecord::getTitleType("CatLayoutType",$layout->_type) . "  " .$layout->floor, '#', array('class'=>'btn-layout btn btn-xs', 'data-id'=>'lt_'.$layout->id));
+                    } else {
+                        echo CHtml::link(ActiveRecord::getTitleType("CatLayoutType",$layout->_type) . "  " .$layout->floor, '#', array('class'=>'btn-layout btn btn-xs btn-two', 'data-id'=>'lt_'.$layout->id));
+                    }
+                    ?>
+                <?php endforeach; ?></span></h3>
+
+        </div>
     </div>
         <?php $cnt=0; ?>
         <?php foreach ($layouts as $layout) : ?>
@@ -80,11 +98,14 @@ $this->breadcrumbs = array(
                 </a>
             </div>
             <div class="col-lg-6">
-                <ul>
-                    <?php foreach ($layout->layoutOptions as $layoutOption) : ?>
-                        <li><?php echo $layoutOption->catLayoutOption->title ?>: <?php echo $layoutOption->value ?></li>
-                    <?php endforeach; ?>
-                </ul>
+                <table class="table table-bordered table-hover table-responsive">
+                    <tbody>
+
+                        <?php foreach ($layout->layoutOptions as $layoutOption) : ?>
+                        <tr><td><?php echo $layoutOption->catLayoutOption->title ?></td><td><?php echo $layoutOption->value ?> <span>м<sup>2</sup></span></td></tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
                 <?php $this->renderPartial('_stage_payments'); ?>
             </div>
         </div>
@@ -92,32 +113,35 @@ $this->breadcrumbs = array(
 
 <?php endif; ?>
 <?php if (!empty($grades)) : ?>
-    <div class="row">
-        Комплектация:
-        <?php $cnt=0; ?>
-        <?php foreach ($grades as $grade) : ?>
-            <?php
-            $cnt++;
-            if ($cnt != 1) {
-                echo CHtml::link($grade->type->title, '#', array('class'=>'btn-grade btn btn-xs', 'data-id'=>'grade_'.$grade->id));
-            } else {
-                echo CHtml::link($grade->type->title, '#', array('class'=>'btn-grade btn btn-xs btn-four', 'data-id'=>'grade_'.$grade->id));
-            }
-            ?>
-        <?php endforeach; ?>
-        Цена
-        <?php $cnt=0; ?>
-        <?php foreach ($grades as $grade) : ?>
-            <?php
-            $cnt++;
-            if ($cnt != 1) {
-                $visible = 'style="display:none"';
-            } else {
-                $visible = '';
-            }
-            ?>
-            <span class="grade-price" id="price_grade_<?php echo $grade->id ?>" <?php echo $visible ?>><?php echo $grade->price ?></span>
-        <?php endforeach; ?>
+    <div class="row  project-row">
+        <div class="col-lg-12">
+            <h3 class="section-title">Комплектация: <span class="vers">
+                <?php $cnt=0; ?>
+                <?php foreach ($grades as $grade) : ?>
+                    <?php
+                    $cnt++;
+                    if ($cnt != 1) {
+                        echo CHtml::link($grade->type->title, '#', array('class'=>'btn-grade btn btn-xs', 'data-id'=>'grade_'.$grade->id));
+                    } else {
+                        echo CHtml::link($grade->type->title, '#', array('class'=>'btn-grade btn btn-xs btn-two', 'data-id'=>'grade_'.$grade->id));
+                    }
+                    ?>
+                <?php endforeach; ?></span>
+                <span class="vers">Цена
+                <?php $cnt=0; ?>
+                <?php foreach ($grades as $grade) : ?>
+                    <?php
+                    $cnt++;
+                    if ($cnt != 1) {
+                        $visible = 'style="display:none"';
+                    } else {
+                        $visible = '';
+                    }
+                    ?>
+                    <span class="grade-price" id="price_grade_<?php echo $grade->id ?>" <?php echo $visible ?>><?php echo $grade->price ?> <i class="fa fa-rub"></i> </span>
+                <?php endforeach; ?>
+            </span></h3>
+        </div>
     </div>
 
         <?php $cnt=0; ?>
@@ -131,14 +155,24 @@ $this->breadcrumbs = array(
             }
             ?>
         <div class="row grade-construct" <?php echo $visible ?>  id="construct_grade_<?php echo $grade->id ?>">
-            <?php foreach ($grade->gradeConstructs as $construct) : ?>
-                <div class="col-lg-4">
-                    <img alt="" src="<?php echo Statics::getImageLink($construct->catConstruct->image) ?>" class="img-responsive">
-                </div>
-                <div class="col-lg-8">
-                    <?php echo $construct->catConstruct->description ?>
-                </div>
-            <?php endforeach; ?>
+            <div class="col-lg-12">
+                <ul class="list-listings">
+                    <?php foreach ($grade->gradeConstructs as $construct) : ?>
+                        <li class="featured">
+                            <div class="listing-header bg-2">
+                                <?php echo $construct->catConstruct->type->title ?>
+                            </div>
+                            <div class="listing-image">
+                                <img alt="" src="<?php echo Statics::getImageLink($construct->catConstruct->image) ?>" class="img-responsive">
+                            </div>
+                            <div class="listing-body">
+                                <?php echo $construct->catConstruct->description ?>
+                            </div>
+
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
         <?php endforeach; ?>
 
@@ -161,8 +195,8 @@ $this->breadcrumbs = array(
         $('.btn-grade').on('click', function() {
             var id = $(this).attr('data-id');
 
-            $('.btn-grade').removeClass('btn-four');
-            $(this).addClass('btn-four');
+            $('.btn-grade').removeClass('btn-two');
+            $(this).addClass('btn-two');
 
             $('.grade-price').hide();
             $('#price_'+id).show();
@@ -175,8 +209,8 @@ $this->breadcrumbs = array(
         $('.btn-layout').on('click', function() {
             var id = $(this).attr('data-id');
 
-            $('.btn-layout').removeClass('btn-four');
-            $(this).addClass('btn-four');
+            $('.btn-layout').removeClass('btn-two');
+            $(this).addClass('btn-two');
 
             $('.layouts').hide();
             $('#layout_'+id).show();

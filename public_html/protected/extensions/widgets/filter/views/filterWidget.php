@@ -1,6 +1,12 @@
-<div class="pg-opt pin">
+<div class="pg-opt pin" style="position: fixed; bottom:0; z-index:999;width:100%; border-top: 1px solid #555">
+    <div class="container">
+        <div class="col-md-12">
+        <a href="#" class="btn-show-filter">Скрыть фильтры</a>
+            </div>
+    </div>
     <div class="container filter-row">
         <div class="row ">
+
             <form id="filter-form">
             <div class="col-md-4 filter-col text-center">
                 <?php echo CHtml::dropDownList('filter[category]', $category,
@@ -56,7 +62,7 @@
                 ?>
             </div>
             </form>
-            <!--a href="#" class="btn-show-filter">Показать</a-->
+
         </div>
     </div>
 </div>
@@ -78,6 +84,17 @@
         });
 
         $('.btn-show-filter').on('click', function() {
+            var btn = $(this);
+            if ($('.filter-row').is(':visible')) {
+                $('.filter-row').slideUp(300, function() {
+                    btn.html('Показать фильтры')
+                });
+
+            } else {
+                $('.filter-row').slideDown(300, function() {
+                    btn.html('Скрыть фильтры')
+                });
+            }
             return false;
         });
 

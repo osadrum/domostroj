@@ -1,4 +1,4 @@
-<div class="pg-opt pin">
+<div class="pg-opt pin" style="position: fixed; bottom:0; z-index:999;width:100%; border-top: 1px solid #555">
     <div class="container filter-row">
         <div class="row ">
             <form id="filter-form">

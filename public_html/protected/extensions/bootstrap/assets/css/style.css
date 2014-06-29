@@ -187,6 +187,55 @@ select option {
 .add-photo-row {
     margin-bottom: 32px;
 }
-.project-options {
-
+.box-promo {
+    position: relative;
+}
+.box-promo .btn-call-back {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
+.vers {
+    display: inline-block;
+    margin-left: 50px;
+}
+.stages-payment {
+    padding: 0 16px;
+}
+.stage-desc {
+    text-align: center;
+}
+.stage {
+    margin-top: 15px;
+    float:left;
+    width: 15%;
+    text-align: center;
+}
+.next-stage {
+    margin-top: 15px;
+    float:left;
+    width: 6%;
+    text-align: center;
+    padding-top: 25px;
+}
+.stage-percent {
+    margin-top: 5px;
+    float:left;
+    width: 15%;
+    text-align: center;
+    font-weight: bold;
+}
+.next-stage-percent {
+    margin-top: 5px;
+    float:left;
+    width: 6%;
+}
+.stage-box {
+    width: 100%;
+    min-width: 69px;
+    height: 69px;
+    border: 1px solid #555;
+}
+.project-row {
+    margin-top: 30px;
 }

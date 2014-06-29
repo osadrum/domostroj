@@ -65,20 +65,10 @@ class ProjectController extends AdminController
             if ($layoutModel == null){
                 $layoutModel = new Layout();
             }
-            $floor = Layout::model()->findByAttributes(
-                array(
-                    '_project'=>$_POST['Project']['id'],
-                    '_type' => 1,
-                ));
-            if ($floor != null){
-                $floor = $floor + 1;
-            } else {
-                $floor = 1;
-            }
             $layoutModel->_project = $_POST['Project']['id'];
             $layoutModel->_type = $_POST['Layout']['_type'];
             if ($_POST['Layout']['_type'] == 1){
-                $layoutModel->floor = $floor;
+                $layoutModel->floor = $_POST['Layout']['floor'];
             }
             $layoutModel->image = $_POST['Layout']['image'];
             if ($layoutModel->save()){

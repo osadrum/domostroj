@@ -12,8 +12,12 @@ class ActiveRecord extends CActiveRecord
     }
 
     public static function getIsPublishedTitle($id) {
-        $list = self::getIsPublishedTitleList();
-        return $list[$id];
+      //  $list = self::getIsPublishedTitleList();
+        if ($id == 1){
+            return '<i class="fa fa-check"></i>';
+        } elseif ($id == 0){
+            return '<i class="fa fa-circle-o"></i>';
+        }
     }
 
     public static function getImageLink($image, $size='small') {

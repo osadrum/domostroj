@@ -14,7 +14,7 @@ class AdminController extends Controller
                 'active' => isset($this->module) ? $this->module->id === 'admin' && $this->id === 'project' : false,
                 'icon' => 'fa fa-home',
             ),
-            array('label' => 'Галерея',
+            array('label' => 'Наши работы',
                 'url' => array('/admin/galleryCategory'),
                 'active' => isset($this->module) ? $this->module->id === 'admin' && $this->id === 'galleryCategory' : false,
                 'icon' => 'fa fa-picture-o',

@@ -66,7 +66,7 @@ class Layout extends ActiveRecord
 			'id' => 'ID',
 			'_project' => 'Проект',
 			'_type' => 'Уровень',
-			'floor' => 'Этаж',
+			'floor' => '№ этажа',
 			'image' => 'Изображение',
             'layoutOptions' => 'Помещения'
 		);

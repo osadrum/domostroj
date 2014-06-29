@@ -109,9 +109,7 @@ $this->widget('ext.EAjaxUpload.EAjaxUpload',
 </div>
 
 <div class="form-group">
-    <?php echo $form->labelEx($model,'is_published',array()) ?>
-    <?php echo $form->dropDownList($model,'is_published',ActiveRecord::getIsPublishedTitleList(),array('class'=>'form-control')); ?>
-    <?php echo $form->error($model,'is_published'); ?>
+    <?php echo $form->checkBoxRow($model, 'is_published') ?>
 </div>
 
 <hr>

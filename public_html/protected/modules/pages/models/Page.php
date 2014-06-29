@@ -19,13 +19,13 @@ class Page extends CActiveRecord {
 	{
 		return array(
 			array('slug, page_title, meta_title', 'required'),
-			array('content, meta_description, meta_keywords, parent_id, layout', 'safe'),
+			array('content, meta_description, meta_keywords, parent_id, layout,is_showed_menu', 'safe'),
 			array('parent_id', 'compare', 'operator' => '!=', 'compareAttribute' => 'id', 'allowEmpty' => true, 'message' => 'Узел не может быть сам себе родителем.'),
 			array('slug', 'match', 'pattern' => '/^[\w][\w\-]*+$/', 'message' => 'Разрешённые символы: строчные буквы латинского алфавита, цифры, дефис.'),
 			array('page_title', 'match', 'pattern' => '/^\d+$/', 'not' => true, 'message' => 'Заголовок страницы не может состоять из одного числа.'), // иначе будут проблемы при генерации хлебных крошек
 			array('layout', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('is_published', 'boolean'),
-			array('id, slug, page_title, is_published', 'safe', 'on' => 'search'),
+			array('id, slug, page_title, is_published, is_showed_menu', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -40,6 +40,7 @@ class Page extends CActiveRecord {
 			'slug'             => 'Текстовый идентификатор',
 			'layout'           => 'Шаблон',
 			'is_published'     => 'Опубликована',
+			'is_showed_menu'     => 'Показывать в меню',
 			'page_title'       => 'Заголовк',
 			'content'          => 'Содержимое страницы',
 			'meta_title'       => 'Мета-заголовок',
@@ -109,6 +110,7 @@ class Page extends CActiveRecord {
 		$criteria->compare('slug', $this->slug, true);
 		$criteria->compare('page_title', $this->page_title, true);
 		$criteria->compare('is_published', $this->is_published);
+		$criteria->compare('is_showed_menu', $this->is_showed_menu);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

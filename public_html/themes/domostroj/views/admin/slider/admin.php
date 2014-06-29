@@ -25,7 +25,11 @@ $this->pageIcon = '<i class="fa fa-desktop"></i> ';
                 ),
                 array(
                     'name' => 'is_published',
+                    'htmlOptions' => array(
+                        'style' => 'text-align: center;'
+                    ),
                     'filter' => ActiveRecord::getIsPublishedTitleList(),
+                    'type' => 'raw',
                     'value' => 'ActiveRecord::getIsPublishedTitle($data->is_published)',
                 ),
                 array(

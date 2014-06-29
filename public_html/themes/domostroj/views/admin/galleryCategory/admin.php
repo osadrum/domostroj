@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle = 'Список альбомов';
+$this->pageTitle = 'Наши работы';
 $this->breadcrumbs=array(
     $this->pageTitle,
 );
@@ -34,7 +34,7 @@ $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
                     'filter' => '',
                     'value' => 'CHtml::image(Yii::app()->getRequest()->getHostInfo().Yii::app()->params["imagePath"]."small/".$data->image, "", array("style"=>"max-width: 150px"))',
                 ),
-                array(
+              /*  array(
                     'name' => '_parent',
                     'headerHtmlOptions' => array(
                         'style' => 'text-align: center;width: 45%'
@@ -44,16 +44,14 @@ $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
                     ),
                     'filter' => GalleryCategory::getCategoryList(),
                     'value' => 'GalleryCategory::getCategoryTitleById($data->_parent)',
-                ),
+                ),*/
                 array(
                     'name' => 'is_published',
-                    'filter' => GalleryCategory::getIsPublishedTitleList(),
-                    'headerHtmlOptions' => array(
-                        'style' => 'text-align: center;width: 20%'
-                    ),
                     'htmlOptions' => array(
                         'style' => 'text-align: center;'
                     ),
+                    'filter' => ActiveRecord::getIsPublishedTitleList(),
+                    'type' => 'raw',
                     'value' => 'ActiveRecord::getIsPublishedTitle($data->is_published)',
                 ),
                 array(

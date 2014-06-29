@@ -25,6 +25,8 @@ class Controller extends CController
     public $metaKeywords;
     public $pageIcon;
     public $categoryProjects;
+
+    public $showFilter = false;
 	/**
 	 * @var array the breadcrumbs of the current page. The value of this property will
 	 * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}

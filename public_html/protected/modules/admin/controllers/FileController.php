@@ -95,7 +95,7 @@ class FileController extends AdminController
         }
     }
 
-    public function actionProductImages($product_id, $type='productImages')
+   /* public function actionProductImages($product_id, $type='productImages')
     {
         Yii::import("ext.EAjaxUpload.qqFileUploader");
         $folder = Yii::getPathOfAlias('webroot').Yii::app()->params['imagePath'];
@@ -143,7 +143,7 @@ class FileController extends AdminController
                 ));
             }
         }
-    }
+    }*/
 
     public function actionGalleryImages($album_id)
     {

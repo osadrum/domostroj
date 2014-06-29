@@ -7,48 +7,56 @@
     <meta name="description" content="<?php echo CHtml::encode($this->metaDescription) ?>">
     <meta name="keywords" content="<?php echo CHtml::encode($this->metaKeywords) ?>">
     <!-- Required -->
-    <link rel="icon" href="<?php echo  $this->getAssetsUrl(); ?>/images/favicon.png" type="image/png"--><!-- LayerSlider stylesheet -->
+    <link rel="icon" href="<?php echo $this->getAssetsUrl(); ?>/images/favicon.png" type="image/png"
+    --><!-- LayerSlider stylesheet -->
     <!--link rel="stylesheet" href="assets/layerslider/css/layerslider.css" type="text/css"-->
 
 </head>
 <body>
 <div class="wrapper">
 
-<!-- Header: Logo and Main Nav -->
-<header>
-    <div id="navOne" class="navbar navbar-wp" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html" title="Boomerang | One template. Infinite solutions">
-                    <img src="<?php echo  $this->getAssetsUrl(); ?>/images/boomerang-logo-dark.png" alt="Boomerang | One template. Infinite solutions">
-                </a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <?php $this->widget('bootstrap.widgets.TbNavbar', array(
-                    'id' => 'side-nav',
-                    'brand' => false,
-                    'type' => 'default',
-                    'fixed' => false,
-                    'htmlOptions' => array('class' => 'navbar-default navbar-static-side', 'role' => 'navigation'),
-                    'items' => array(
-                        array(
-                            'class' => 'bootstrap.widgets.TbMenu',
-                            'items' => $this->menuItems,
-                            'htmlOptions' => array('class'=>'navbar-nav navbar-right'),
-                            'submenuHtmlOptions' => array('class'=>'dropdown-menu')
+    <!-- Header: Logo and Main Nav -->
+    <header>
+        <div id="navOne" class="navbar navbar-wp" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html" title="Boomerang | One template. Infinite solutions">
+                        <img src="<?php echo $this->getAssetsUrl(); ?>/images/boomerang-logo-dark.png"
+                             alt="Boomerang | One template. Infinite solutions">
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <?php $this->widget('bootstrap.widgets.TbNavbar', array(
+                        'id' => 'side-nav',
+                        'brand' => false,
+                        'type' => 'default',
+                        'fixed' => false,
+                        'htmlOptions' => array('class' => 'navbar-default navbar-static-side', 'role' => 'navigation'),
+                        'items' => array(
+                            array(
+                                'class' => 'bootstrap.widgets.TbMenu',
+                                'items' => $this->menuItems,
+                                'htmlOptions' => array('class' => 'navbar-nav navbar-right'),
+                                'submenuHtmlOptions' => array('class' => 'dropdown-menu')
+                            ),
                         ),
-                    ),
-                )) ?>
-            </div><!--/.nav-collapse -->
+                    )) ?>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
         </div>
-    </div>
-</header>
+    </header>
+
+    <?php if ($_SERVER['REQUEST_URI'] == '/') :?>
+        <?php $this->widget('ext.widgets.slider.SliderWidget'); ?>
+    <?php endif; ?>
+
     <section class="slice bg-2 p-15">
         <div class="cta-wr">
             <div class="container">
@@ -97,9 +105,8 @@
         </div>
     </div>
 
-    <?php if (1) : ?>
-
-        <?php  $this->widget('ext.widgets.filter.FilterWidget', array('category' => $this->categoryProjects)); ?>
+    <?php if ($this->showFilter) : ?>
+        <?php  $this->widget('ext.widgets.filter.FilterWidget', array('category'=>$this->categoryProjects)); ?>
     <?php endif; ?>
 
     <section class="slice bg-3 animate-hover-slide">
@@ -197,6 +204,5 @@
         hoverPrevNext: false
     });
 </script-->
-<div id="preloader"></div>
 </body>
 </html>

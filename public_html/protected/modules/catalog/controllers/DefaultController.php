@@ -2,8 +2,10 @@
 
 class DefaultController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex($category=null)
     {
+        $this->showFilter = true;
+
         $criteria = new CDbCriteria();
         $criteria->distinct = true;
         $criteria->condition = 'is_published=1';
@@ -17,6 +19,17 @@ class DefaultController extends Controller
                 $filterParams = array();
             }
         };
+
+        $this->pageTitle = 'Каталог проектов';
+
+        if ($category != null) {
+            $criteria->addCondition('_category=:category');
+            $criteria->params = array(':category'=>(int)$category);
+            $cat = ProjectCategory::model()->findByPk((int)$category);
+            $this->categoryProjects = $category;
+            $this->pageTitle .= ' - '.$cat->title;
+        }
+
         if (!empty($filterParams['category'])) {
             $criteria->addCondition('_category='.(int)$filterParams['category']);
         }
@@ -32,12 +45,16 @@ class DefaultController extends Controller
         }
 
 
+
         $dataProvider=new CActiveDataProvider('Project', array(
             'criteria'=>$criteria,
             'pagination'=>array(
                 'pageSize'=>20,
             ),
         ));
-        $this->render('index',array('catalog'=>$dataProvider));
+        $this->render('index',array(
+            'catalog'=>$dataProvider,
+            'category' => $category,
+        ));
     }
 }

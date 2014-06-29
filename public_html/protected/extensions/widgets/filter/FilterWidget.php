@@ -8,7 +8,7 @@ class FilterWidget extends CWidget
     {
         $filterParams = Yii::app()->user->getState('filterParams');
 
-        $category = ($this->category != null)?$this->category:$filterParams['category'];
+        $category = ($this->category != null)?$this->category:0;
 
         $minPrice = Grade::getMinPrice();
         $maxPrice = Grade::getMaxPrice();

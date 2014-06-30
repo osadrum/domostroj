@@ -1,4 +1,4 @@
-<?
+<?php
 $this->pageTitle = $model->page_title;
 $this->pageIcon = '<i class="fa fa-file-o"></i> ';
 $this->breadcrumbs = array(

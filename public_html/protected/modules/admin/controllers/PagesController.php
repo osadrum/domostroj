@@ -6,7 +6,7 @@ class PagesController extends AdminController {
     public function actionCreate()
     {
         $model = new Page;
-
+        $model->layout = 'column2';
         $this->performAjaxValidation($model);
 
         if (isset($_POST['Page']))

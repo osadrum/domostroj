@@ -5,6 +5,6 @@
         <?php echo $content; ?>
     </div>
     <div class="col-md-3">
-
+        <?php  $this->widget('ext.widgets.verticalProjects.VerticalProjects'); ?>
     </div>
 <?php $this->endContent(); ?>

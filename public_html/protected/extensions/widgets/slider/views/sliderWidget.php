@@ -12,7 +12,7 @@
                 <div class="<?php echo $classImage; ?>" style="background-image:url( <?php echo Yii::app()->getRequest()->getHostInfo().Yii::app()->params["imagePath"]."high/".$s->image;?>);">
                     <div class="container">
                         <div class="description fluid-center">
-                            <span class="title"><?php echo $s->title; ?></span>
+                            <span class="title"><?php //echo $s->title; ?></span>
                             <span class="subtitle"><?php echo $s->subtitle; ?></span>
                             <span class="features">
                                 <?php echo $s->features; ?>

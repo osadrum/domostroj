@@ -27,4 +27,3 @@ $this->pageIcon = '<i class="fa fa-comments-o "></i> ';
     </div>
     <!-- /.col-lg-12 -->
 </div>
-); ?>

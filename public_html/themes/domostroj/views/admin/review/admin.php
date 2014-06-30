@@ -21,6 +21,7 @@ $this->pageIcon = '<i class="fa fa-comments-o"></i> ';
                     'filter' => '',
                     'value' => 'CHtml::image(Yii::app()->getRequest()->getHostInfo().Yii::app()->params["imagePath"]."small/".$data->image, "", array("style"=>"max-width: 150px"))',
                 ),
+
                 array(
                     'name' => 'is_published',
                     'htmlOptions' => array(
@@ -29,6 +30,18 @@ $this->pageIcon = '<i class="fa fa-comments-o"></i> ';
                     'filter' => ActiveRecord::getIsPublishedTitleList(),
                     'type' => 'raw',
                     'value' => 'ActiveRecord::getIsPublishedTitle($data->is_published)',
+                ),
+                array(
+                    'name' => 'document',
+                    'type' => 'raw',
+                    'headerHtmlOptions' => array(
+                        'style' => 'text-align: center;width: 7%'
+                    ),
+                    'htmlOptions' => array(
+                        'style' => 'text-align: center;'
+                    ),
+                    'filter' => '',
+                    'value' => 'Review::getReviewDocLink($data)',
                 ),
                 array(
                     'class' => 'bootstrap.widgets.TbButtonColumn',

@@ -96,6 +96,38 @@ class Review extends CActiveRecord
 		));
 	}
 
+    public function fileDelete()
+    {
+        if ($this->document) {
+            $folder =Yii::getPathOfAlias('webroot') . Yii::app()->params["docPath"];
+            unlink($folder . $this->document);
+        }
+    }
+
+    public function image($size = 'original')
+    {
+        return Yii::getPathOfAlias('webroot').Yii::app()->params['imagePath'].$size.'/'.$this->image;
+    }
+
+    public function imageDelete()
+    {
+        if ($this->image) {
+            if (file_exists($this->image('original')))
+                unlink($this->image('original', ''));
+            foreach (Yii::app()->params['imageSizeSlider'] as $path => $size) {
+                if (file_exists($this->image($path)))
+                    unlink($this->image($path));
+            }
+        }
+    }
+
+    public function beforeDelete()
+    {
+        $this->fileDelete();
+        $this->imageDelete();
+        return parent::beforeDelete();
+    }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
@@ -106,4 +138,10 @@ class Review extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public static function getReviewDocLink($model){
+        $arr = explode('.',$model->document);
+        return CHtml::link('<i class="fa fa-save"></i>',
+        Yii::app()->getRequest()->getHostInfo().Yii::app()->params["docPath"].$model->document,array("download"=>'отзыв_'. $model->id .'.'. $arr[1]));
+    }
 }

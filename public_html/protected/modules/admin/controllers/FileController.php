@@ -187,10 +187,10 @@ class FileController extends AdminController
         }
     }
 
-    public function actionFileUpload($type)
+    public function actionFileUpload()
     {
         Yii::import("ext.EAjaxUpload.qqFileUploader");
-        $docFolder = Yii::getPathOfAlias('webroot') . Documents::getDocFolder($type);
+        $docFolder = Yii::getPathOfAlias('webroot') . Yii::app()->params['docPath'];
         if (!file_exists($docFolder))
             mkdir($docFolder, 0775, true);
 
@@ -223,9 +223,9 @@ class FileController extends AdminController
 
     }
 
-    public function actionFileDelete($type=null) {
+    public function actionFileDelete() {
         if (isset($_POST['file'])) {
-            $docFolder = Yii::getPathOfAlias('webroot') . Documents::getDocFolder($type);
+            $docFolder = Yii::getPathOfAlias('webroot') . Yii::app()->params['docPath'];
             $errors = 0;
 
             if (file_exists($docFolder.'/'.$_POST['file'])){

@@ -126,6 +126,9 @@ return array(
             'small' => array(340, 191),
             'high' => array(1920, 1080),
         ),
+        'imageSizeReview' => array(
+            'small' => array(100, 100),
+        ),
         'imageQuality' => 100,
         'imagePath' => '/upload/images/',
         'docPath' => '/upload/docs/',

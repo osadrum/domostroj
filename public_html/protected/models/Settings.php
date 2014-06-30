@@ -140,4 +140,28 @@ class Settings extends ActiveRecord
         }
         return $value;
     }
+
+    public function getValue()
+    {
+        $value = '';
+        if ($this->type == 'bool') {
+            if ($this->value == 0) {
+                $value = 'Нет';
+            } else if ($this->value == 1) {
+                $value = 'Да';
+            }
+        } else if ($this->type == 'send') {
+            if ($this->value == 0) {
+                $value = 'Email';
+            } else if ($this->value == 1) {
+                $value = 'SMS';
+            } else if ($this->value == 2) {
+                $value = 'SMS и Email';
+            }
+        } else {
+            $value = substr($this->value, 0, 70);
+        }
+
+        return $value;
+    }
 }

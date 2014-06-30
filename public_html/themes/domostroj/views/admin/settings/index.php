@@ -35,7 +35,7 @@ $this->pageIcon = '<i class="fa fa-cogs"></i> ';
                     'headerHtmlOptions' => array(
                         'style' => 'text-align: center;width: 30%'
                     ),
-                    'value' => 'substr($data->value, 0, 70)',
+                    'value' => '$data->getValue()',
                 ),
 
                 array(

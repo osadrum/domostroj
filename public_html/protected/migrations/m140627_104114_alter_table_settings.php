@@ -4,13 +4,6 @@ class m140627_104114_alter_table_settings extends CDbMigration
 {
 	public function up()
 	{
-        $this->insert('{{settings}}', array(
-            'type' => 'send',
-            'section' => 'Отправка уведомлений',
-            'name' => 'feedback',
-            'value' => '',
-            'title' => 'Обратная связь',
-        ));
 	    $this->insert('{{settings}}', array(
             'type' => 'send',
             'section' => 'Отправка уведомлений',

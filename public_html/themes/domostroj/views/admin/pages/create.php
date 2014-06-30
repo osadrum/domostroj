@@ -1,4 +1,4 @@
-<?
+<?php
 $this->pageTitle = 'Создание страницы';
 $this->pageIcon = '<i class="fa fa-file-o"></i> ';
 $this->breadcrumbs = array(
@@ -8,5 +8,5 @@ $this->breadcrumbs = array(
 ?>
 
 <div class="col-lg-6">
-    <?= $this->renderPartial('_form', array('model' => $model)) ?>
+    <?php echo $this->renderPartial('_form', array('model' => $model)) ?>
 </div>

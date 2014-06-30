@@ -15,11 +15,11 @@ $('.table').treeTable({
 ?>
 
 <div class="btn-toolbar">
-    <?= CHtml::link('Добавить страницу', array('create'), array('class' => 'btn btn-xs btn-two')) ?>
+    <?php echo CHtml::link('Добавить страницу', array('create'), array('class' => 'btn btn-xs btn-two')) ?>
 </div>
 <div class="panel-body">
     <div class="row">
-        <? $this->widget('TbGridViewTree', array(
+        <?php $this->widget('TbGridViewTree', array(
             'id' => 'page-grid',
             'dataProvider' => $model->search(),
             'filter' => $model,

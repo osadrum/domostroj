@@ -272,3 +272,6 @@ select option {
     font-size: 18px;
     text-align: center;
 }
+.menu-bottom {
+    padding-top: 50px;
+}

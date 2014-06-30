@@ -1,4 +1,4 @@
-<?
+<?php
 Yii::app()->clientScript->registerScriptFile('/libs/redactorjs/ru.js');
 Yii::app()->clientScript->registerScriptFile('/libs/django-urlify/urlify.js');
 Yii::app()->clientScript->registerScript('translit', "
@@ -8,9 +8,9 @@ $('#translit-btn').click(function() {
 ");
 ?>
 
-<?= $form->dropDownListRow($model, 'parent_id', $model->selectMainList(), array('class' => 'form-control', 'empty' => '')) ?>
+<?php echo $form->dropDownListRow($model, 'parent_id', $model->selectMainList(), array('class' => 'form-control', 'empty' => '')) ?>
 
-<?= $form->textFieldRow($model, 'page_title', array('class' => 'form-control', 'maxlength' => 255)) ?>
+<?php echo $form->textFieldRow($model, 'page_title', array('class' => 'form-control', 'maxlength' => 255)) ?>
 
 <div class="control-group">
     <?= $form->labelEx($model, 'slug', array('class' => 'control-label', 'label' => 'Псевдоним')) ?>
@@ -22,17 +22,17 @@ $('#translit-btn').click(function() {
     </div>
 </div>
 
-<?= $form->checkBoxRow($model, 'is_published') ?>
-<?= $form->checkBoxRow($model, 'is_showed_menu') ?>
+<?php echo $form->checkBoxRow($model, 'is_published') ?>
+<?php echo $form->checkBoxRow($model, 'is_showed_menu') ?>
 
-<?=
+<?php echo
 $form->dropDownListRow($model, 'layout', array(
     'column1' => 'Одна колонка',
     'column2' => 'Две колонки',
 ), array('empty' => 'По умолчанию', 'class' => 'form-control')) ?>
 
 <div class="control-group">
-    <?= $form->labelEx($model, 'content', array('class' => 'control-label')) ?>
+    <?php echo $form->labelEx($model, 'content', array('class' => 'control-label')) ?>
 
 
     <div class="controls">

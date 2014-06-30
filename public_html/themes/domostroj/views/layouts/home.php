@@ -81,29 +81,6 @@
         </div>
     </section>
 
-    <div class="pg-opt pin">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2><?= $this->pageIcon; ?> <?= $this->pageTitle; ?></h2>
-                </div>
-                <div class="col-md-6">
-                    <?php if (isset($this->module) && $this->module->id === 'admin') {
-                        $link = '/admin/default/';
-                    } else {
-                        $link = '/';
-                    } ?>
-                    <?php $this->widget('ext.widgets.breadcrumbs.BreadcrumbsWidget', array(
-                        'homeLink'=>'<li>'.CHtml::link('Главная',$link).'</li>',
-                        'htmlOptions'=>array('class'=>'breadcrumb'),
-                        'links'=>$this->breadcrumbs,
-                    )); ?>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
     <?php if ($this->showFilter) : ?>
         <?php  $this->widget('ext.widgets.filter.FilterWidget', array('category'=>$this->categoryProjects)); ?>
     <?php endif; ?>

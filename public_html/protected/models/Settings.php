@@ -134,7 +134,7 @@ class Settings extends ActiveRecord
 
         $value = Yii::app()->cache->get($name);
 
-        if($value===false) {
+        if($value===false || $value===null) {
             $value = Settings::model()->find(array('select'=>'value', 'condition'=>'name=:name', 'params'=>array(':name'=>$name)))->value;
             Yii::app()->cache->set($name,$value);
         }

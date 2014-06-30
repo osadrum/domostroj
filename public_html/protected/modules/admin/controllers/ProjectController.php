@@ -469,32 +469,8 @@ class ProjectController extends AdminController
 		if(Yii::app()->request->isPostRequest)
 		{
             $project = $this->loadModel($id);
-            $projectImage = ProjectImage::model()->findAllByAttributes(array('_project'=>$id));
-            $projectOptionModel = ProjectOption::model()->findAllByAttributes(array('_project'=>$id));
-
-            foreach ($projectImage as $image){
-                $image->delete();
-            }
-            foreach ($project->layouts as $layout){
-                foreach ($layout->layoutOptions as $layoutOption){
-                    $layoutOption->delete();
-                }
-                $layout->delete();
-            }
-            foreach ($project->grades as $grade){
-                $grade->delete();
-                    foreach ($grade->gradeConstructs as $construct){
-                        $construct->delete();
-                    }
-            }
-            foreach ($projectOptionModel as $project){
-                $project->delete();
-            }
             $project->delete();
 
-			// we only allow deletion via POST request
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 		}

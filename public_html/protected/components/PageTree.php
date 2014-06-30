@@ -6,7 +6,9 @@ class PageTree
 
 	public function menu()
 	{
-		$pages = Page::model()->findAll();
+		$pages = Page::model()->findAll(array(
+            'condition' => 'is_published = 1 AND is_showed_menu = 1'
+        ));
 
 		foreach ($pages as $n => $page)
 		{

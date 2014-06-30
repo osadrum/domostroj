@@ -36,7 +36,6 @@ class CatProjectOptionController extends AdminController
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-
 			$this->loadModel($id)->delete();
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

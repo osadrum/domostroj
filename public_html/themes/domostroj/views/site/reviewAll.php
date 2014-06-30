@@ -10,9 +10,9 @@ $this->breadcrumbs = array(
         <h4><?php echo $r->title; ?></h4>
     </div>
     <div class="col-md-12">
-        <img style="float: left; margin: 0 10px 5px 0" alt="" src="<?php echo Statics::getImageLink($r->image) ?>">
-        <span style="text-align: justify"><?php echo $r->description; ?></span>
-        <span style="float: right; font-weight: bold"><?php echo CHtml::link('Посмотреть оригинал','#',array('id'=>'view_origin'))?></span>
+        <img class="avatar-review" alt="" src="<?php echo Statics::getImageLink($r->image) ?>">
+        <span class="review-desc"><?php echo $r->description; ?></span>
+        <span class="view-review-link"><?php echo CHtml::link('Посмотреть оригинал',Yii::app()->getRequest()->getHostInfo().Yii::app()->params["docPath"].$r->document, array('class'=>'view_origin'))?></span>
     </div>
 <?php endforeach;?>
 
@@ -26,8 +26,8 @@ $this->breadcrumbs = array(
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <iframe height="500px" src="<?php echo Yii::app()->getRequest()->getHostInfo().Yii::app()->params["docPath"].$r->document?>" ></iframe>
+                    <div class="col-lg-12 iframe_content">
+
                     </div>
                     <!-- /.col-lg-6 (nested) -->
                 </div>
@@ -41,10 +41,15 @@ $this->breadcrumbs = array(
 </div>
 
 <script>
-    $('#view_origin').on('click',function(){
+    $('.view_origin').on('click',function(){
+        var link = $(this).attr('href');
         $('#modal-review').modal('toggle');
+        $('.iframe_content').html('<iframe height="500px" src="'+link+'" ></iframe>')
         $('.modal-dialog').animate({
             width:'1000px'
         }, 200);
+
+        return false;
     })
+
 </script>

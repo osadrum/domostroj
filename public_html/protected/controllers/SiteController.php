@@ -100,7 +100,7 @@ class SiteController extends Controller
 
     public function actionReviewAll()
     {
-        $this->layout='//layouts/main';
+        $this->layout='//layouts/column2';
 
         $criteria = new CDbCriteria();
         $criteria->addCondition('is_published=1');

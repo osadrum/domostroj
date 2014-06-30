@@ -275,3 +275,15 @@ select option {
 .menu-bottom {
     padding-top: 50px;
 }
+
+.avatar-review{
+    float: left;
+    margin: 0 10px 5px 0;
+}
+.view-review-link{
+    float: right;
+    font-weight: bold
+}
+.review-desc{
+    text-align: justify
+}

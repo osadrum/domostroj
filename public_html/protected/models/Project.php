@@ -162,6 +162,29 @@ class Project extends ActiveRecord
     public function beforeDelete()
     {
         $this->imageDelete();
+
+        $projectImage = ProjectImage::model()->findAllByAttributes(array('_project'=>$this->id));
+        $projectOptionModel = ProjectOption::model()->findAllByAttributes(array('_project'=>$this->id));
+
+        foreach ($projectImage as $image){
+            $image->delete();
+        }
+        foreach ($this->layouts as $layout){
+            foreach ($layout->layoutOptions as $layoutOption){
+                $layoutOption->delete();
+            }
+            $layout->delete();
+        }
+        foreach ($this->grades as $grade){
+            foreach ($grade->gradeConstructs as $construct){
+                $construct->delete();
+            }
+            $grade->delete();
+        }
+        foreach ($projectOptionModel as $project){
+            $project->delete();
+        }
+
         return parent::beforeDelete();
     }
 	/**

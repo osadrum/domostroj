@@ -230,7 +230,6 @@
         'height' => '190',
         'autoSize' => false,
         'closeClick' => false,
-        'openEffect' => 'elastic',
         'closeEffect' => 'none',
     ),
 ));

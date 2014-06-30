@@ -436,12 +436,12 @@
 
 /* WP plugin fullwidth */
 
-.ls-wp-fullwidth-container {
+.ls-rw-fullwidth-container {
 	width: 100%;
 	position: relative;
 }
 
-.ls-wp-fullwidth-helper {
+.ls-rw-fullwidth-helper {
 	position: absolute;
 }
 
@@ -634,9 +634,9 @@ body * .ls-thumbnail a img,
 }
 */
 
-html * .ls-wp-container .ls-slide > *,
-body * .ls-wp-container .ls-slide > *,
-#ls-global * .ls-wp-container .ls-slide > * {
+html * .ls-rw-container .ls-slide > *,
+body * .ls-rw-container .ls-slide > *,
+#ls-global * .ls-rw-container .ls-slide > * {
 	line-height: normal;
 	outline: none;
 	padding: 0;
@@ -644,20 +644,20 @@ body * .ls-wp-container .ls-slide > *,
 	border: 0;
 }
 
-html * .ls-wp-container .ls-slide > a > *,
-body * .ls-wp-container .ls-slide > a > *,
-#ls-global * .ls-wp-container .ls-slide > a > * {
+html * .ls-rw-container .ls-slide > a > *,
+body * .ls-rw-container .ls-slide > a > *,
+#ls-global * .ls-rw-container .ls-slide > a > * {
 	margin: 0;
 }
 
-html * .ls-wp-container .ls-slide > a,
-body * .ls-wp-container .ls-slide > a,
-#ls-global * .ls-wp-container .ls-slide > a {
+html * .ls-rw-container .ls-slide > a,
+body * .ls-rw-container .ls-slide > a,
+#ls-global * .ls-rw-container .ls-slide > a {
 	text-decoration: none;
 }
 
-.ls-wp-fullwidth-container,
-.ls-wp-fullwidth-helper,
+.ls-rw-fullwidth-container,
+.ls-rw-fullwidth-helper,
 .ls-container,
 .ls-container * {
 	box-sizing: content-box !important;

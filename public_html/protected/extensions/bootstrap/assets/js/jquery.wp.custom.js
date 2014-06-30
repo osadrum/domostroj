@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	// Active Theme: Select the theme you want to activate on the entire website
-	$("body").addClass("wp-theme-1");
+	$("body").addClass("rw-theme-1");
 	
 	// This sets the lw class on the .wrapper div. You can add this class manually on each page
 	$(".wrapper").addClass("lw");

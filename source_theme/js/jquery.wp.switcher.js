@@ -13,29 +13,29 @@ $("#cmdShowStyleSwitcher").click(function(){
 });
 
 var scheme = $.cookie('scheme');
-if (scheme == 'wp-theme-1') {
+if (scheme == 'rw-theme-1') {
 	$("body").removeClass();
-	$("body").addClass("wp-theme-1");
+	$("body").addClass("rw-theme-1");
 }
-else if (scheme == 'wp-theme-2') {
+else if (scheme == 'rw-theme-2') {
 	$("body").removeClass();
-	$("body").addClass("wp-theme-2");
+	$("body").addClass("rw-theme-2");
 }
-else if (scheme == 'wp-theme-3') {
+else if (scheme == 'rw-theme-3') {
 	$("body").removeClass();
-	$("body").addClass("wp-theme-3");
+	$("body").addClass("rw-theme-3");
 }
-else if (scheme == 'wp-theme-4') {
+else if (scheme == 'rw-theme-4') {
 	$("body").removeClass();
-	$("body").addClass("wp-theme-4");
+	$("body").addClass("rw-theme-4");
 }
-else if (scheme == 'wp-theme-5') {
+else if (scheme == 'rw-theme-5') {
 	$("body").removeClass();
-	$("body").addClass("wp-theme-5");
+	$("body").addClass("rw-theme-5");
 }
-else if (scheme == 'wp-theme-6') {
+else if (scheme == 'rw-theme-6') {
 	$("body").removeClass();
-	$("body").addClass("wp-theme-6");
+	$("body").addClass("rw-theme-6");
 }
 
 var layout = $.cookie('layout');
@@ -95,50 +95,50 @@ date.setTime(date.getTime() + (5 * 60 * 1000));
 
 $("#cmdRed").click(function(){
 	$("body").removeClass(scheme);
-	$("body").addClass("wp-theme-1");
+	$("body").addClass("rw-theme-1");
 	checkAsideMenuVisibility();
-	$.cookie('scheme', 'wp-theme-1', { expires:date});
-	scheme = "wp-theme-1";
+	$.cookie('scheme', 'rw-theme-1', { expires:date});
+	scheme = "rw-theme-1";
 	return false;
 });
 $("#cmdViolet").click(function(){
 	$("body").removeClass(scheme);
-	$("body").addClass("wp-theme-2");
+	$("body").addClass("rw-theme-2");
 	checkAsideMenuVisibility();
-	$.cookie('scheme', 'wp-theme-2', { expires:date});
-	scheme = "wp-theme-2";
+	$.cookie('scheme', 'rw-theme-2', { expires:date});
+	scheme = "rw-theme-2";
 	return false;
 });
 $("#cmdBlue").click(function(){
 	$("body").removeClass(scheme);
-	$("body").addClass("wp-theme-3");
+	$("body").addClass("rw-theme-3");
 	checkAsideMenuVisibility();
-	$.cookie('scheme', 'wp-theme-3', { expires:date});
-	scheme = "wp-theme-3";
+	$.cookie('scheme', 'rw-theme-3', { expires:date});
+	scheme = "rw-theme-3";
 	return false;
 });
 $("#cmdGreen").click(function(){
 	$("body").removeClass(scheme);
-	$("body").addClass("wp-theme-4");
+	$("body").addClass("rw-theme-4");
 	checkAsideMenuVisibility();
-	$.cookie('scheme', 'wp-theme-4', { expires:date});
-	scheme = "wp-theme-4";
+	$.cookie('scheme', 'rw-theme-4', { expires:date});
+	scheme = "rw-theme-4";
 	return false;
 });
 $("#cmdYellow").click(function(){
 	$("body").removeClass(scheme);
-	$("body").addClass("wp-theme-5");
+	$("body").addClass("rw-theme-5");
 	checkAsideMenuVisibility();
-	$.cookie('scheme', 'wp-theme-5', { expires:date});
-	scheme = "wp-theme-5";
+	$.cookie('scheme', 'rw-theme-5', { expires:date});
+	scheme = "rw-theme-5";
 	return false;
 });
 $("#cmdOrange").click(function(){
 	$("body").removeClass(scheme);
-	$("body").addClass("wp-theme-6");
+	$("body").addClass("rw-theme-6");
 	checkAsideMenuVisibility();
-	$.cookie('scheme', 'wp-theme-6', { expires:date});
-	scheme = "wp-theme-6";
+	$.cookie('scheme', 'rw-theme-6', { expires:date});
+	scheme = "rw-theme-6";
 	return false;
 });
 

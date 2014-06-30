@@ -108,87 +108,143 @@
         <?php  $this->widget('ext.widgets.filter.FilterWidget', array('category'=>$this->categoryProjects)); ?>
     <?php endif; ?>
 
-    <section class="slice bg-3 animate-hover-slide">
-        <div class="w-section inverse blog-grid">
+    <section class="slice animate-hover-slide bg-3">
+        <div class="w-section inverse">
             <div class="container">
-                <div class="row">
-
-              <?php echo $content; ?>
+                <?php  $this->widget('ext.widgets.randomCategory.RandCategory'); ?>
             </div>
         </div>
-    </div>
-</section>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="col">
-                    <h4>Contact us</h4>
-                    <ul>
-                        <li>5th Avenue, New York - United States</li>
-                        <li>Phone: +10 724 1234 567 | Fax: +10 724 1234 567 </li>
-                        <li>Email: <a href="mailto:hello@example.com" title="Email Us">hello@example.com</a></li>
-                        <li>Skype: <a href="skype:my.business?call" title="Skype us">my-business</a></li>
-                        <li>Creating great templates is our passion</li>
-                    </ul>
+    </section>
+
+    <section class="slice bg-5">
+        <div class="w-section inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3 class="section-title"><span>О компании<span class="border"></span></span></h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <?php echo Settings::getCacheValue('about'); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h3 class="section-title">Отзывы</h3>
+                        <div class="widget">
+
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="col-md-3">
-                <div class="col">
-                    <h4>Mailing list</h4>
-                    <p>Sign up if you would like to receive occasional treats from us.</p>
-                    <form class="form-inline">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Your email address...">
+    <section class="slice bg-banner-1">
+        <div class="mask-dark"></div>
+        <div class="w-section inverse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="text-center">
+                            <h2>Звоните сейчас и мы поможем
+                                вам правильно подобрать проект</h2>
+
+                            <span class="clearfix"></span>
+
+                            <div class="text-center">
+                                <a class="btn btn-lg btn-three mt-20 ext-source modal-call-back" title="" href="#modal-call-back" target="blank">
+                                    <i class="fa fa-phone"></i> Заказать звонок
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slice animate-hover-slide bg-3">
+        <div class="w-section inverse">
+            <div class="container">
+                <h3 class="section-title">Проекты</h3>
+                <?php  $this->widget('ext.widgets.randomProjects.RandProjects'); ?>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="col">
+                        <h4>Contact us</h4>
+                        <ul>
+                            <li>5th Avenue, New York - United States</li>
+                            <li>Phone: +10 724 1234 567 | Fax: +10 724 1234 567 </li>
+                            <li>Email: <a href="mailto:hello@example.com" title="Email Us">hello@example.com</a></li>
+                            <li>Skype: <a href="skype:my.business?call" title="Skype us">my-business</a></li>
+                            <li>Creating great templates is our passion</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="col">
+                        <h4>Mailing list</h4>
+                        <p>Sign up if you would like to receive occasional treats from us.</p>
+                        <form class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Your email address...">
                             <span class="input-group-btn">
                                 <button class="btn btn-two" type="button">Go!</button>
                             </span>
-                        </div>
-                    </form>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="col col-social-icons">
+                        <h4>Follow us</h4>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-skype"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="#"><i class="fa fa-flickr"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="col">
+                        <h4>About us</h4>
+                        <p>
+                            Boomerang Bootstrap Template is made with love and passion for your own business.
+                            <br><br>
+                            <a href="#" class="btn btn-two">Try it now!</a>
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-3">
-                <div class="col col-social-icons">
-                    <h4>Follow us</h4>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-skype"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                    <a href="#"><i class="fa fa-youtube-play"></i></a>
-                    <a href="#"><i class="fa fa-flickr"></i></a>
-                </div>
-            </div>
+            <hr>
 
-            <div class="col-md-3">
-                <div class="col">
-                    <h4>About us</h4>
-                    <p>
-                        Boomerang Bootstrap Template is made with love and passion for your own business.
-                        <br><br>
-                        <a href="#" class="btn btn-two">Try it now!</a>
-                    </p>
+            <div class="row">
+                <div class="col-lg-9 copyright">
+                    2013 © Web Pixels. All rights reserverd.
+                    <a href="#">Terms of use</a> |
+                    <a href="#">Privacy policy</a>
+                </div>
+                <div class="col-lg-3 footer-logo">
+
                 </div>
             </div>
         </div>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-lg-9 copyright">
-                2013 © Web Pixels. All rights reserverd.
-                <a href="#">Terms of use</a> |
-                <a href="#">Privacy policy</a>
-            </div>
-            <div class="col-lg-3 footer-logo">
-
-            </div>
-        </div>
-    </div>
-</footer></div>
+    </footer></div>
 
 <!-- Initializing the slider -->
 <!--script>
@@ -236,49 +292,49 @@
 ));
 ?>
 <script>
-        $('.btn-call-back-send').on('click', function() {
+    $('.btn-call-back-send').on('click', function() {
 
-            var error = 0;
-            var callBackForm = $('#call-back-form');
-            var btn = $(this);
-            callBackForm.find("input[type=text]").not('[type="submit"]').each(function() {
+        var error = 0;
+        var callBackForm = $('#call-back-form');
+        var btn = $(this);
+        callBackForm.find("input[type=text]").not('[type="submit"]').each(function() {
 
-                if($(this).val().length != 0) {
-                    $(this).css({'border' : '1px solid #78b79b','color':'#78b79b'});
-                } else {
-                    $(this).css({'border' : '1px solid #e86f56'});
-                    error++;
+            if($(this).val().length != 0) {
+                $(this).css({'border' : '1px solid #78b79b','color':'#78b79b'});
+            } else {
+                $(this).css({'border' : '1px solid #e86f56'});
+                error++;
+            }
+        });
+
+        if (error == 0) {
+            $.ajax({
+                url: '<?php echo Yii::app()->createUrl('/site/ajaxCallback') ?>',
+                type: 'post',
+                dataType: 'json',
+                data: callBackForm.serialize(),
+                beforeSend: function() {
+                    btn.after('<span class="sending">Отправляем...</span>');
+                    btn.hide();
+                },
+                success: function(data) {
+                    if (data.status == 'ok') {
+                        $('.sending').remove();
+                        btn.show();
+                        $('#modal-name').val('');
+                        $('#modal-phone').val('');
+                        callBackForm.hide();
+                        $('.modal-message').html('Ваша заявка принята<br>Мы свяжемся с Вами в ближайшее время!').fadeIn(200).delay(4000).fadeOut(200, function() {
+                            $.fancybox.close();
+                            callBackForm.show(200);
+                        });
+
+                    }
                 }
             });
-
-            if (error == 0) {
-                $.ajax({
-                    url: '<?php echo Yii::app()->createUrl('/site/ajaxCallback') ?>',
-                    type: 'post',
-                    dataType: 'json',
-                    data: callBackForm.serialize(),
-                    beforeSend: function() {
-                        btn.after('<span class="sending">Отправляем...</span>');
-                        btn.hide();
-                    },
-                    success: function(data) {
-                        if (data.status == 'ok') {
-                            $('.sending').remove();
-                            btn.show();
-                            $('#modal-name').val('');
-                            $('#modal-phone').val('');
-                            callBackForm.hide();
-                            $('.modal-message').html('Ваша заявка принята<br>Мы свяжемся с Вами в ближайшее время!').fadeIn(200).delay(4000).fadeOut(200, function() {
-                                $.fancybox.close();
-                                callBackForm.show(200);
-                            });
-
-                        }
-                    }
-                });
-            }
-            return false;
-        });
+        }
+        return false;
+    });
 </script>
 </body>
 <?php echo Settings::getCacheValue('googleAnalytics'); ?>

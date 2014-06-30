@@ -98,6 +98,29 @@ class ProjectImage extends ActiveRecord
 		));
 	}
 
+    public function image($size = 'original')
+    {
+        return Yii::getPathOfAlias('webroot').Yii::app()->params['imagePath'].$size.'/'.$this->image;
+    }
+
+    public function imageDelete()
+    {
+        if ($this->image) {
+            if (file_exists($this->image('original')))
+                unlink($this->image('original', ''));
+            foreach (Yii::app()->params['imageSizeProject'] as $path => $size) {
+                if (file_exists($this->image($path)))
+                    unlink($this->image($path));
+            }
+        }
+    }
+
+    public function beforeDelete()
+    {
+        $this->imageDelete();
+        return parent::beforeDelete();
+    }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

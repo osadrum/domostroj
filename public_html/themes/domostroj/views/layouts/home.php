@@ -17,7 +17,7 @@
 
     <!-- Header: Logo and Main Nav -->
     <header>
-        <div id="navOne" class="navbar navbar-wp" role="navigation">
+        <div id="navOne" class="navbar navbar-rw" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

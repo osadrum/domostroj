@@ -220,11 +220,11 @@ $("#cmbNavigation").change(function(){
 // Navigation Style
 $("#cmbNavigationStyle").change(function(){
 	if($(this).val() == 2){
-		$(".navbar-wp").addClass("navbar-contrasted");
+		$(".navbar-rw").addClass("navbar-contrasted");
 		$.cookie('navigation-style', 'contrasted', { expires:date});	
 	}
 	else{
-		$(".navbar-wp").removeClass("navbar-contrasted");
+		$(".navbar-rw").removeClass("navbar-contrasted");
 		$.cookie('navigation-style', 'white', { expires:date});	
 	}
 });

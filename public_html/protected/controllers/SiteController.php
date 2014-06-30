@@ -71,7 +71,7 @@ class SiteController extends Controller
         $error = 0;
         if (isset($_POST['name']) && isset($_POST['phone'])) {
 
-            $message = 'Заказ обратного звонка '.$_POST['name'].' тел:'.$_POST['phone'];
+            $message = 'Обратный звонок '.$_POST['name'].' тел:'.$_POST['phone'];
 
             if (Settings::getCacheValue('callback') == 0) {
                 if (!Email::sendMail('admin', 'Заказ обратного звонка', $message)) {

@@ -74,14 +74,6 @@ class m140417_082121_create_table_settings extends CDbMigration
         $this->insert('{{settings}}', array(
             'type' => 'text',
             'section' => 'Контакты',
-            'name' => 'map',
-            'value' => '',
-            'title' => 'Код карты',
-        ));
-
-        $this->insert('{{settings}}', array(
-            'type' => 'text',
-            'section' => 'Контакты',
             'name' => 'orgName',
             'value' => '',
             'title' => 'Название организации',

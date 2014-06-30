@@ -218,7 +218,7 @@
             'htmlOptions' => array('id' => 'modal-phone', 'placeholder'=>'Ваш телефон')
         ));
         ?><br>
-        <a href="#" class="btn btn-four btn-call-back-send">Отправить</a>
+        <a href="#" class="btn btn-three btn-call-back-send">Отправить</a>
     </form>
 </div>
 <?php $this->widget('application.extensions.fancybox.EFancyBox', array(
@@ -230,7 +230,6 @@
         'height' => '190',
         'autoSize' => false,
         'closeClick' => false,
-        'openEffect' => 'elastic',
         'closeEffect' => 'none',
     ),
 ));
@@ -281,4 +280,6 @@
         });
 </script>
 </body>
+<?php echo Settings::getCacheValue('googleAnalytics'); ?>
+<?php echo Settings::getCacheValue('yandexMetrika'); ?>
 </html>

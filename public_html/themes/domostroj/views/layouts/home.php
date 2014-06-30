@@ -108,7 +108,9 @@
                     <div class="col-md-5">
                         <h3 class="section-title">Отзывы</h3>
                         <div class="widget">
-
+                            <div class="row">
+                                <?php $this->widget('ext.widgets.review.ReviewWidget'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>

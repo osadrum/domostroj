@@ -98,8 +98,16 @@ class SiteController extends Controller
         ));
     }
 
-    public function actionAjaxOrder()
+    public function actionReviewAll()
     {
+        $this->layout='//layouts/main';
+
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('is_published=1');
+        $review = Review::model()->findAll($criteria);
+
+        $this->render('reviewAll',
+            array('review'=>$review));
 
     }
 

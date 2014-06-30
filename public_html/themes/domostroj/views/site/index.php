@@ -22,7 +22,6 @@ $this->pageTitle=Yii::app()->name;
                 <div class="col-md-5">
                     <h3 class="section-title">Отзывы</h3>
                     <div class="widget">
-
                     </div>
                 </div>
             </div>

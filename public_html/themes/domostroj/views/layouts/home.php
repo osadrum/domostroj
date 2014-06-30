@@ -26,8 +26,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
+                    <!--a class="navbar-brand" href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
                         <img src="<?php echo $this->getAssetsUrl(); ?>/images/logo.png" alt="">
+                    </a-->
+                    <a href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
+                        <h1>Я хочу дом</h1>
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -166,6 +169,11 @@
                             <?php foreach ($this->menuItems as $item) : ?>
                                 <?php
                                 $cnt++;
+                                if ($item['label'] == 'Главная') {
+                                    echo CHtml::link($item['label'], Yii::app()->homeUrl);
+                                    continue;
+                                }
+
                                 if ($cnt > 1) {
                                     echo ' | ';
                                 }
@@ -235,8 +243,8 @@
     'config' => array(
         'fitToView' => true,
         'loop' => false,
-        'width' => '360',
-        'height' => '190',
+        'width' => '365',
+        'height' => '195',
         'autoSize' => false,
         'closeClick' => false,
         'closeEffect' => 'none',

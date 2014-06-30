@@ -1,13 +1,13 @@
-<? $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+<?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     'id' => 'page-form',
     'inlineErrors' => false,
     'type' => 'horizontal',
 )) ?>
 
-<?= $form->errorSummary($model) ?>
+<?php echo $form->errorSummary($model) ?>
 <div class="form-group">
 
-    <? $this->widget('bootstrap.widgets.TbTabs', array(
+    <?php $this->widget('bootstrap.widgets.TbTabs', array(
         'type' => 'tabs',
         'tabs' => array(
             array(
@@ -23,11 +23,11 @@
     )) ?>
 </div>
 <div class="form-group">
-    <? $this->widget('bootstrap.widgets.TbButton', array(
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
         'buttonType' => 'submit',
         'type' => 'primary',
         'label' => $model->isNewRecord ? 'Добавить' : 'Сохранить',
     )) ?>
 </div>
 
-<? $this->endWidget() ?>
+<?php $this->endWidget() ?>

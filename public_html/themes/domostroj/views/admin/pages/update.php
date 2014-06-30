@@ -7,5 +7,5 @@ $this->breadcrumbs = array(
 );
 ?>
 <div class="col-lg-6">
-    <?= $this->renderPartial('_form', array('model' => $model)) ?>
+    <?php echo $this->renderPartial('_form', array('model' => $model)) ?>
 </div>

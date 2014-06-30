@@ -22,7 +22,7 @@ $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
                     ),
                     'value' => '$data->title',
                 ),
-                array(
+               /* array(
                     'name' => 'image',
                     'headerHtmlOptions' => array(
                         'style' => 'text-align: center;width: 10%'
@@ -33,7 +33,7 @@ $this->pageIcon = '<i class="fa fa-picture-o"></i> ';
                     'type' => 'raw',
                     'filter' => '',
                     'value' => 'CHtml::image(Yii::app()->getRequest()->getHostInfo().Yii::app()->params["imagePath"]."small/".$data->image, "", array("style"=>"max-width: 150px"))',
-                ),
+                ),*/
               /*  array(
                     'name' => '_parent',
                     'headerHtmlOptions' => array(

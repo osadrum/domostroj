@@ -76,6 +76,11 @@ class Controller extends CController
                 'data-close-others'=>"true"), 'active' => ($this->module->id === 'catalog') ? true : false,  'items' => $projectItems);
         }
 
+        $this->menuItems[] = array('label' => 'Наши работы',
+            'url' => array('/works'),
+            'active' => ($this->id === 'works') ? true : false,
+        );
+
         $this->menuItems[] = array('label' => 'Контакты',
             'url' => array('/contacts'),
             'active' => ($this->id === 'contacts') ? true : false,

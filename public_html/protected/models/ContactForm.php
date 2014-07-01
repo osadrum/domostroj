@@ -30,6 +30,20 @@ class ContactForm extends CFormModel
 		);
 	}
 
+    /**
+     * Declares attribute labels.
+     */
+    public function attributeLabels()
+    {
+        return array(
+            'name'=>'Имя',
+            'email'=>'Email',
+            'subject'=>'Тема сообщения',
+            'body'=>'Текст сообщения',
+            'phone'=>'Телефон',
+        );
+    }
+
 	/**
 	 * Declares customized attribute labels.
 	 * If not declared here, an attribute would have a label that is

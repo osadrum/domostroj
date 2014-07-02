@@ -26,12 +26,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <!--a class="navbar-brand" href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
-                        <img src="<?php echo $this->getAssetsUrl(); ?>/images/logo.png" alt="">
-                    </a-->
-                    <a href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
-                        <h1>Я хочу дом</h1>
+                    <a class="navbar-brand" href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
+                        <img src="<?php echo $this->getAssetsUrl(); ?>/images/logo.jpg" alt="">
                     </a>
+                    <!--a href="<?php echo Yii::app()->homeUrl ?>" title="Яхочудом.рф">
+                        <h1>Я хочу дом</h1>
+                    </a-->
                 </div>
                 <div class="navbar-collapse collapse">
                     <?php $this->widget('bootstrap.widgets.TbNavbar', array(

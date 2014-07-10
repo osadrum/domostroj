@@ -6,6 +6,6 @@ $this->breadcrumbs = array(
     $this->pageTitle,
 );
 ?>
-<div class="col-lg-6">
+<div class="col-lg-12">
     <?php echo $this->renderPartial('_form', array('model' => $model)) ?>
 </div>

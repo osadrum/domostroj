@@ -135,6 +135,8 @@ return array(
         'CKEditorTool' => array(
             array( 'Source', '-', 'Bold', 'Italic', 'Underline', 'Strike' ),
             array( 'TextColor', 'BGColor'),
+            array('NumberedList', 'BulletedList','JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock','list'),
+            array('Styles', 'Format', 'Font', 'FontSize' ),
             array( 'Image', 'Youtube', 'Link', 'Unlink','Maximize', 'ShowBlocks'),
             array('Paste', 'PasteText', 'PasteFromWord','Undo', 'Redo')
         )

@@ -7,29 +7,46 @@ $('#translit-btn').click(function() {
 });
 ");
 ?>
-
-<?php echo $form->dropDownListRow($model, 'parent_id', $model->selectMainList(), array('class' => 'form-control', 'empty' => '')) ?>
-
-<?php echo $form->textFieldRow($model, 'page_title', array('class' => 'form-control', 'maxlength' => 255)) ?>
-
-<div class="control-group">
-    <?= $form->labelEx($model, 'slug', array('class' => 'control-label', 'label' => 'Псевдоним')) ?>
-    <div class="controls">
-        <div class="input-append">
-            <?= $form->textField($model, 'slug', array('class' => 'form-control', 'maxlength' => 127)) ?>
-            <button class="btn btn-xs btn-two" type="button" id="translit-btn">Транслит</button>
+<div class="row">
+    <div class="col-lg-6">
+        <?php echo $form->dropDownListRow($model, 'parent_id', $model->selectMainList(), array('class' => 'form-control', 'empty' => '')) ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <?php echo $form->textFieldRow($model, 'page_title', array('class' => 'form-control', 'maxlength' => 255)) ?>
+    </div>
+    <div class="col-lg-6">
+        <div class="control-group">
+            <?= $form->labelEx($model, 'slug', array('class' => 'control-label', 'label' => 'Псевдоним')) ?>
+            <div class="controls">
+                <div class="input-append">
+                    <?= $form->textField($model, 'slug', array('class' => 'form-control', 'maxlength' => 127)) ?>
+                    <button class="btn btn-xs btn-two" type="button" id="translit-btn">Транслит</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-lg-6">
+        <?php echo
+        $form->dropDownListRow($model, 'layout', array(
+            'column1' => 'Одна колонка',
+            'column2' => 'Две колонки',
+        ), array('empty' => 'По умолчанию', 'class' => 'form-control')) ?>
+    </div>
+    <div class="col-lg-6">
+        <?php echo $form->checkBoxRow($model, 'is_published') ?>
+        <?php echo $form->checkBoxRow($model, 'is_showed_menu') ?>
+    </div>
+</div>
 
-<?php echo $form->checkBoxRow($model, 'is_published') ?>
-<?php echo $form->checkBoxRow($model, 'is_showed_menu') ?>
 
-<?php echo
-$form->dropDownListRow($model, 'layout', array(
-    'column1' => 'Одна колонка',
-    'column2' => 'Две колонки',
-), array('empty' => 'По умолчанию', 'class' => 'form-control')) ?>
+
+
+
+
 
 <div class="control-group">
     <?php echo $form->labelEx($model, 'content', array('class' => 'control-label')) ?>

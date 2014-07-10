@@ -66,10 +66,8 @@
                         </h1>
                     </div>
                     <div class="col-md-4 text-right">
-
                         <span class="line-phone"><?php echo Settings::getCacheValue('phone'); ?></span><br>
                         <span class="schedule-work"><?php echo Settings::getCacheValue('scheduleWork'); ?></span>
-
                     </div>
                     <div class="col-md-3">
                         <a class="btn btn-one btn-lg pull-right modal-call-back" title="" href="#modal-call-back" target="blank">

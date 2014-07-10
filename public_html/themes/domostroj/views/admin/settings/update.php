@@ -14,7 +14,7 @@ $this->pageIcon = '<i class="fa fa-cogs"></i>';
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-<?php echo ($model->type == 'text-redactor')?'12':'6'; ?>">
                         <?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                             'id' => 'news-form',
                             'enableAjaxValidation' => false,

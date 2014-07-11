@@ -74,18 +74,26 @@ class SiteController extends Controller
             $message = 'Обратный звонок '.$_POST['name'].' тел:'.$_POST['phone'];
 
             if (Settings::getCacheValue('callback') == 0) {
-                if (!Email::sendMail('admin', 'Заказ обратного звонка', $message)) {
+                if (Email::sendMail('admin', 'Заказ обратного звонка', $message)) {
+                    LogForms::write(LogForms::TYPE_CALL_BACK, LogForms::NOTICE_EMAIL,$_POST['phone'], '', $message);
+                } else {
                     $error++;
                 }
             } else if (Settings::getCacheValue('callback') == 1) {
-                if (!Sms::send('admin', $message)) {
+                if (Sms::send('admin', $message)) {
+                    LogForms::write(LogForms::TYPE_CALL_BACK, LogForms::NOTICE_SMS,$_POST['phone'], '', $message);
+                } else {
                     $error++;
                 }
             } else if (Settings::getCacheValue('callback') == 2) {
-                if (!Email::sendMail('admin', 'Заказ обратного звонка', $message)) {
+                if (Email::sendMail('admin', 'Заказ обратного звонка', $message)) {
+                    LogForms::write(LogForms::TYPE_CALL_BACK, LogForms::NOTICE_EMAIL,$_POST['phone'], '', $message);
+                } else {
                     $error++;
                 }
-                if (!Sms::send('admin', $message)) {
+                if (Sms::send('admin', $message)) {
+                    LogForms::write(LogForms::TYPE_CALL_BACK, LogForms::NOTICE_SMS,$_POST['phone'], '', $message);
+                } else {
                     $error++;
                 }
             }

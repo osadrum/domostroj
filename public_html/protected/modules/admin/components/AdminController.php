@@ -36,7 +36,6 @@ class AdminController extends Controller
             ),
             array('label' => 'Справочники',
                 'url' => '/admin/default/catalog',
-                'active' => ($this->id === 'default') ? true : false,
                 'icon' => 'fa fa-book',
             ),
             array('label' => 'Настройки',

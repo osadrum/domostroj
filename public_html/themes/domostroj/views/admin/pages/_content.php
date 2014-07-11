@@ -42,12 +42,6 @@ $('#translit-btn').click(function() {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="control-group">
     <?php echo $form->labelEx($model, 'content', array('class' => 'control-label')) ?>
 

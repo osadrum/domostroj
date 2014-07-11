@@ -2,31 +2,40 @@
 
 class Email extends CComponent {
 
-    public static function sendMail($to,$subject,$message, $filePath=false) {
-        $siteName='=?UTF-8?B?'.base64_encode(Yii::app()->name).'?=';
-        $adminEmail = Settings::getCacheValue('email');
-
+    public static function sendMail($to,$subject,$message, $file=array()) {
         if ($to=='admin') {
+            $adminEmail = Settings::getCacheValue('email');
             $to = $adminEmail;
         }
 
-        $headers =
-            "From: {$siteName} <{$adminEmail}>\r\n" .
-            "Reply-To: {$adminEmail}\r\n" .
-            "MIME-Version: 1.0\r\n" .
-            "Content-Type: text/html; charset=\"utf-8\"\r\n" .
-            "Content-Transfer-Encoding: 8bit\r\n" .
-            "X-Mailer: PHP/" . phpversion();
+        $mail = new YiiMailer(
+            'contact',
+            array(
+                'message' => $message,
+                'name' => Settings::getCacheValue('smtpName'))
+        );
+        $mail->setSmtp(
+            Settings::getCacheValue('smtpHost'),
+            Settings::getCacheValue('smtpPort'),
+            '',
+            true,
+            Settings::getCacheValue('smtpEmail'),
+            Settings::getCacheValue('smtpPass'));
 
-        //$message = wordwrap($message, 70);
-        $message = str_replace("\r\n", "\n", $message);
-        $message = str_replace("\n.", "\n..", $message);
+        $mail->setFrom(Settings::getCacheValue('smtpEmail'), Settings::getCacheValue('smtpName'));
+        $mail->setSubject($subject);
+        $mail->setTo($to);
 
-        $message = "<html>\n<head><title>{$subject}</title>\n</head>\n<body>\n{$message}</body>\n</html>\n";
+        if (!empty($file)) {
+            $mail->setAttachment(array($file['tmp_name']=>$file['name']));
+        }
 
-        //return mail($to,'=?utf-8?B?' . base64_encode($subject) . '?=',$message,$headers, "-f{$adminEmail}");
-
-        return true;
+        if ($mail->send()) {
+            return true;
+        } else {
+            //echo $mail->getError();die;
+            return false;
+        }
     }
 
 }

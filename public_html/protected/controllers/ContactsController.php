@@ -27,15 +27,22 @@ class ContactsController extends Controller
             $model->attributes=$_POST['ContactForm'];
             if($model->validate())
             {
-                $name='=?UTF-8?B?'.base64_encode($model->name).'?=';
-                $subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
-                $headers="From: $name <{$model->email}>\r\n".
-                    "Reply-To: {$model->email}\r\n".
-                    "MIME-Version: 1.0\r\n".
-                    "Content-Type: text/plain; charset=UTF-8";
-
-                mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-                Yii::app()->user->setFlash('contact','Письмо успешно отправлено!<br>Наши специалисты свяжутся с вами в ближайшее время');
+                $subject = 'Сообщение из контактной формы - '.$model->subject;
+                $message = 'Имя: '.$model->name.
+                            '<br>Телефон: '.$model->phone.
+                            '<br>Email: '.$model->email.
+                            '<br>Тема сообщения: '.$model->subject.
+                            '<br>Текст сообщения: '.$model->body;
+                if (!Email::sendMail('admin',$subject, $message)) {
+                    Yii::app()->user->setFlash('warning','При отправке произошла ошибка');
+                } else {
+                    Yii::app()->user->setFlash('success','Сообщение успешно отправлено!');
+                    LogForms::write(LogForms::TYPE_CONTACT, LogForms::NOTICE_EMAIL,$model->phone, $model->email, $message);
+                    if (Settings::getCacheValue('contact-sms') == 1) {
+                        if (Sms::send('admin', 'Вам отправлено письмо из контактной формы'))
+                            LogForms::write(LogForms::TYPE_CONTACT, LogForms::NOTICE_SMS,$model->phone, $model->email, 'Уведомление об отправке сообщения из контактной формы: '. $message);
+                    }
+                }
                 $this->refresh();
             }
         }

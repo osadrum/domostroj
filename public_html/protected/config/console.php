@@ -5,7 +5,9 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Console Application',
-
+    'import'=>array(
+        'ext.YiiMailer.YiiMailer',
+    ),
 	// preloading 'log' component
 	'preload'=>array('log'),
 

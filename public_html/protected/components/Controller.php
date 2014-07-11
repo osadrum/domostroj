@@ -36,6 +36,10 @@ class Controller extends CController
 
     public function init()
     {
+        $this->pageTitle = Settings::getCacheValue('siteName');
+        $this->metaKeywords = Settings::getCacheValue('metaKeywords');
+        $this->metaDescription = Settings::getCacheValue('metaDescription');
+
         Yii::app()->getClientScript()->registerCoreScript('jquery', CClientScript::POS_END);
         Yii::app()->clientScript->registerCssFile($this->getAssetsUrl() . '/css/global-style.css');
         Yii::app()->clientScript->registerCssFile($this->getAssetsUrl() . '/css/style.css');

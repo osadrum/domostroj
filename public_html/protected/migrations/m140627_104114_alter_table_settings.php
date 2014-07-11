@@ -11,13 +11,6 @@ class m140627_104114_alter_table_settings extends CDbMigration
             'value' => '',
             'title' => 'Обратный звонок',
         ));
-	    $this->insert('{{settings}}', array(
-            'type' => 'send',
-            'section' => 'Отправка уведомлений',
-            'name' => 'order',
-            'value' => '',
-            'title' => 'Заказ проекта',
-        ));
 	}
 
 	public function down()

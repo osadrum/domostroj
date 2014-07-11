@@ -18,6 +18,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
         'application.extensions.*',
+        'ext.YiiMailer.YiiMailer',
     ),
 
 	'modules'=>array(
